@@ -1,0 +1,534 @@
+
+    <!DOCTYPE html>
+    <html lang="en" style="position: relative; min-height: 100%;">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="cache-control" content="max-age=0" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="expires" content="0" />
+        <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+        <meta http-equiv="pragma" content="no-cache" />
+
+    <title>APS UA</title>
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link href="bootstrap-datetimepicker-4.17.43-hacked.css" rel="stylesheet">
+
+    <style>
+        /*a[href='sign-in.html'] {
+    display: none !important; *//* Initially, until we check local storage token *//*
+}*/
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a {
+    background: none;
+}
+
+@media (min-width: 768px) {
+    .padding-left-to-center-720 {
+        padding-left: 0px;
+    }
+}
+
+@media (min-width: 992px) {
+    .padding-left-to-center-720 {
+        padding-left: 110px; /* (940-720)/2 */
+    }
+}
+
+@media (min-width: 1200px) {
+    .padding-left-to-center-720 {
+        padding-left: 210px; /* (1140-720)/2 */
+    }
+}
+
+.progressTicker {
+    animation-name: progressTicker;
+    animation-duration: 500ms;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-name: progressTicker;
+    -webkit-animation-duration: 500ms;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes progressTicker {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes progressTicker {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    /* TODO:vgrechka Testimonials style for 768px */
+}
+
+@media (min-width: 992px) {
+    #testimonials-window {
+        width: 970px;
+    }
+    .testimonials-item {
+        width: 485px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #testimonials-window {
+        width: 1170px;
+    }
+    .testimonials-item {
+        width: 585px;
+    }
+}
+
+#testimonials-window {
+    overflow: hidden;
+    margin-right: -15px;
+    margin-left: -15px;
+    position: relative;
+}
+
+#testimonials-strip {
+    width: 10000px;
+    margin-left: -0px;
+}
+
+.testimonials-item {
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+#testimonials-right {
+    cursor: pointer;
+    color: #cfd8dc;
+}
+
+#testimonials-right:hover {
+    color: #546e7a;
+}
+
+
+.aniMinimize {
+    animation-name: aniMinimize;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes aniMinimize {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.25);
+    }
+}
+
+.aniFadeIn {
+    animation-name: aniFadeIn;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes aniFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.aniFadeOut {
+    animation-name: aniFadeOut;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes aniFadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.aniBlinkingFast {
+    animation-name: aniBlinkingFast;
+    animation-duration: 250ms;
+    animation-iteration-count: infinite;
+}
+
+@keyframes aniBlinkingFast {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.hoverPointerUnderline {
+    cursor: pointer;
+}
+
+.hoverPointerUnderline:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn-default:focus {border-color: #ccc; outline-color: transparent;}
+.btn-default:active {border-color: #ccc; outline-color: transparent;}
+.btn-default:focus:active {border-color: #8c8c8c; outline-color: transparent;}
+
+.showOnParentHovered {display: none;}
+.showOnParentHovered-parent:hover .showOnParentHovered {display: initial;}
+
+
+
+    </style>
+
+    <script>
+    LANG = 'UA'
+    CLIENT_KIND = 'CUSTOMER'
+    setFavicon('favicon-customer.ico')
+
+    function setFavicon(src) {
+        var link = document.createElement('link')
+        link.id = 'favicon'
+        link.rel = 'shortcut icon'
+        link.href = src
+        document.head.appendChild(link)
+    }
+    </script>
+    </head>
+    <body style="padding-top: 50px; padding-bottom: 0px; overflow-y: scroll;">
+    <div id="topNavbarContainer">
+    <nav class="navbar navbar-default navbar-fixed-top" id="MakeStaticSites-1871"><div class="container" id="MakeStaticSites-1869"><div class="navbar-header" id="MakeStaticSites-1863"><a id="MakeStaticSites-1861" class="navbar-brand" href="/">APS</a></div><div style="text-align: left;" id="MakeStaticSites-1867"><ul id="leftNavbar" class="nav navbar-nav" style="float: none; display: inline-block; vertical-align: top;"><li id="MakeStaticSites-1842" class=""><a id="MakeStaticSites-1840" href="why.html"><span id="MakeStaticSites-1874" class="">Почему мы?</span></a></li><li id="MakeStaticSites-1845" class=""><a id="MakeStaticSites-1843" href="prices.html"><span id="MakeStaticSites-1879" class="">Цены</span></a></li><li id="MakeStaticSites-1848" class=""><a id="MakeStaticSites-1846" href="samples.html"><span id="MakeStaticSites-1884" class="">Примеры</span></a></li><li id="MakeStaticSites-1851" class="active"><a id="MakeStaticSites-1849" href="faq.html"><span id="MakeStaticSites-1889" class="">ЧаВо</span></a></li><li id="MakeStaticSites-1854" class=""><a id="MakeStaticSites-1852" href="contact.html"><span id="MakeStaticSites-1894" class="">Связь</span></a></li><li id="MakeStaticSites-1857" class=""><a id="MakeStaticSites-1855" href="blog.html"><span id="MakeStaticSites-1899" class="">Блог</span></a></li></ul><ul id="rightNavbar" class="nav navbar-nav navbar-right"><li id="MakeStaticSites-1860" class=""><a id="MakeStaticSites-1858" href="sign-in.html" style="display: none;"><span id="MakeStaticSites-1904" class="">Вход</span></a></li></ul></div></div></nav>
+    </div>
+
+    <div id="root" style="min-height: calc(100vh - 28px - 50px);">
+    <div id="staticShit" style="display: none;">
+    <!-- BEGIN CONTENT -->
+    <div id="MakeStaticSites-1839" class="container"><div id="MakeStaticSites-1909"><div class="page-header " style="margin-top: 0; margin-bottom: 15px;" id="MakeStaticSites-1939"><h3 style="margin-bottom: 0;" id="MakeStaticSites-1937"><span id="MakeStaticSites-1935" class="">FAQ</span></h3></div><div id="MakeStaticSites-1911"><div><blockquote>
+<p>How does AcademicPaperServed work?</p>
+</blockquote></div><div id="MakeStaticSites-1942" style="margin-top: -5px; margin-bottom: 20px;"><div><p>As soon as you order a custom essay, term paper, research paper or book report your order is reviewed and then the most appropriate writer is assigned, who then takes responsibility to complete it. After your paper is ready, it is send to you via e-mail.</p></div></div></div><div id="MakeStaticSites-1913"><div><blockquote>
+<p>I have had unpleasant experiences with other custom essay companies. How does AcademicPaperServed differ from fraud services?</p>
+</blockquote></div><div id="MakeStaticSites-1944" style="margin-top: -5px; margin-bottom: 20px;"><div><p>Sorry to say, but we often hear from our clients, that they have been deceived by unknown and disreputable essay writing companies that harm the reputation of legitimate writing companies. On the contrary, our service has done its best to earn the trust of our clients by offering quality custom papers at reasonable price.</p></div></div></div><div id="MakeStaticSites-1915"><div><blockquote>
+<p>How safe is your service? Is there any risk to place an order online?</p>
+</blockquote></div><div id="MakeStaticSites-1946" style="margin-top: -5px; margin-bottom: 20px;"><div><p>It is totally safe. Hundreds of our customers make orders and buy custom writing services at AcademicPaperServed daily. All of your transactions are processed securely and encrypted by PayPal. It is impossible to make an unauthorized transaction using your credit card.</p></div></div></div><div id="MakeStaticSites-1917"><div><blockquote>
+<p>What are your policies concerning the paper format and citation?</p>
+</blockquote></div><div id="MakeStaticSites-1948" style="margin-top: -5px; margin-bottom: 20px;"><div><p>Our writers use Microsoft Word .doc format by default (Times New Roman, 12, double-spaced, ~ 250-300 words/page). However, any format specified by the customer is available. The same concerns citation style.</p>
+<p>If not chosen, the writer chooses a citation style most appropriate for the written assignment in process. The latest edition with newest formatting style and its rules is applied, unless indicated otherwise.</p></div></div></div><div id="MakeStaticSites-1919"><div><blockquote>
+<p>What if I don’t like my paper and it does not meet the requirements?</p>
+</blockquote></div><div id="MakeStaticSites-1950" style="margin-top: -5px; margin-bottom: 20px;"><div><p>After you have ordered a paper, you can be confident that it will meet your expectations. Our writers will scrupulously adhere to your exact instructions to write a custom, first-rate academic paper. The team of writers works directly from customers’ instructions, and our clients get what they ask for. Still, there are moments when a customer can feel the writer has missed any of his/her requirements. In this case the customer should request a free revision. The writer will improve the paper and include all the instructions and will not stop working until the client is happy.</p></div></div></div><div id="MakeStaticSites-1921"><div><blockquote>
+<p>Does your service provide refunds?</p>
+</blockquote></div><div id="MakeStaticSites-1952" style="margin-top: -5px; margin-bottom: 20px;"><div><p>Our aim is total customer satisfaction. According to our monthly data we have an acceptable 95% approval rating among our customers. Our writers work hard to do what is best for our customers. If the final version of the paper does not meet customer’s specified criteria, he/she can ask for a revision within thirty days. The writer will add any missing requirements and deliver the revision in 24 hours. If the customer provides us with evidence that the final revised version is still lacking some of the specified requirements, s/he can request a refund within three days after the completion of the order.</p></div></div></div><div id="MakeStaticSites-1923"><div><blockquote>
+<p>What if my paper is found to be plagiarized?</p>
+</blockquote></div><div id="MakeStaticSites-1954" style="margin-top: -5px; margin-bottom: 20px;"><div><p>In fact, it is impossible. The writer gets paid only when he uses his own thoughts and ideas, elucidated through high-quality research/ and writing proficiency. For that reason, the following is not acceptable under any situation: copy-pasting from websites, copying from offline books, texts, and journals, basing one’s work on the ideas/structure of others or previous pieces of work. All papers are checked against millions of hard copy sources, billions of web pages, and countless pieces of work of other researchers. The papers are checked with most up to date anti-plagiarism software before sending any paper to customer. There is totally no chance of delivering a plagiarized paper.</p></div></div></div><div id="MakeStaticSites-1925"><div><blockquote>
+<p>Can I check my order status?</p>
+</blockquote></div><div id="MakeStaticSites-1956" style="margin-top: -5px; margin-bottom: 20px;"><div><p>In order to track the order status the customer can communicate with the writer or upload supplementary files or instructions.</p></div></div></div><div id="MakeStaticSites-1927"><div><blockquote>
+<p>Can I contact the writer?</p>
+</blockquote></div><div id="MakeStaticSites-1958" style="margin-top: -5px; margin-bottom: 20px;"><div><p>Certainly, there is a personal message board on each private account. A customer can easily post a message to the assigned writer, and he/she will reply to almost immediately. If the writer encounters any questions, he will contact the customer the in same way.</p></div></div></div><div id="MakeStaticSites-1929"><div><blockquote>
+<p>Can I ever find my ordered paper being available to the public?</p>
+</blockquote></div><div id="MakeStaticSites-1960" style="margin-top: -5px; margin-bottom: 20px;"><div><p>Our service guarantees that the paper that has been written by our writers will never be available to the public. All papers are stored under an exclusively developed security system.</p></div></div></div><div id="MakeStaticSites-1931"><div><blockquote>
+<p>How can I make sure the writer has understood my assignment correctly?</p>
+</blockquote></div><div id="MakeStaticSites-1962" style="margin-top: -5px; margin-bottom: 20px;"><div><p>When you start an ordering process, please, make sure you provide your writer with all necessary info, instructions, guidelines, additional materials for study, your class notes if any, and your personal preferences as to the writing style and paper formatting. It will surely facilitate the writing process and advance your chances in getting a higher grade.</p>
+<p>We specifically created an easy-to-use interface for your communication with the writer and support center in the process of paper writing.</p>
+<p>AcademicPaperServed writers’ team is highly flexible and is ready to consider every order on a personal basis. We value our customers and set communication as a priority. We will appreciate your help in giving explicit order details once your order is made.</p></div></div></div><div id="MakeStaticSites-1933"><div><blockquote>
+<p>What if my professor requires to hand in all copies of sources used?</p>
+</blockquote></div><div id="MakeStaticSites-1964" style="margin-top: -5px; margin-bottom: 20px;"><div><p>The writers will provide you with the necessary sources used to write your paper if you request it in advance. Sometimes we use paid online libraries providing access per day/hour, in this case it is extremely difficult to come back there again and copy-paste material. Some libraries have copyright protection software, so cannot always copy the text for you. However, your timely request for the sources package will give us direction in a library choice.</p></div></div></div></div></div>
+    <!-- END CONTENT -->
+    </div>
+
+    <div id="ticker" style="display: none;"><div>
+            <div class="container">
+            <div style="display:  flex;  align-items:  center;  justify-content:  center;  position:  absolute;  left:  0px;  top:  200px;  width:  100%;">
+            <span style="margin-left:  10">Дышите глубоко...</span>
+            <div id="wholePageTicker" class="progressTicker" style="background-color:  #546e7a;  width:  14px;  height:  28px;  margin-left:  10px;  margin-top:  -5px"></div>
+            </div>
+            </div></div></div>
+
+    <script src="jquery.min.js"></script>
+
+    <script>
+        window.storageLocalForStaticContent = localStorage
+
+        function displayInitialShit() {
+            if (window.storageLocalForStaticContent.getItem('token')) {
+                document.getElementById('ticker').style.display = ''
+            } else {
+                makeSignInNavbarLinkVisible()
+                document.getElementById('staticShit').style.display = ''
+                window.staticShitIsRenderedStatically = true
+            }
+        }
+
+        function makeSignInNavbarLinkVisible() {
+            $('a[href="sign-in.html"]').css('display', '')
+        }
+
+        
+            displayInitialShit()
+        
+    </script>
+    </div> <!-- /#root -->
+
+    <div id="footer" style="">
+    <div style="background-color: #f8f8f8; border: 1px solid #e7e7e7; color: #333; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 12px; padding-top: 5px; padding-bottom: 5px; height: 28px;">
+        <div class="container">
+            © Copyright 2015-2016 AcademicPaperServed. All rights reserved
+        </div>
+    </div>
+    <div id="underFooter">
+    </div>
+    </div>
+
+    <script>if (typeof global === 'undefined') global = window</script>
+
+    <script src="deps.js"></script>
+    <script src="bootstrap/js/bootstrap-3.3.7-hacked.js"></script>
+    <script src="bootstrap-datetimepicker-4.17.43-hacked.js"></script>
+    <script src="kotlin.js"></script>
+    <!--
+        <script src="kotlin-1.1-m02-eap-hacked.js"></script>
+        <script src="into-kommon-js-enhanced.js"></script>
+        <script src="front-enhanced.js"></script>
+    -->
+
+    <script>
+        var testimonials
+
+initStaticShit()
+
+
+function initStaticShit() {
+    testimonials = Testimonials()
+}
+
+function disposeStaticShit() {
+    testimonials.dispose()
+}
+
+function Testimonials() {
+    var numSlides = 3,
+    numFrames = 60,
+    autoIgnitionPeriod = 15000,
+    rightArrowAppearsDelay = 200,
+    shiftFractions,
+    slide,
+    autoIgnitionTimeoutHandle,
+    magic,
+    disposed
+
+    if (!$('#testimonials-window').length) {
+        return {
+            dispose() {}
+        }
+    }
+
+    window.testimonialsIncarnationID = window.testimonialsIncarnationID || 0
+    ++window.testimonialsIncarnationID
+
+    calcTrajectory()
+
+    $('.testimonials-item').slice(0, 2).clone().appendTo($('#testimonials-strip'))
+    $('#testimonials-right').on('click', ignite)
+
+    var mqLarge = window.matchMedia('(min-width: 1200px)')
+    var mqMedium = window.matchMedia('(min-width: 992px)')
+    mqLarge.addListener(onMediaChange)
+    mqMedium.addListener(onMediaChange)
+
+    onMediaChange()
+
+    return {
+        dispose() {
+            mqLarge.removeListener(onMediaChange)
+            mqMedium.removeListener(onMediaChange)
+            disposed = true
+        }
+    }
+
+
+    function calcTrajectory() {
+        var plot = [
+        'o                             ',
+        '  o                           ',
+        '       o                      ',
+        '                   o          ',
+        '               o              ',
+        '                  o           ',
+        '                o             ',
+        '                 o            ',
+        '------------------------------',
+        '                 x            ']
+
+        var numShiftFractions,  posFor100
+        for (var i = 0; i < plot.length; ++i) {
+        if (plot[i].charAt(0) === '-') {
+            numShiftFractions = i
+            posFor100 = plot[i + 1].indexOf('x')
+        }
+    }
+
+        shiftFractions = []
+        for (var i = 0; i < numShiftFractions; ++i) {
+        var pos = plot[i].indexOf('o')
+        shiftFractions.push(pos / posFor100)
+    }
+    }
+
+    function onMediaChange() {
+        // console.log('Testimonials onMediaChange ' + testimonialsIncarnationID)
+        clearTimeout(autoIgnitionTimeoutHandle)
+        slide = 0
+        $('#testimonials-strip').css('margin-left', '')
+        $('.testimonials-item').css('margin-right', '').css('visibility', '')
+
+        magic = undefined
+        if (window.matchMedia('(min-width: 1200px)').matches) {
+            // console.log('Screen is large')
+            magic = 970 + 200
+        } else if (window.matchMedia('(min-width: 992px)').matches) {
+            // console.log('Screen is medium')
+            magic = 970
+        }
+
+        if (!magic) {
+            console.log('No testimonial sliding for you')
+            $('#testimonials-right').hide()
+            var items = $('.testimonials-item')
+            $(items[items.length - 1]).hide()
+            $(items[items.length - 2]).hide()
+            return
+        }
+
+        var items = $('.testimonials-item')
+        $(items[items.length - 1]).show()
+        $(items[items.length - 2]).show()
+        $('#testimonials-right').show()
+        scheduleAutoIgnition()
+    }
+
+    function scheduleAutoIgnition() {
+        autoIgnitionTimeoutHandle = setTimeout(ignite, autoIgnitionPeriod)
+    }
+
+    function ignite() {
+        if (disposed) {
+            // console.log("Testimonials::ignite -- disposed")
+            return
+        }
+
+        // console.log("Testimonials::ignite -- working")
+        clearTimeout(autoIgnitionTimeoutHandle)
+        $('#testimonials-right').hide()
+
+        var elementToEnlargeRight = $($('.testimonials-item')[slide * 2 + 3])
+        elementToEnlargeRight.css('margin-right', '300px')
+        var elementToHideOnHitFloor = $($('.testimonials-item')[slide * 2 + 1])
+
+        var framesDone = 0
+        requestAnimationFrame(step)
+
+        function step() {
+            var maxShift = magic
+
+            var shiftFractionIdxMiddle = (shiftFractions.length - 1) * framesDone / (numFrames - 1)
+            var shiftFractionIdx1 = Math.floor(shiftFractionIdxMiddle)
+            var shiftFractionIdx2 = Math.ceil(shiftFractionIdxMiddle)
+            var shiftFractionFraction = shiftFractionIdxMiddle - shiftFractionIdx1
+            var shiftFraction1 = shiftFractions[shiftFractionIdx1]
+            var shiftFraction2 = shiftFractions[shiftFractionIdx2]
+            var shiftFraction = shiftFraction1 + (shiftFraction2 - shiftFraction1) * shiftFractionFraction
+            var shift = maxShift * shiftFraction
+            var offset = slide * magic + shift
+
+            $('#testimonials-strip').css('margin-left', -offset + 'px')
+            if (shift >= maxShift) {
+                elementToHideOnHitFloor.css('visibility', 'hidden')
+            }
+
+            if (++framesDone === numFrames) {
+                if (++slide === numSlides) {
+                    slide = 0
+                }
+
+                elementToEnlargeRight.css('margin-right', '')
+                elementToHideOnHitFloor.css('visibility', '')
+
+                setTimeout(function() {
+                    if (disposed) return
+                    $('#testimonials-right').show()
+                    scheduleAutoIgnition()
+                }, rightArrowAppearsDelay)
+            } else {
+                requestAnimationFrame(step)
+            }
+        }
+    }
+}
+
+
+    </script>
+
+    <script>
+        
+
+        global = window
+        Kotlin = kotlin
+
+        const scriptSuffix = ''
+
+        Promise.resolve()
+        .then(_=> loadScript('into-kommon-js-enhanced.js' + scriptSuffix))
+        .then(_=> loadScript('front-enhanced.js' + scriptSuffix))
+        .then(_=> {
+            kot = Kotlin.modules.front
+            F = kot.aps.front
+            kot.aps.front.ignite()
+        })
+
+        function loadScript(src) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script')
+                script.type = 'text/javascript'
+                script.async = true
+                script.onload = _=> {
+                    console.log('Loaded ' + src)
+                    resolve()
+                }
+                script.src = src
+                document.getElementsByTagName('head')[0].appendChild(script)
+            })
+        }
+    </script>
+    </body>
+    </html>
+    

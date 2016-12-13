@@ -1,0 +1,592 @@
+
+    <!DOCTYPE html>
+    <html lang="en" style="position: relative; min-height: 100%;">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="cache-control" content="max-age=0" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="expires" content="0" />
+        <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+        <meta http-equiv="pragma" content="no-cache" />
+
+    <title>APS UA</title>
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link href="bootstrap-datetimepicker-4.17.43-hacked.css" rel="stylesheet">
+
+    <style>
+        /*a[href='sign-in.html'] {
+    display: none !important; *//* Initially, until we check local storage token *//*
+}*/
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a {
+    background: none;
+}
+
+@media (min-width: 768px) {
+    .padding-left-to-center-720 {
+        padding-left: 0px;
+    }
+}
+
+@media (min-width: 992px) {
+    .padding-left-to-center-720 {
+        padding-left: 110px; /* (940-720)/2 */
+    }
+}
+
+@media (min-width: 1200px) {
+    .padding-left-to-center-720 {
+        padding-left: 210px; /* (1140-720)/2 */
+    }
+}
+
+.progressTicker {
+    animation-name: progressTicker;
+    animation-duration: 500ms;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-name: progressTicker;
+    -webkit-animation-duration: 500ms;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes progressTicker {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes progressTicker {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    /* TODO:vgrechka Testimonials style for 768px */
+}
+
+@media (min-width: 992px) {
+    #testimonials-window {
+        width: 970px;
+    }
+    .testimonials-item {
+        width: 485px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #testimonials-window {
+        width: 1170px;
+    }
+    .testimonials-item {
+        width: 585px;
+    }
+}
+
+#testimonials-window {
+    overflow: hidden;
+    margin-right: -15px;
+    margin-left: -15px;
+    position: relative;
+}
+
+#testimonials-strip {
+    width: 10000px;
+    margin-left: -0px;
+}
+
+.testimonials-item {
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+#testimonials-right {
+    cursor: pointer;
+    color: #cfd8dc;
+}
+
+#testimonials-right:hover {
+    color: #546e7a;
+}
+
+
+.aniMinimize {
+    animation-name: aniMinimize;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes aniMinimize {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.25);
+    }
+}
+
+.aniFadeIn {
+    animation-name: aniFadeIn;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes aniFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.aniFadeOut {
+    animation-name: aniFadeOut;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes aniFadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.aniBlinkingFast {
+    animation-name: aniBlinkingFast;
+    animation-duration: 250ms;
+    animation-iteration-count: infinite;
+}
+
+@keyframes aniBlinkingFast {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.hoverPointerUnderline {
+    cursor: pointer;
+}
+
+.hoverPointerUnderline:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn-default:focus {border-color: #ccc; outline-color: transparent;}
+.btn-default:active {border-color: #ccc; outline-color: transparent;}
+.btn-default:focus:active {border-color: #8c8c8c; outline-color: transparent;}
+
+.showOnParentHovered {display: none;}
+.showOnParentHovered-parent:hover .showOnParentHovered {display: initial;}
+
+
+
+    </style>
+
+    <script>
+    LANG = 'UA'
+    CLIENT_KIND = 'CUSTOMER'
+    setFavicon('favicon-customer.ico')
+
+    function setFavicon(src) {
+        var link = document.createElement('link')
+        link.id = 'favicon'
+        link.rel = 'shortcut icon'
+        link.href = src
+        document.head.appendChild(link)
+    }
+    </script>
+    </head>
+    <body style="padding-top: 50px; padding-bottom: 0px; overflow-y: scroll;">
+    <div id="topNavbarContainer">
+    <nav class="navbar navbar-default navbar-fixed-top" id="MakeStaticSites-2163"><div class="container" id="MakeStaticSites-2161"><div class="navbar-header" id="MakeStaticSites-2155"><a id="MakeStaticSites-2153" class="navbar-brand" href="/">APS</a></div><div style="text-align: left;" id="MakeStaticSites-2159"><ul id="leftNavbar" class="nav navbar-nav" style="float: none; display: inline-block; vertical-align: top;"><li id="MakeStaticSites-2134" class=""><a id="MakeStaticSites-2132" href="why.html"><span id="MakeStaticSites-2166" class="">Почему мы?</span></a></li><li id="MakeStaticSites-2137" class=""><a id="MakeStaticSites-2135" href="prices.html"><span id="MakeStaticSites-2171" class="">Цены</span></a></li><li id="MakeStaticSites-2140" class=""><a id="MakeStaticSites-2138" href="samples.html"><span id="MakeStaticSites-2176" class="">Примеры</span></a></li><li id="MakeStaticSites-2143" class=""><a id="MakeStaticSites-2141" href="faq.html"><span id="MakeStaticSites-2181" class="">ЧаВо</span></a></li><li id="MakeStaticSites-2146" class=""><a id="MakeStaticSites-2144" href="contact.html"><span id="MakeStaticSites-2186" class="">Связь</span></a></li><li id="MakeStaticSites-2149" class="active"><a id="MakeStaticSites-2147" href="blog.html"><span id="MakeStaticSites-2191" class="">Блог</span></a></li></ul><ul id="rightNavbar" class="nav navbar-nav navbar-right"><li id="MakeStaticSites-2152" class=""><a id="MakeStaticSites-2150" href="sign-in.html" style="display: none;"><span id="MakeStaticSites-2196" class="">Вход</span></a></li></ul></div></div></nav>
+    </div>
+
+    <div id="root" style="min-height: calc(100vh - 28px - 50px);">
+    <div id="staticShit" style="display: none;">
+    <!-- BEGIN CONTENT -->
+    <div id="MakeStaticSites-2131" class="container"><div id="MakeStaticSites-2201"><div class="page-header " style="margin-top: 0; margin-bottom: 15px;" id="MakeStaticSites-2207"><h3 style="margin-bottom: 0;" id="MakeStaticSites-2205"><span id="MakeStaticSites-2203" class="">High School Debate Topics in the United States</span></h3></div><div><p>These days high school debate (from the Latin “debatum” meaning “to reach an argument between two opposite viewpoints”)
+is undoubtedly one of the most popular forms of academic discussions. High school debate topics in the United States
+are diverse and selected with purpose to involve students into two essential processes: argumentative thinking and
+communication. All modern US secondary and high schools use debate as an integral element of classroom activity, as a
+form of knowledge appraisal, testing and skill gap detection. High school debate topics generally relate to students’
+research activity (development of information management skills) and to the educational activity (development of
+capability to work individually and in team; development of leadership qualities).</p>
+<p>Modern debate topics for high school students are selected with purpose to teach them how to analyze different
+problems (past and current) thoroughly and to recognize tolerance and respect as the highest values to be considered
+at problem discussion. High school debate topics must encourage and motivate students to search for truth rather
+than just to practice rhetoric. In other words, competitiveness and hunger for victory should not be dominant over
+readiness and willingness to understand and explore the subject matter.</p>
+<p>Debate topics for high school students should not stimulate the use of any double standards, but should promote
+tolerance to other men’s standpoints and search for common values, considering the difference of debate participants.</p>
+<p>High school debate topics should never be used as propaganda of any political parties and actions, advertisement of
+organizations and infrastructures, exaltation of some particular idea or personality.</p>
+<p>Educators admit the fact that sometimes it is very difficult to choose the right high school debate topic for
+classroom activity. The topic must possess a set of specific properties to be able to transform a classroom discussion
+into a debate, and namely: it should be formulated in a way that would reflect the modern students’ lifestyles and
+meet their expectations (school debate topic must catch students’ attention); it must be somehow relative to students’
+area of interests and current research/study theme; it must be up to date and must consider further development,
+real-life implementation and alternative solutions.</p>
+<p>So, what classroom debate topics may possess these characteristics? Our online survey finds that the most popular high
+school debate topics in the United States are:</p>
+<ul>
+<li>Should your class be considered for a field trip this year?</li>
+<li>Should school uniform become obligatory?</li>
+<li>Should slow achievers be permitted to have a job such as baby-sitting or mowing yards?</li>
+<li>Should you be allowed to spend your own money in the way you want?</li>
+<li>Should you be allowed to come to the class with extraordinary hair styles and excessive piercing?</li>
+<li>Should you be allowed to watch R-rated movies?</li>
+<li>Should your parents permit you to attend sleep-over parties?</li>
+<li>Should your parents require that you do chores around the house?</li>
+<li>Should you wear formal clothes for special occasions if your parents require it from you and you do not feel like doing this?</li>
+<li>Should you be permitted to have any hobby you want?</li>
+<li>Should your parents permit you to get a tattoo?</li>
+<li>Should you be allowed to purchase alcohol and cigarettes before you are 21?</li>
+<li>Should light drugs like marihuana be legalized?</li>
+<li>Should you be permitted to bring your pet to the classroom?</li>
+</ul>
+<p>However, besides classroom debate, many US high schools organize formal academic debate for which high school debate
+topics, different from those used in the class, are chosen. During such formal debates students are divided in two
+groups, the assigned instructor provides a student debate topic and the group of couches (usually representatives of
+the academic staff and their invited colleagues from other high schools) judge the debate. In this case high school
+debate resembles some internal oratory contest or an interesting game. The formal debate should adhere to some ethical
+norms and all three parties – debaters, instructors and couches – must follow these norms which are, in fact, mutual
+respect and tolerance, sincerity, honesty and cultural exchange of ideas.</p>
+<p>At discussion of high school debate topics debaters should keep away from attacking their opponents and should argue
+in a friendly manner. It is required that debaters use precise data and facts when constructing an argument and do not
+state anything that does not fall within the limits of their own expertise and knowledge base. It is forbidden for
+debaters to misrepresent facts, examples and opinions. Debaters must listen to their opponents attentively and must
+not misrepresent their statements in further discussions.</p>
+<p>For formal academic debates topics for high school students are usually chosen by the debate organizers.
+The instructors should make sure that debaters are cogent to the school debate topic and do not go to debris.</p>
+<p>Our research shows that formal high school debate topics widely used in the United States are rather politics and
+business oriented. High school debate topics evidence that modern US society is very much concerned about
+President Bush’s governance, conflicts in the Middle East, gun control, threats to liberty and democracy etc.
+To exemplify this observation, let us view the Michigan Education Report and look at the program of 2005 High School
+Debate Workshop hosted by the Mackinac Center for Public Policy, one of the leading America’s academic debate
+organizers and councilors. The workshop was attended by more than 300 high school debaters and their instructors.
+During the workshop the high school debate topic was: “Resolved: That the United States federal government should
+substantially decrease its authority either to detain without charge or to search without probable cause”.
+As an opening of this student debate topic the quotation excerpted from the National Federation of State High School
+Associations Report was used: “The American Constitution was designed to limit and constrain the use of power in order
+to protect liberty. But as the founders knew, and as has become even clearer in modern times, liberty can be
+threatened even by well-meaning people. . . The greatest dangers to liberty lurk in insidious encroachment by men of
+zeal, well-meaning but without understanding”
+(<a href="http://www.mackinac.org/pubs/mer/article.aspx?ID=7480">http://www.mackinac.org/pubs/mer/article.aspx?ID=7480</a>).</p>
+<p>We are using this example as an argument to the above statement that formal high school debate topics substantially
+reflect current concerns of present-day America’s society. The Mackinac High School Debate Workshop of 2005 was
+considered to be the best debate program in ten years.</p>
+<p>Other less prominent examples show that the most popular formal high school debate topics in the United States are:</p>
+<ul>
+<li>Should wearing a helmet at biking be mandatory?</li>
+<li>Does the US President do a good job?</li>
+<li>Should the Pledge of Allegiance be recited in schools on a daily basis?</li>
+<li>Is beauty only skin deep?</li>
+<li>Does our society have a right to put convicts to death?</li>
+<li>Should cloning be outlawed?</li>
+<li>Should animals be used for scientific research and experiments?</li>
+</ul>
+<p>So, as we can see, high school debate topics substantially reflect the key questions that both the US policy-makers
+and average citizens put themselves every now and then. Putting some actual and commonplace topic at stake, educators
+involve their students in modeling of real-life situations and teach them to be able to argumentatively defend their
+own standpoints and to honestly attack the opposite viewpoints. And no secret that these abilities are sometimes more
+important in real life than any theoretical knowledge obtained during high school lectures.</p></div></div></div>
+    <!-- END CONTENT -->
+    </div>
+
+    <div id="ticker" style="display: none;"><div>
+            <div class="container">
+            <div style="display:  flex;  align-items:  center;  justify-content:  center;  position:  absolute;  left:  0px;  top:  200px;  width:  100%;">
+            <span style="margin-left:  10">Дышите глубоко...</span>
+            <div id="wholePageTicker" class="progressTicker" style="background-color:  #546e7a;  width:  14px;  height:  28px;  margin-left:  10px;  margin-top:  -5px"></div>
+            </div>
+            </div></div></div>
+
+    <script src="jquery.min.js"></script>
+
+    <script>
+        window.storageLocalForStaticContent = localStorage
+
+        function displayInitialShit() {
+            if (window.storageLocalForStaticContent.getItem('token')) {
+                document.getElementById('ticker').style.display = ''
+            } else {
+                makeSignInNavbarLinkVisible()
+                document.getElementById('staticShit').style.display = ''
+                window.staticShitIsRenderedStatically = true
+            }
+        }
+
+        function makeSignInNavbarLinkVisible() {
+            $('a[href="sign-in.html"]').css('display', '')
+        }
+
+        
+            displayInitialShit()
+        
+    </script>
+    </div> <!-- /#root -->
+
+    <div id="footer" style="">
+    <div style="background-color: #f8f8f8; border: 1px solid #e7e7e7; color: #333; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 12px; padding-top: 5px; padding-bottom: 5px; height: 28px;">
+        <div class="container">
+            © Copyright 2015-2016 AcademicPaperServed. All rights reserved
+        </div>
+    </div>
+    <div id="underFooter">
+    </div>
+    </div>
+
+    <script>if (typeof global === 'undefined') global = window</script>
+
+    <script src="deps.js"></script>
+    <script src="bootstrap/js/bootstrap-3.3.7-hacked.js"></script>
+    <script src="bootstrap-datetimepicker-4.17.43-hacked.js"></script>
+    <script src="kotlin.js"></script>
+    <!--
+        <script src="kotlin-1.1-m02-eap-hacked.js"></script>
+        <script src="into-kommon-js-enhanced.js"></script>
+        <script src="front-enhanced.js"></script>
+    -->
+
+    <script>
+        var testimonials
+
+initStaticShit()
+
+
+function initStaticShit() {
+    testimonials = Testimonials()
+}
+
+function disposeStaticShit() {
+    testimonials.dispose()
+}
+
+function Testimonials() {
+    var numSlides = 3,
+    numFrames = 60,
+    autoIgnitionPeriod = 15000,
+    rightArrowAppearsDelay = 200,
+    shiftFractions,
+    slide,
+    autoIgnitionTimeoutHandle,
+    magic,
+    disposed
+
+    if (!$('#testimonials-window').length) {
+        return {
+            dispose() {}
+        }
+    }
+
+    window.testimonialsIncarnationID = window.testimonialsIncarnationID || 0
+    ++window.testimonialsIncarnationID
+
+    calcTrajectory()
+
+    $('.testimonials-item').slice(0, 2).clone().appendTo($('#testimonials-strip'))
+    $('#testimonials-right').on('click', ignite)
+
+    var mqLarge = window.matchMedia('(min-width: 1200px)')
+    var mqMedium = window.matchMedia('(min-width: 992px)')
+    mqLarge.addListener(onMediaChange)
+    mqMedium.addListener(onMediaChange)
+
+    onMediaChange()
+
+    return {
+        dispose() {
+            mqLarge.removeListener(onMediaChange)
+            mqMedium.removeListener(onMediaChange)
+            disposed = true
+        }
+    }
+
+
+    function calcTrajectory() {
+        var plot = [
+        'o                             ',
+        '  o                           ',
+        '       o                      ',
+        '                   o          ',
+        '               o              ',
+        '                  o           ',
+        '                o             ',
+        '                 o            ',
+        '------------------------------',
+        '                 x            ']
+
+        var numShiftFractions,  posFor100
+        for (var i = 0; i < plot.length; ++i) {
+        if (plot[i].charAt(0) === '-') {
+            numShiftFractions = i
+            posFor100 = plot[i + 1].indexOf('x')
+        }
+    }
+
+        shiftFractions = []
+        for (var i = 0; i < numShiftFractions; ++i) {
+        var pos = plot[i].indexOf('o')
+        shiftFractions.push(pos / posFor100)
+    }
+    }
+
+    function onMediaChange() {
+        // console.log('Testimonials onMediaChange ' + testimonialsIncarnationID)
+        clearTimeout(autoIgnitionTimeoutHandle)
+        slide = 0
+        $('#testimonials-strip').css('margin-left', '')
+        $('.testimonials-item').css('margin-right', '').css('visibility', '')
+
+        magic = undefined
+        if (window.matchMedia('(min-width: 1200px)').matches) {
+            // console.log('Screen is large')
+            magic = 970 + 200
+        } else if (window.matchMedia('(min-width: 992px)').matches) {
+            // console.log('Screen is medium')
+            magic = 970
+        }
+
+        if (!magic) {
+            console.log('No testimonial sliding for you')
+            $('#testimonials-right').hide()
+            var items = $('.testimonials-item')
+            $(items[items.length - 1]).hide()
+            $(items[items.length - 2]).hide()
+            return
+        }
+
+        var items = $('.testimonials-item')
+        $(items[items.length - 1]).show()
+        $(items[items.length - 2]).show()
+        $('#testimonials-right').show()
+        scheduleAutoIgnition()
+    }
+
+    function scheduleAutoIgnition() {
+        autoIgnitionTimeoutHandle = setTimeout(ignite, autoIgnitionPeriod)
+    }
+
+    function ignite() {
+        if (disposed) {
+            // console.log("Testimonials::ignite -- disposed")
+            return
+        }
+
+        // console.log("Testimonials::ignite -- working")
+        clearTimeout(autoIgnitionTimeoutHandle)
+        $('#testimonials-right').hide()
+
+        var elementToEnlargeRight = $($('.testimonials-item')[slide * 2 + 3])
+        elementToEnlargeRight.css('margin-right', '300px')
+        var elementToHideOnHitFloor = $($('.testimonials-item')[slide * 2 + 1])
+
+        var framesDone = 0
+        requestAnimationFrame(step)
+
+        function step() {
+            var maxShift = magic
+
+            var shiftFractionIdxMiddle = (shiftFractions.length - 1) * framesDone / (numFrames - 1)
+            var shiftFractionIdx1 = Math.floor(shiftFractionIdxMiddle)
+            var shiftFractionIdx2 = Math.ceil(shiftFractionIdxMiddle)
+            var shiftFractionFraction = shiftFractionIdxMiddle - shiftFractionIdx1
+            var shiftFraction1 = shiftFractions[shiftFractionIdx1]
+            var shiftFraction2 = shiftFractions[shiftFractionIdx2]
+            var shiftFraction = shiftFraction1 + (shiftFraction2 - shiftFraction1) * shiftFractionFraction
+            var shift = maxShift * shiftFraction
+            var offset = slide * magic + shift
+
+            $('#testimonials-strip').css('margin-left', -offset + 'px')
+            if (shift >= maxShift) {
+                elementToHideOnHitFloor.css('visibility', 'hidden')
+            }
+
+            if (++framesDone === numFrames) {
+                if (++slide === numSlides) {
+                    slide = 0
+                }
+
+                elementToEnlargeRight.css('margin-right', '')
+                elementToHideOnHitFloor.css('visibility', '')
+
+                setTimeout(function() {
+                    if (disposed) return
+                    $('#testimonials-right').show()
+                    scheduleAutoIgnition()
+                }, rightArrowAppearsDelay)
+            } else {
+                requestAnimationFrame(step)
+            }
+        }
+    }
+}
+
+
+    </script>
+
+    <script>
+        
+
+        global = window
+        Kotlin = kotlin
+
+        const scriptSuffix = ''
+
+        Promise.resolve()
+        .then(_=> loadScript('into-kommon-js-enhanced.js' + scriptSuffix))
+        .then(_=> loadScript('front-enhanced.js' + scriptSuffix))
+        .then(_=> {
+            kot = Kotlin.modules.front
+            F = kot.aps.front
+            kot.aps.front.ignite()
+        })
+
+        function loadScript(src) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script')
+                script.type = 'text/javascript'
+                script.async = true
+                script.onload = _=> {
+                    console.log('Loaded ' + src)
+                    resolve()
+                }
+                script.src = src
+                document.getElementsByTagName('head')[0].appendChild(script)
+            })
+        }
+    </script>
+    </body>
+    </html>
+    

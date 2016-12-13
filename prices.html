@@ -1,0 +1,510 @@
+
+    <!DOCTYPE html>
+    <html lang="en" style="position: relative; min-height: 100%;">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="cache-control" content="max-age=0" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="expires" content="0" />
+        <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+        <meta http-equiv="pragma" content="no-cache" />
+
+    <title>APS UA</title>
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link href="bootstrap-datetimepicker-4.17.43-hacked.css" rel="stylesheet">
+
+    <style>
+        /*a[href='sign-in.html'] {
+    display: none !important; *//* Initially, until we check local storage token *//*
+}*/
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a {
+    background: none;
+}
+
+@media (min-width: 768px) {
+    .padding-left-to-center-720 {
+        padding-left: 0px;
+    }
+}
+
+@media (min-width: 992px) {
+    .padding-left-to-center-720 {
+        padding-left: 110px; /* (940-720)/2 */
+    }
+}
+
+@media (min-width: 1200px) {
+    .padding-left-to-center-720 {
+        padding-left: 210px; /* (1140-720)/2 */
+    }
+}
+
+.progressTicker {
+    animation-name: progressTicker;
+    animation-duration: 500ms;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-name: progressTicker;
+    -webkit-animation-duration: 500ms;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes progressTicker {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes progressTicker {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    /* TODO:vgrechka Testimonials style for 768px */
+}
+
+@media (min-width: 992px) {
+    #testimonials-window {
+        width: 970px;
+    }
+    .testimonials-item {
+        width: 485px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #testimonials-window {
+        width: 1170px;
+    }
+    .testimonials-item {
+        width: 585px;
+    }
+}
+
+#testimonials-window {
+    overflow: hidden;
+    margin-right: -15px;
+    margin-left: -15px;
+    position: relative;
+}
+
+#testimonials-strip {
+    width: 10000px;
+    margin-left: -0px;
+}
+
+.testimonials-item {
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+#testimonials-right {
+    cursor: pointer;
+    color: #cfd8dc;
+}
+
+#testimonials-right:hover {
+    color: #546e7a;
+}
+
+
+.aniMinimize {
+    animation-name: aniMinimize;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes aniMinimize {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.25);
+    }
+}
+
+.aniFadeIn {
+    animation-name: aniFadeIn;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes aniFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.aniFadeOut {
+    animation-name: aniFadeOut;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes aniFadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.aniBlinkingFast {
+    animation-name: aniBlinkingFast;
+    animation-duration: 250ms;
+    animation-iteration-count: infinite;
+}
+
+@keyframes aniBlinkingFast {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.hoverPointerUnderline {
+    cursor: pointer;
+}
+
+.hoverPointerUnderline:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn-default:focus {border-color: #ccc; outline-color: transparent;}
+.btn-default:active {border-color: #ccc; outline-color: transparent;}
+.btn-default:focus:active {border-color: #8c8c8c; outline-color: transparent;}
+
+.showOnParentHovered {display: none;}
+.showOnParentHovered-parent:hover .showOnParentHovered {display: initial;}
+
+
+
+    </style>
+
+    <script>
+    LANG = 'UA'
+    CLIENT_KIND = 'CUSTOMER'
+    setFavicon('favicon-customer.ico')
+
+    function setFavicon(src) {
+        var link = document.createElement('link')
+        link.id = 'favicon'
+        link.rel = 'shortcut icon'
+        link.href = src
+        document.head.appendChild(link)
+    }
+    </script>
+    </head>
+    <body style="padding-top: 50px; padding-bottom: 0px; overflow-y: scroll;">
+    <div id="topNavbarContainer">
+    <nav class="navbar navbar-default navbar-fixed-top" id="MakeStaticSites-1676"><div class="container" id="MakeStaticSites-1674"><div class="navbar-header" id="MakeStaticSites-1668"><a id="MakeStaticSites-1666" class="navbar-brand" href="/">APS</a></div><div style="text-align: left;" id="MakeStaticSites-1672"><ul id="leftNavbar" class="nav navbar-nav" style="float: none; display: inline-block; vertical-align: top;"><li id="MakeStaticSites-1647" class=""><a id="MakeStaticSites-1645" href="why.html"><span id="MakeStaticSites-1679" class="">Почему мы?</span></a></li><li id="MakeStaticSites-1650" class="active"><a id="MakeStaticSites-1648" href="prices.html"><span id="MakeStaticSites-1684" class="">Цены</span></a></li><li id="MakeStaticSites-1653" class=""><a id="MakeStaticSites-1651" href="samples.html"><span id="MakeStaticSites-1689" class="">Примеры</span></a></li><li id="MakeStaticSites-1656" class=""><a id="MakeStaticSites-1654" href="faq.html"><span id="MakeStaticSites-1694" class="">ЧаВо</span></a></li><li id="MakeStaticSites-1659" class=""><a id="MakeStaticSites-1657" href="contact.html"><span id="MakeStaticSites-1699" class="">Связь</span></a></li><li id="MakeStaticSites-1662" class=""><a id="MakeStaticSites-1660" href="blog.html"><span id="MakeStaticSites-1704" class="">Блог</span></a></li></ul><ul id="rightNavbar" class="nav navbar-nav navbar-right"><li id="MakeStaticSites-1665" class=""><a id="MakeStaticSites-1663" href="sign-in.html" style="display: none;"><span id="MakeStaticSites-1709" class="">Вход</span></a></li></ul></div></div></nav>
+    </div>
+
+    <div id="root" style="min-height: calc(100vh - 28px - 50px);">
+    <div id="staticShit" style="display: none;">
+    <!-- BEGIN CONTENT -->
+    <div id="MakeStaticSites-1644" class="container"><div id="MakeStaticSites-1714"><div class="page-header " style="margin-top: 0; margin-bottom: 15px;" id="MakeStaticSites-1720"><h3 style="margin-bottom: 0;" id="MakeStaticSites-1718"><span id="MakeStaticSites-1716" class="">Pricing Policy</span></h3></div><div><p>Prices at AcademicPaperServed are set to meet the average point on the current custom writing market. This enables us to choose experts writers as freelance members in the team, who are able to meet the highest demands at faculties teaching in English.</p>
+<p>Our support is daily queried on how one can buy an essay or research paper on a certain topic. AcademicPaperServed does sell pre-written papers, each assignment is made individually and each research is written from scratch. Top-notch writing quality is only achieved through effective communication of the writer and the customer, be it an order on a blog article, high school debate project or a music review.</p>
+<p>Each quote we give to our customer is based primarily on the delivery date opted, type of an academic written assignment, number of pages and the amount of discount your membership is liable to.</p>
+<p>You may find out your quote in one minute! Simply press the Order Your Custom Essay Now tab at the top of the page marked in green. Our Customer Support employee will advise you on the price and terms of delivery.</p></div><div class="page-header " style="margin-top: 0; margin-bottom: 15px;" id="MakeStaticSites-1727"><h3 style="margin-bottom: 0;" id="MakeStaticSites-1725"><span id="MakeStaticSites-1723" class="">Bonuses</span></h3></div><div><p>Ordering a paper at AcademicPaperServed, you also get:</p></div><ul class="fa-ul" style="margin-left: 22px;" id="MakeStaticSites-1630"><li style="margin-bottom: 10px;" id="MakeStaticSites-1622"><i class="fa fa-star  fa-li" style="color: #546e7a;"></i>Free Title Page</li><li style="margin-bottom: 10px;" id="MakeStaticSites-1624"><i class="fa fa-star  fa-li" style="color: #546e7a;"></i>Free Outline</li><li style="margin-bottom: 10px;" id="MakeStaticSites-1626"><i class="fa fa-star  fa-li" style="color: #546e7a;"></i>Free List of References</li><li style="margin-bottom: 10px;" id="MakeStaticSites-1628"><i class="fa fa-star  fa-li" style="color: #546e7a;"></i>Free Plagiarism Report (upon additional request)</li></ul><div class="page-header " style="margin-top: 0; margin-bottom: 15px;" id="MakeStaticSites-1734"><h3 style="margin-bottom: 0;" id="MakeStaticSites-1732"><span id="MakeStaticSites-1730" class="">Discount Policy</span></h3></div><div><p>Please note that each AcademicPaperServed customer is eligible for one-time and life-time discounts. One-time discount is granted to each new customer registered in our system and makes 5% off the first order total. Lifetime discount is provided to each returning customer depending on the total number of pages (on multiple papers) ordered since the moment of registration, and namely:</p></div><ul class="fa-ul" style="margin-left: 22px;" id="MakeStaticSites-1641"><li style="margin-bottom: 10px;" id="MakeStaticSites-1633"><i class="fa fa-star  fa-li" style="color: #546e7a;"></i>Более 50 страниц – 5%</li><li style="margin-bottom: 10px;" id="MakeStaticSites-1635"><i class="fa fa-star  fa-li" style="color: #546e7a;"></i>Более 100 страниц – 10%</li><li style="margin-bottom: 10px;" id="MakeStaticSites-1637"><i class="fa fa-star  fa-li" style="color: #546e7a;"></i>Более 150 страниц – 15%</li><li style="margin-bottom: 10px;" id="MakeStaticSites-1639"><i class="fa fa-star  fa-li" style="color: #546e7a;"></i>Более 200 страниц – 30%</li></ul><div><p>We’re sure that at AcademicPaperServed we employ a fair discount policy. We respect each certain customer and hope to establish long-term cooperation with him/her. Since customers are our most valued asset, we put a lot of effort to retaining and satisfying them through our flexible lifetime discount policy.</p></div><div class="page-header " style="margin-top: 0; margin-bottom: 15px;" id="MakeStaticSites-1741"><h3 style="margin-bottom: 0;" id="MakeStaticSites-1739"><span id="MakeStaticSites-1737" class="">Наши цены</span></h3></div><table class="table table-hover table-condensed"><thead><tr><th>Срочность</th><th>Тип работы</th><th>Цена</th></tr></thead><tbody><tr><td>8+ дней</td><td>Реферат</td><td>10,99 грн.</td></tr><tr><td></td><td>Курсовая работа</td><td>15,99 грн.</td></tr><tr><td></td><td>Дипломная работа</td><td>20,99 грн.</td></tr><tr><td></td><td>Корректура</td><td>5,99 грн.</td></tr><tr><td>6-7 дней</td><td>Реферат</td><td>12,99 грн.</td></tr><tr><td></td><td>Курсовая работа</td><td>17,99 грн.</td></tr><tr><td></td><td>Дипломная работа</td><td>22,99 грн.</td></tr><tr><td></td><td>Корректура</td><td>7,99 грн.</td></tr><tr><td>4-5 дней</td><td>Реферат</td><td>15,99 грн.</td></tr><tr><td></td><td>Курсовая работа</td><td>20,99 грн.</td></tr><tr><td></td><td>Дипломная работа</td><td>25,99 грн.</td></tr><tr><td></td><td>Корректура</td><td>10,99 грн.</td></tr><tr><td>2-3 дня</td><td>Реферат</td><td>20,99 грн.</td></tr><tr><td></td><td>Курсовая работа</td><td>25,99 грн.</td></tr><tr><td></td><td>Дипломная работа</td><td>30,99 грн.</td></tr><tr><td></td><td>Корректура</td><td>15,99 грн.</td></tr><tr><td>24 часа</td><td>Реферат</td><td>25,99 грн.</td></tr><tr><td></td><td>Курсовая работа</td><td>30,99 грн.</td></tr><tr><td></td><td>Дипломная работа</td><td>35,99 грн.</td></tr><tr><td></td><td>Корректура</td><td>20,99 грн.</td></tr><tr><td>12 часов</td><td>Реферат</td><td>35,99 грн.</td></tr><tr><td></td><td>Курсовая работа</td><td>40,99 грн.</td></tr><tr><td></td><td>Дипломная работа</td><td>45,99 грн.</td></tr><tr><td></td><td>Корректура</td><td>30,99 грн.</td></tr></tbody></table></div></div>
+    <!-- END CONTENT -->
+    </div>
+
+    <div id="ticker" style="display: none;"><div>
+            <div class="container">
+            <div style="display:  flex;  align-items:  center;  justify-content:  center;  position:  absolute;  left:  0px;  top:  200px;  width:  100%;">
+            <span style="margin-left:  10">Дышите глубоко...</span>
+            <div id="wholePageTicker" class="progressTicker" style="background-color:  #546e7a;  width:  14px;  height:  28px;  margin-left:  10px;  margin-top:  -5px"></div>
+            </div>
+            </div></div></div>
+
+    <script src="jquery.min.js"></script>
+
+    <script>
+        window.storageLocalForStaticContent = localStorage
+
+        function displayInitialShit() {
+            if (window.storageLocalForStaticContent.getItem('token')) {
+                document.getElementById('ticker').style.display = ''
+            } else {
+                makeSignInNavbarLinkVisible()
+                document.getElementById('staticShit').style.display = ''
+                window.staticShitIsRenderedStatically = true
+            }
+        }
+
+        function makeSignInNavbarLinkVisible() {
+            $('a[href="sign-in.html"]').css('display', '')
+        }
+
+        
+            displayInitialShit()
+        
+    </script>
+    </div> <!-- /#root -->
+
+    <div id="footer" style="">
+    <div style="background-color: #f8f8f8; border: 1px solid #e7e7e7; color: #333; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 12px; padding-top: 5px; padding-bottom: 5px; height: 28px;">
+        <div class="container">
+            © Copyright 2015-2016 AcademicPaperServed. All rights reserved
+        </div>
+    </div>
+    <div id="underFooter">
+    </div>
+    </div>
+
+    <script>if (typeof global === 'undefined') global = window</script>
+
+    <script src="deps.js"></script>
+    <script src="bootstrap/js/bootstrap-3.3.7-hacked.js"></script>
+    <script src="bootstrap-datetimepicker-4.17.43-hacked.js"></script>
+    <script src="kotlin.js"></script>
+    <!--
+        <script src="kotlin-1.1-m02-eap-hacked.js"></script>
+        <script src="into-kommon-js-enhanced.js"></script>
+        <script src="front-enhanced.js"></script>
+    -->
+
+    <script>
+        var testimonials
+
+initStaticShit()
+
+
+function initStaticShit() {
+    testimonials = Testimonials()
+}
+
+function disposeStaticShit() {
+    testimonials.dispose()
+}
+
+function Testimonials() {
+    var numSlides = 3,
+    numFrames = 60,
+    autoIgnitionPeriod = 15000,
+    rightArrowAppearsDelay = 200,
+    shiftFractions,
+    slide,
+    autoIgnitionTimeoutHandle,
+    magic,
+    disposed
+
+    if (!$('#testimonials-window').length) {
+        return {
+            dispose() {}
+        }
+    }
+
+    window.testimonialsIncarnationID = window.testimonialsIncarnationID || 0
+    ++window.testimonialsIncarnationID
+
+    calcTrajectory()
+
+    $('.testimonials-item').slice(0, 2).clone().appendTo($('#testimonials-strip'))
+    $('#testimonials-right').on('click', ignite)
+
+    var mqLarge = window.matchMedia('(min-width: 1200px)')
+    var mqMedium = window.matchMedia('(min-width: 992px)')
+    mqLarge.addListener(onMediaChange)
+    mqMedium.addListener(onMediaChange)
+
+    onMediaChange()
+
+    return {
+        dispose() {
+            mqLarge.removeListener(onMediaChange)
+            mqMedium.removeListener(onMediaChange)
+            disposed = true
+        }
+    }
+
+
+    function calcTrajectory() {
+        var plot = [
+        'o                             ',
+        '  o                           ',
+        '       o                      ',
+        '                   o          ',
+        '               o              ',
+        '                  o           ',
+        '                o             ',
+        '                 o            ',
+        '------------------------------',
+        '                 x            ']
+
+        var numShiftFractions,  posFor100
+        for (var i = 0; i < plot.length; ++i) {
+        if (plot[i].charAt(0) === '-') {
+            numShiftFractions = i
+            posFor100 = plot[i + 1].indexOf('x')
+        }
+    }
+
+        shiftFractions = []
+        for (var i = 0; i < numShiftFractions; ++i) {
+        var pos = plot[i].indexOf('o')
+        shiftFractions.push(pos / posFor100)
+    }
+    }
+
+    function onMediaChange() {
+        // console.log('Testimonials onMediaChange ' + testimonialsIncarnationID)
+        clearTimeout(autoIgnitionTimeoutHandle)
+        slide = 0
+        $('#testimonials-strip').css('margin-left', '')
+        $('.testimonials-item').css('margin-right', '').css('visibility', '')
+
+        magic = undefined
+        if (window.matchMedia('(min-width: 1200px)').matches) {
+            // console.log('Screen is large')
+            magic = 970 + 200
+        } else if (window.matchMedia('(min-width: 992px)').matches) {
+            // console.log('Screen is medium')
+            magic = 970
+        }
+
+        if (!magic) {
+            console.log('No testimonial sliding for you')
+            $('#testimonials-right').hide()
+            var items = $('.testimonials-item')
+            $(items[items.length - 1]).hide()
+            $(items[items.length - 2]).hide()
+            return
+        }
+
+        var items = $('.testimonials-item')
+        $(items[items.length - 1]).show()
+        $(items[items.length - 2]).show()
+        $('#testimonials-right').show()
+        scheduleAutoIgnition()
+    }
+
+    function scheduleAutoIgnition() {
+        autoIgnitionTimeoutHandle = setTimeout(ignite, autoIgnitionPeriod)
+    }
+
+    function ignite() {
+        if (disposed) {
+            // console.log("Testimonials::ignite -- disposed")
+            return
+        }
+
+        // console.log("Testimonials::ignite -- working")
+        clearTimeout(autoIgnitionTimeoutHandle)
+        $('#testimonials-right').hide()
+
+        var elementToEnlargeRight = $($('.testimonials-item')[slide * 2 + 3])
+        elementToEnlargeRight.css('margin-right', '300px')
+        var elementToHideOnHitFloor = $($('.testimonials-item')[slide * 2 + 1])
+
+        var framesDone = 0
+        requestAnimationFrame(step)
+
+        function step() {
+            var maxShift = magic
+
+            var shiftFractionIdxMiddle = (shiftFractions.length - 1) * framesDone / (numFrames - 1)
+            var shiftFractionIdx1 = Math.floor(shiftFractionIdxMiddle)
+            var shiftFractionIdx2 = Math.ceil(shiftFractionIdxMiddle)
+            var shiftFractionFraction = shiftFractionIdxMiddle - shiftFractionIdx1
+            var shiftFraction1 = shiftFractions[shiftFractionIdx1]
+            var shiftFraction2 = shiftFractions[shiftFractionIdx2]
+            var shiftFraction = shiftFraction1 + (shiftFraction2 - shiftFraction1) * shiftFractionFraction
+            var shift = maxShift * shiftFraction
+            var offset = slide * magic + shift
+
+            $('#testimonials-strip').css('margin-left', -offset + 'px')
+            if (shift >= maxShift) {
+                elementToHideOnHitFloor.css('visibility', 'hidden')
+            }
+
+            if (++framesDone === numFrames) {
+                if (++slide === numSlides) {
+                    slide = 0
+                }
+
+                elementToEnlargeRight.css('margin-right', '')
+                elementToHideOnHitFloor.css('visibility', '')
+
+                setTimeout(function() {
+                    if (disposed) return
+                    $('#testimonials-right').show()
+                    scheduleAutoIgnition()
+                }, rightArrowAppearsDelay)
+            } else {
+                requestAnimationFrame(step)
+            }
+        }
+    }
+}
+
+
+    </script>
+
+    <script>
+        
+
+        global = window
+        Kotlin = kotlin
+
+        const scriptSuffix = ''
+
+        Promise.resolve()
+        .then(_=> loadScript('into-kommon-js-enhanced.js' + scriptSuffix))
+        .then(_=> loadScript('front-enhanced.js' + scriptSuffix))
+        .then(_=> {
+            kot = Kotlin.modules.front
+            F = kot.aps.front
+            kot.aps.front.ignite()
+        })
+
+        function loadScript(src) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script')
+                script.type = 'text/javascript'
+                script.async = true
+                script.onload = _=> {
+                    console.log('Loaded ' + src)
+                    resolve()
+                }
+                script.src = src
+                document.getElementsByTagName('head')[0].appendChild(script)
+            })
+        }
+    </script>
+    </body>
+    </html>
+    
