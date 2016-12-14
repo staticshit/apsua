@@ -331,7 +331,7 @@
   UserState.prototype.constructor = UserState;
   UAOrderState.prototype = Object.create(imported$Enum.prototype);
   UAOrderState.prototype.constructor = UAOrderState;
-  GenericRequest.prototype = Object.create(Request.prototype);
+  GenericRequest.prototype = Object.create(RequestMatumba.prototype);
   GenericRequest.prototype.constructor = GenericRequest;
   ImposeNextRequestTimestampRequest.prototype = Object.create(RequestMatumba.prototype);
   ImposeNextRequestTimestampRequest.prototype.constructor = ImposeNextRequestTimestampRequest;
@@ -457,6 +457,8 @@
   LoadUAOrderRequest.prototype.constructor = LoadUAOrderRequest;
   Color.prototype = Object.create(imported$Enum.prototype);
   Color.prototype.constructor = Color;
+  PingRequest.prototype = Object.create(RequestMatumba.prototype);
+  PingRequest.prototype.constructor = PingRequest;
   AbortException.prototype = Object.create(imported$Throwable.prototype);
   AbortException.prototype.constructor = AbortException;
   SkipException.prototype = Object.create(imported$Throwable.prototype);
@@ -8574,7 +8576,7 @@
   function DynamicFooter$render$lambda(this$DynamicFooter) {
     return function (o) {
       var tmp$0;
-      o.minus_61zpoe$('Frontend: 242');
+      o.minus_61zpoe$('Frontend: 258');
       var tmp$1;
       if ((tmp$0 = this$DynamicFooter.backendVersion) != null) {
         var it = tmp$0;
@@ -12605,9 +12607,6 @@
   };
   fuckingRemoteCall.prototype.robotTypeTextCRIntoWindowTitledOpen_61zpoe$ = function (text_0) {
     return this.sendShit_0(imported$json([imported$to('proc', 'robotTypeTextCRIntoWindowTitledOpen'), imported$to('text', text_0)]));
-  };
-  fuckingRemoteCall.prototype.ping = function () {
-    return this.sendShit_0(imported$json([imported$to('proc', 'ping')]));
   };
   function fuckingRemoteCall$sendShit$lambda$lambda(closure$request) {
     return function (o) {
@@ -18464,6 +18463,10 @@
   function send_5(token, req) {
     return _send(token, req);
   }
+  function send_6(req) {
+    var tmp$0;
+    return _send((tmp$0 = Globus_getInstance().world) != null ? tmp$0.token : null, req);
+  }
   function _send(token, req) {return __awaiter(this, void 0, void 0, function* () {
     var tmp$1, tmp$2;
     '__async';
@@ -22282,7 +22285,7 @@
     }
     (yield this.bootKillme());
     Globus_getInstance().world = this;
-    fuckingRemoteCall_getInstance().ping();
+    send_6(new PingRequest());
     return (imported$kotlin.Unit);
   });};
   World.prototype.urlLink_za3rmp$ = function (def) {
@@ -22741,7 +22744,7 @@
     get_orDie((yield send_2(null, minus(new SignUpRequest(), WriterBootTestScenario$prepareFucker$lambda))));
     this.fuckerToken = get_orDie((yield sendSafe_0(null, minus(new SignInWithPasswordRequest(), WriterBootTestScenario$prepareFucker$lambda_0)))).token;
     fieldsReq.email.value = 'fucker@test.shit.ua';
-    (yield send_6(fieldsReq));
+    (yield send_7(fieldsReq));
     return (imported$kotlin.Unit);
   });};
   WriterBootTestScenario.prototype.assert_staticHomePage_rightNavbarGaylord = function () {
@@ -26606,13 +26609,13 @@
     baseClasses: []
   };
   function GenericRequest() {
-    Request.call(this);
+    RequestMatumba.call(this);
   }
   GenericRequest.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
     simpleName: 'GenericRequest',
-    baseClasses: [Request]
+    baseClasses: [RequestMatumba]
   };
   function ImposeNextRequestTimestampRequest() {
     ImposeNextRequestTimestampRequest$Companion_getInstance();
@@ -27793,7 +27796,7 @@
     simpleName: 'TestSetUserFieldsRequest',
     baseClasses: [RequestMatumba]
   };
-  function send_6(req) {
+  function send_7(req) {
     return callDangerousMatumba(req);
   }
   function SendRedisLogMessageRequest() {
@@ -27807,7 +27810,7 @@
     simpleName: 'SendRedisLogMessageRequest',
     baseClasses: [RequestMatumba]
   };
-  function send_7(req) {
+  function send_8(req) {
     return callDangerousMatumba(req);
   }
   function JSONResponse(json) {
@@ -30283,6 +30286,15 @@
     }
   }
   Color.valueOf_61zpoe$ = Color$valueOf;
+  function PingRequest() {
+    RequestMatumba.call(this);
+  }
+  PingRequest.$metadata$ = {
+    type: Kotlin.TYPE.CLASS,
+    classIndex: Kotlin.newClassIndex(),
+    simpleName: 'PingRequest',
+    baseClasses: [RequestMatumba]
+  };
   function get_APS_HOME() {
     var tmp$0;
     return (tmp$0 = imported$getenv('APS_HOME')) != null ? tmp$0 : imported$die('I want APS_HOME environment variable');
@@ -31485,6 +31497,7 @@
   package$front.sendSafe_6umkoc$ = sendSafe_0;
   package$front.send_azrxgh$ = send_4;
   package$front.send_8av60s$ = send_5;
+  package$front.send_ilz00j$ = send_6;
   package$front.fetchURL_6hosri$ = fetchURL;
   Object.defineProperty(package$front, 'backendURL', {
     get: function () {
@@ -32011,9 +32024,9 @@
   });
   package$aps.OpenSourceCodeRequest = OpenSourceCodeRequest;
   package$aps.TestSetUserFieldsRequest = TestSetUserFieldsRequest;
-  package$aps.send_9rjo7v$ = send_6;
+  package$aps.send_9rjo7v$ = send_7;
   package$aps.SendRedisLogMessageRequest = SendRedisLogMessageRequest;
-  package$aps.send_as1wub$ = send_7;
+  package$aps.send_as1wub$ = send_8;
   package$aps.JSONResponse = JSONResponse;
   package$aps.PrivilegedRedisCommandRequest = PrivilegedRedisCommandRequest;
   package$aps.send_d9g9nm$ = send_0;
@@ -32849,6 +32862,7 @@
     get: Color$ROSYBROWN_getInstance
   });
   package$aps.Color = Color;
+  package$aps.PingRequest = PingRequest;
   Object.defineProperty(package$aps, 'APS_HOME', {
     get: get_APS_HOME
   });
