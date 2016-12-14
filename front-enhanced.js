@@ -191,6 +191,8 @@
   renderExpandableOnDemandStack$ObjectLiteral.prototype.constructor = renderExpandableOnDemandStack$ObjectLiteral;
   Betsy.prototype = Object.create(Control2.prototype);
   Betsy.prototype.constructor = Betsy;
+  BurgerDropdownButton$Direction.prototype = Object.create(imported$Enum.prototype);
+  BurgerDropdownButton$Direction.prototype.constructor = BurgerDropdownButton$Direction;
   BurgerDropdownButton.prototype = Object.create(Control2.prototype);
   BurgerDropdownButton.prototype.constructor = BurgerDropdownButton;
   Button$Level.prototype = Object.create(imported$Enum.prototype);
@@ -209,6 +211,8 @@
   BasicContainerControlBuilder.prototype.constructor = BasicContainerControlBuilder;
   makeBasicContainerControlCtor$ctor$ObjectLiteral.prototype = Object.create(Control.prototype);
   makeBasicContainerControlCtor$ctor$ObjectLiteral.prototype.constructor = makeBasicContainerControlCtor$ctor$ObjectLiteral;
+  from$ObjectLiteral_1.prototype = Object.create(Control2.prototype);
+  from$ObjectLiteral_1.prototype.constructor = from$ObjectLiteral_1;
   FilesTab$stripContent$ObjectLiteral.prototype = Object.create(Control2.prototype);
   FilesTab$stripContent$ObjectLiteral.prototype.constructor = FilesTab$stripContent$ObjectLiteral;
   DynamicFooter.prototype = Object.create(Control2.prototype);
@@ -251,6 +255,8 @@
   faIcon_0.prototype.constructor = faIcon_0;
   FAIcon.prototype = Object.create(imported$Enum.prototype);
   FAIcon.prototype.constructor = FAIcon;
+  jsFacing_button$lambda$ObjectLiteral.prototype = Object.create(Button.prototype);
+  jsFacing_button$lambda$ObjectLiteral.prototype.constructor = jsFacing_button$lambda$ObjectLiteral;
   link$ObjectLiteral.prototype = Object.create(Control2.prototype);
   link$ObjectLiteral.prototype.constructor = link$ObjectLiteral;
   ElementBuilder$control$lambda$ObjectLiteral.prototype = Object.create(Control2.prototype);
@@ -617,7 +623,7 @@
   function CheckboxField(container, name) {
     FormFieldFront.call(this, container, name);
     this.error_4hyfrh$_0 = null;
-    this.checkbox = Shitus_getInstance().Checkbox(imported$json([imported$to('tamy', true)]));
+    this.checkbox = Shitus_getInstance().Checkbox(imported$json([imported$to('tamy', true)]), name);
   }
   Object.defineProperty(CheckboxField.prototype, 'error', {
     get: function () {
@@ -2122,7 +2128,7 @@
     else
       tmp$3 = 'input';
     tmp$5 = imported$to('volatileStyle', TextField$input$lambda(this));
-    this.input = tmp$6(imported$json([tmp$4, imported$to('type', tmp$1), imported$to('kind', tmp$3), tmp$5]));
+    this.input = tmp$6(imported$json([tmp$4, imported$to('type', tmp$1), imported$to('kind', tmp$3), tmp$5]), name);
   }
   Object.defineProperty(TextField.prototype, 'error', {
     get: function () {
@@ -4541,13 +4547,61 @@
     simpleName: 'Betsy',
     baseClasses: [Control2]
   };
-  function BurgerDropdownButton(menu, icon) {
+  function BurgerDropdownButton(menu, icon, buttonStyle, direction) {
     if (icon === void 0)
       icon = FAIcon$BARS_getInstance();
+    if (buttonStyle === void 0)
+      buttonStyle = new Style();
+    if (direction === void 0)
+      direction = BurgerDropdownButton$Direction$DOWN_getInstance();
     Control2.call(this, new Attrs());
     this.menu = menu;
     this.icon = icon;
+    this.buttonStyle = buttonStyle;
+    this.direction = direction;
+    this.buttonID = puid();
   }
+  function BurgerDropdownButton$Direction(name, ordinal, string) {
+    imported$Enum.call(this);
+    this.string = string;
+    this.name$ = name;
+    this.ordinal$ = ordinal;
+  }
+  function BurgerDropdownButton$Direction_initFields() {
+    BurgerDropdownButton$Direction_initFields = function () {
+    };
+    BurgerDropdownButton$Direction$DOWN_instance = new BurgerDropdownButton$Direction('DOWN', 0, 'down');
+    BurgerDropdownButton$Direction$UP_instance = new BurgerDropdownButton$Direction('UP', 1, 'up');
+  }
+  var BurgerDropdownButton$Direction$DOWN_instance;
+  function BurgerDropdownButton$Direction$DOWN_getInstance() {
+    BurgerDropdownButton$Direction_initFields();
+    return BurgerDropdownButton$Direction$DOWN_instance;
+  }
+  var BurgerDropdownButton$Direction$UP_instance;
+  function BurgerDropdownButton$Direction$UP_getInstance() {
+    BurgerDropdownButton$Direction_initFields();
+    return BurgerDropdownButton$Direction$UP_instance;
+  }
+  BurgerDropdownButton$Direction.$metadata$ = {
+    type: Kotlin.TYPE.CLASS,
+    classIndex: Kotlin.newClassIndex(),
+    simpleName: 'Direction',
+    baseClasses: [imported$Enum]
+  };
+  function BurgerDropdownButton$Direction$values() {
+    return [BurgerDropdownButton$Direction$DOWN_getInstance(), BurgerDropdownButton$Direction$UP_getInstance()];
+  }
+  BurgerDropdownButton$Direction.values = BurgerDropdownButton$Direction$values;
+  function BurgerDropdownButton$Direction$valueOf(name) {
+    switch (name) {
+      case 'DOWN':
+        return BurgerDropdownButton$Direction$DOWN_getInstance();
+      case 'UP':
+        return BurgerDropdownButton$Direction$UP_getInstance();
+    }
+  }
+  BurgerDropdownButton$Direction.valueOf_61zpoe$ = BurgerDropdownButton$Direction$valueOf;
   function BurgerDropdownButton$render$lambda$lambda(closure$item) {
     return function (e) {
       preventAndStop(e);
@@ -4559,8 +4613,8 @@
   }
   BurgerDropdownButton.prototype.render = function () {
     var tmp$1 = ToReactElementable$Companion_getInstance();
-    var tmp$3 = imported$json([imported$to('className', 'dropdown')]);
-    var tmp$10 = reactCreateElement('button', imported$json([imported$to('className', 'btn btn-default dropdown-toggle'), imported$to('type', 'button'), imported$to('data-toggle', 'dropdown')]), imported$listOf_0(reactCreateElement('i', imported$json([imported$to('className', 'fa ' + this.icon)]), Kotlin.kotlin.collections.emptyList())));
+    var tmp$3 = imported$json([imported$to('className', 'drop' + this.direction.string)]);
+    var tmp$10 = reactCreateElement('button', imported$json([imported$to('id', this.buttonID), imported$to('className', 'btn btn-default dropdown-toggle'), imported$to('type', 'button'), imported$to('data-toggle', 'dropdown'), imported$to('style', this.buttonStyle.toReactStyle())]), imported$listOf_0(reactCreateElement('i', imported$json([imported$to('className', 'fa ' + this.icon)]), Kotlin.kotlin.collections.emptyList())));
     var tmp$12 = imported$json([imported$to('className', 'dropdown-menu dropdown-menu-right'), imported$to('style', imported$json([imported$to('minWidth', 100)]))]);
     var $receiver = this.menu.items;
     var destination = Kotlin.kotlin.collections.ArrayList_init_za3lpa$(Kotlin.kotlin.collections.collectionSizeOrDefault_0($receiver, 10));
@@ -4571,6 +4625,9 @@
       destination.add_za3rmp$(reactCreateElement('li', imported$json([]), imported$listOf_0(reactCreateElement('a', imported$json([imported$to('href', '#'), imported$to('onClick', BurgerDropdownButton$render$lambda$lambda(item))]), imported$listOf_0(asReactElement(item.title))))));
     }
     return from(tmp$1, reactCreateElement('div', tmp$3, imported$listOf_1([tmp$10, reactCreateElement('ul', tmp$12, destination)])));
+  };
+  BurgerDropdownButton.prototype.open = function () {
+    byid(this.buttonID).click();
   };
   BurgerDropdownButton.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
@@ -4887,6 +4944,46 @@
   function buttonUserInitiatedClick($receiver, key) {
     $receiver.acta_rarvbk$('Clicking button `' + key + '`', buttonUserInitiatedClick$lambda(key));
   }
+  function Checkbox(valueSetter) {
+    Checkbox$Companion_getInstance();
+    this.valueSetter = valueSetter;
+  }
+  function Checkbox$Companion() {
+    Checkbox$Companion_instance = this;
+    this.instances = imported$mutableMapOf([]);
+  }
+  Checkbox$Companion.prototype.instance_61zpoe$ = function (key) {
+    var tmp$0;
+    return (tmp$0 = Checkbox$Companion_getInstance().instances.get_za3rmp$(key)) != null ? tmp$0 : imported$bitch('No Checkbox keyed `' + key + '`');
+  };
+  Checkbox$Companion.$metadata$ = {
+    type: Kotlin.TYPE.OBJECT,
+    classIndex: Kotlin.newClassIndex(),
+    simpleName: 'Companion',
+    baseClasses: []
+  };
+  var Checkbox$Companion_instance = null;
+  function Checkbox$Companion_getInstance() {
+    if (Checkbox$Companion_instance === null) {
+      Checkbox$Companion_instance = new Checkbox$Companion();
+    }
+    return Checkbox$Companion_instance;
+  }
+  Checkbox.prototype.setValue_6taknv$ = function (b) {
+    this.valueSetter(b);
+  };
+  Checkbox.$metadata$ = {
+    type: Kotlin.TYPE.CLASS,
+    classIndex: Kotlin.newClassIndex(),
+    simpleName: 'Checkbox',
+    baseClasses: []
+  };
+  function jsFacing_Checkbox$lambda$lambda(closure$value, closure$update) {
+    return function (x) {
+      closure$value.v = x;
+      closure$update();
+    };
+  }
   function jsFacing_Checkbox$lambda$lambda$lambda$lambda(it) {
     __await(it());
   }
@@ -4904,20 +5001,14 @@
         return null;
     });};
   }
-  function jsFacing_Checkbox$lambda$lambda(closure$me, closure$value, closure$disabled, closure$update, closure$onChange) {
+  function jsFacing_Checkbox$lambda$lambda_0(closure$me, closure$value, closure$disabled, closure$update, closure$onChange) {
     return function () {
       return elKillme('input', imported$json([imported$to('id', closure$me.v.elementID), imported$to('type', 'checkbox'), imported$to('checked', closure$value.v), imported$to('disabled', closure$disabled.v), imported$to('onChange', jsFacing_Checkbox$lambda$lambda$lambda(closure$value, closure$update, closure$onChange))]));
     };
   }
-  function jsFacing_Checkbox$lambda$lambda_0(closure$value) {
+  function jsFacing_Checkbox$lambda$lambda_1(closure$value) {
     return function () {
       return closure$value.v;
-    };
-  }
-  function jsFacing_Checkbox$lambda$lambda_1(closure$value, closure$update) {
-    return function (x) {
-      closure$value.v = x;
-      closure$update();
     };
   }
   function jsFacing_Checkbox$lambda$lambda_2(closure$disabled, closure$update) {
@@ -4957,21 +5048,40 @@
       }
     });};
   }
-  function jsFacing_Checkbox$lambda(closure$initialValue, closure$disabled, closure$onChange, closure$def) {
+  function jsFacing_Checkbox$lambda$lambda_7(closure$key, closure$setValue) {
+    return function () {
+      if (closure$key != null) {
+        Checkbox$Companion_getInstance().instances.put_wn2jw4$(closure$key, new Checkbox(closure$setValue));
+      }
+    };
+  }
+  function jsFacing_Checkbox$lambda$lambda_8(closure$key) {
+    return function () {
+      if (closure$key != null) {
+        Checkbox$Companion_getInstance().instances.remove_za3rmp$(closure$key);
+      }
+    };
+  }
+  function jsFacing_Checkbox$lambda(closure$initialValue, closure$disabled, closure$onChange, closure$key, closure$def) {
     return function (update) {
       var value = {v: closure$initialValue};
       var me = {v: null};
-      me.v = imported$json([imported$to('render', jsFacing_Checkbox$lambda$lambda(me, value, closure$disabled, update, closure$onChange)), imported$to('getValue', jsFacing_Checkbox$lambda$lambda_0(value)), imported$to('setValue', jsFacing_Checkbox$lambda$lambda_1(value, update)), imported$to('setDisabled', jsFacing_Checkbox$lambda$lambda_2(closure$disabled, update)), imported$to('isDisabled', jsFacing_Checkbox$lambda$lambda_3(closure$disabled)), imported$to('contributeTestState', jsFacing_Checkbox$lambda$lambda_4(me)), imported$to('testGetValue', jsFacing_Checkbox$lambda$lambda_5(me)), imported$to('testSetValue', jsFacing_Checkbox$lambda$lambda_6(me))]);
+      var setValue = jsFacing_Checkbox$lambda$lambda(value, update);
+      me.v = imported$json([imported$to('render', jsFacing_Checkbox$lambda$lambda_0(me, value, closure$disabled, update, closure$onChange)), imported$to('getValue', jsFacing_Checkbox$lambda$lambda_1(value)), imported$to('setValue', setValue), imported$to('setDisabled', jsFacing_Checkbox$lambda$lambda_2(closure$disabled, update)), imported$to('isDisabled', jsFacing_Checkbox$lambda$lambda_3(closure$disabled)), imported$to('contributeTestState', jsFacing_Checkbox$lambda$lambda_4(me)), imported$to('testGetValue', jsFacing_Checkbox$lambda$lambda_5(me)), imported$to('testSetValue', jsFacing_Checkbox$lambda$lambda_6(me))]);
+      me.v.componentDidMount = jsFacing_Checkbox$lambda$lambda_7(closure$key, setValue);
+      me.v.componentWillUnmount = jsFacing_Checkbox$lambda$lambda_8(closure$key);
       me.v.controlTypeName = 'Checkbox';
       legacy_implementControlShit(imported$json([imported$to('me', me.v), imported$to('def', closure$def)]));
       return me.v;
     };
   }
-  function jsFacing_Checkbox(def) {
+  function jsFacing_Checkbox(def, key) {
+    if (key === void 0)
+      key = null;
     var onChange = def.onChange;
     var initialValue = def.initialValue != null ? def.initialValue : false;
     var disabled = {v: false};
-    return Shitus_getInstance().statefulElement_6cfmfo$(jsFacing_Checkbox$lambda(initialValue, disabled, onChange, def));
+    return Shitus_getInstance().statefulElement_6cfmfo$(jsFacing_Checkbox$lambda(initialValue, disabled, onChange, key, def));
   }
   function button$ObjectLiteral(closure$cis_0, cis) {
     this.closure$cis_0 = closure$cis_0;
@@ -5835,6 +5945,7 @@
     return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.tame, other.tame) && Kotlin.equals(this.tamy, other.tamy) && Kotlin.equals(this.shame, other.shame) && Kotlin.equals(this.shamy, other.shamy) && Kotlin.equals(this.tamyShamy, other.tamyShamy) && Kotlin.equals(this.controlTypeName, other.controlTypeName) && Kotlin.equals(this.id, other.id) && Kotlin.equals(this.tattrs, other.tattrs) && Kotlin.equals(this.noStateContributions, other.noStateContributions) && Kotlin.equals(this.className, other.className) && Kotlin.equals(this.href, other.href) && Kotlin.equals(this.onClick, other.onClick) && Kotlin.equals(this.onClicka, other.onClicka) && Kotlin.equals(this.onMouseEnter, other.onMouseEnter) && Kotlin.equals(this.onMouseEntera, other.onMouseEntera) && Kotlin.equals(this.onMouseLeave, other.onMouseLeave) && Kotlin.equals(this.onMouseLeava, other.onMouseLeava)))));
   };
   function Control2(attrs) {
+    Control2$Companion_getInstance();
     this.attrs = attrs;
     var tmp$0, tmp$1, tmp$2, tmp$3, tmp$4, tmp$5, tmp$6;
     this.controlTypeName = (tmp$0 = this.attrs.controlTypeName) != null ? tmp$0 : this.defaultControlTypeName();
@@ -6184,6 +6295,22 @@
     DebugPanes_getInstance().put_5bvsr5$(errorStickerID, oldShitAsToReactElementable(React.createElement('div', imported$json([imported$to('id', errorStickerID), imported$to('style', imported$json([imported$to('width', 10), imported$to('height', 10), imported$to('background', Color$RED_500_getInstance().toString()), imported$to('cursor', 'pointer'), imported$to('zIndex', REALLY_BIG_Z_INDEX)])), imported$to('onClick', Control2$stickException$lambda_0(doReveal))]))));
     requestAnimationFrame(Control2$stickException$lambda_1(errorStickerID, element, this));
   };
+  function Control2$Companion() {
+    Control2$Companion_instance = this;
+  }
+  Control2$Companion.$metadata$ = {
+    type: Kotlin.TYPE.OBJECT,
+    classIndex: Kotlin.newClassIndex(),
+    simpleName: 'Companion',
+    baseClasses: []
+  };
+  var Control2$Companion_instance = null;
+  function Control2$Companion_getInstance() {
+    if (Control2$Companion_instance === null) {
+      Control2$Companion_instance = new Control2$Companion();
+    }
+    return Control2$Companion_instance;
+  }
   function Control2$noStateContributions$lambda(it) {
     return it;
   }
@@ -6530,6 +6657,21 @@
     simpleName: 'Control2',
     baseClasses: [FuckingControl, ToReactElementable]
   };
+  function from$ObjectLiteral_1(closure$render_0, attrs) {
+    this.closure$render_0 = closure$render_0;
+    Control2.call(this, attrs);
+  }
+  from$ObjectLiteral_1.prototype.render = function () {
+    return this.closure$render_0();
+  };
+  from$ObjectLiteral_1.$metadata$ = {
+    type: Kotlin.TYPE.CLASS,
+    classIndex: Kotlin.newClassIndex(),
+    baseClasses: [Control2]
+  };
+  function from_1($receiver, render) {
+    return new from$ObjectLiteral_1(render, new Attrs());
+  }
   function CustomerSingleUAOrderPage(world) {
     this.world = world;
   }
@@ -8566,17 +8708,40 @@
     Control2.call(this, new Attrs());
     this.world = world;
     this.backendVersion = null;
+    this.burger = null;
+    this.versions = from_1(Control2$Companion_getInstance(), DynamicFooter$versions$lambda(this));
   }
-  function DynamicFooter$render$lambda$lambda(closure$o) {
+  function DynamicFooter$render$lambda(this$DynamicFooter) {
+    return function (o) {
+      o.minus_2rfla9$(this$DynamicFooter.versions);
+      o.minus_2rfla9$(this$DynamicFooter.burger);
+    };
+  }
+  DynamicFooter.prototype.render = function () {
+    return hor2(void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, 0, 0, void 0, void 0, void 0, void 0, 'absolute', void 0, 5, 5, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, '12px', void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, DynamicFooter$render$lambda(this));
+  };
+  DynamicFooter.prototype.setBackendVersion_61zpoe$ = function (value) {
+    this.backendVersion = value;
+    this.versions.update();
+  };
+  DynamicFooter.prototype.openBurger = function () {
+    var tmp$0;
+    (tmp$0 = this.burger) != null ? tmp$0.open() : null;
+  };
+  DynamicFooter.prototype.setBurgerMenu_3xli5q$ = function (menu) {
+    this.burger = menu == null ? null : new BurgerDropdownButton(menu, void 0, new Style(-1, void 0, void 0, void 0, void 0, void 0, 'relative', void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, '0px', void 0, 'transparent', 'none'), BurgerDropdownButton$Direction$UP_getInstance());
+    this.update();
+  };
+  function DynamicFooter$versions$lambda$lambda$lambda(closure$o) {
     return function (it) {
       closure$o.minus_61zpoe$(nbsp + nbsp + nbsp);
       closure$o.minus_61zpoe$('Backend: ' + it);
     };
   }
-  function DynamicFooter$render$lambda(this$DynamicFooter) {
+  function DynamicFooter$versions$lambda$lambda(this$DynamicFooter) {
     return function (o) {
       var tmp$0;
-      o.minus_61zpoe$('Frontend: 258');
+      o.minus_61zpoe$('Frontend: 299');
       var tmp$1;
       if ((tmp$0 = this$DynamicFooter.backendVersion) != null) {
         var it = tmp$0;
@@ -8590,13 +8755,11 @@
       tmp$1;
     };
   }
-  DynamicFooter.prototype.render = function () {
-    return invoke(kdiv, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, 0, 0, void 0, void 0, void 0, void 0, 'absolute', void 0, 5, 5, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, '12px', void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, DynamicFooter$render$lambda(this));
-  };
-  DynamicFooter.prototype.setBackendVersion_61zpoe$ = function (value) {
-    this.backendVersion = value;
-    this.update();
-  };
+  function DynamicFooter$versions$lambda(this$DynamicFooter) {
+    return function () {
+      return invoke(kdiv, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, DynamicFooter$versions$lambda$lambda(this$DynamicFooter));
+    };
+  }
   DynamicFooter.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
@@ -13561,12 +13724,12 @@
     Globus_instance = this;
     this.version = '____VERSION____';
     this.lastAttemptedRPCName = null;
-    this.realStorageLocal = new Globus$realStorageLocal$ObjectLiteral();
-    this.realTypedStorageLocal = new TypedStorageLocal(this.realStorageLocal);
-    this.browser = new Browser(this.realTypedStorageLocal);
     this.rootRedisLogMessageID = null;
     this.mode$delegate = imported$lazy(Globus$mode$lambda);
     this.world = null;
+    this.realStorageLocal = new Globus$realStorageLocal$ObjectLiteral();
+    this.realTypedStorageLocal = new TypedStorageLocal(this.realStorageLocal);
+    this.browser = new Browser(this.realTypedStorageLocal);
   }
   Object.defineProperty(Globus.prototype, 'lang', {
     get: function () {
@@ -13578,6 +13741,9 @@
       return imported$getValue(this.mode$delegate, this, new Kotlin.PropertyMetadata('mode'));
     }
   });
+  function Globus$mode$lambda() {
+    return Mode$valueOf(global.MODE);
+  }
   function Globus$realStorageLocal$ObjectLiteral() {
   }
   Globus$realStorageLocal$ObjectLiteral.prototype.clear = function () {
@@ -13597,9 +13763,6 @@
     classIndex: Kotlin.newClassIndex(),
     baseClasses: [StorageLocal]
   };
-  function Globus$mode$lambda() {
-    return Mode$valueOf(global.MODE);
-  }
   Globus.$metadata$ = {
     type: Kotlin.TYPE.OBJECT,
     classIndex: Kotlin.newClassIndex(),
@@ -13962,8 +14125,15 @@
     imported$kommon.global.Shitus = Shitus_getInstance();
     igniteShit();
   }
+  function igniteShit$lambda(e) {
+    var tmp$0, tmp$1, tmp$2;
+    Kotlin.isType(tmp$0 = e, KeyboardEvent) ? tmp$0 : Kotlin.throwCCE();
+    if (Kotlin.equals(e.code, 'Backquote')) {
+      preventAndStop(e);
+      (tmp$2 = (tmp$1 = Globus_getInstance().world) != null ? tmp$1.footer : null) != null ? tmp$2.openBurger() : null;
+    }
+  }
   function igniteShit() {return __awaiter(this, void 0, void 0, function* () {
-    var tmp$0;
     '__async';
     get_hrss().browserOld = new BrowserOld('default');
     get_hrss().lang = imported$kommon.global.LANG;
@@ -13973,7 +14143,7 @@
       (yield jsFacing_igniteTestShit());
     }
      else {
-      imported$kommon.global.DB = (tmp$0 = imported$kommon.global.sessionStorage.getItem('DB')) != null ? tmp$0 : 'aps-dev';
+      window.addEventListener('keydown', igniteShit$lambda);
       (yield (new World('default')).boot());
     }
     return (imported$kotlin.Unit);
@@ -13991,8 +14161,10 @@
   function get_breatheBanner() {
     return imported$getValue(breatheBanner, null, new Kotlin.PropertyMetadata('breatheBanner'));
   }
-  function jsFacing_Input(legacySpec) {
-    var input = new Input(legacySpec);
+  function jsFacing_Input(legacySpec, key) {
+    if (key === void 0)
+      key = null;
+    var input = new Input(legacySpec, key);
     return input.legacyShit;
   }
   function inputReactClass$lambda$lambda$lambda(closure$self, closure$onChange) {
@@ -14026,9 +14198,34 @@
   function get_inputReactClass() {
     return imported$getValue(inputReactClass, null, new Kotlin.PropertyMetadata('inputReactClass'));
   }
-  function Input(legacySpec) {
+  function Input(legacySpec, key) {
+    Input$Companion_getInstance();
+    if (key === void 0)
+      key = null;
     this.legacySpec = legacySpec;
+    this.key = key;
     this.legacyShit = this.LegacyCtor();
+  }
+  function Input$Companion() {
+    Input$Companion_instance = this;
+    this.instances = imported$mutableMapOf([]);
+  }
+  Input$Companion.prototype.instance_61zpoe$ = function (key) {
+    var tmp$0;
+    return (tmp$0 = Input$Companion_getInstance().instances.get_za3rmp$(key)) != null ? tmp$0 : imported$bitch('No Input keyed `' + key + '`');
+  };
+  Input$Companion.$metadata$ = {
+    type: Kotlin.TYPE.OBJECT,
+    classIndex: Kotlin.newClassIndex(),
+    simpleName: 'Companion',
+    baseClasses: []
+  };
+  var Input$Companion_instance = null;
+  function Input$Companion_getInstance() {
+    if (Input$Companion_instance === null) {
+      Input$Companion_instance = new Input$Companion();
+    }
+    return Input$Companion_instance;
   }
   function Input$LegacyCtor$lambda$lambda$lambda(closure$value, closure$update, closure$onChange) {
     return function (e) {
@@ -14169,6 +14366,20 @@
       return Shitus_getInstance().diva(imported$json([imported$to('style', imported$json([]))]), Shitus_getInstance().hor2(imported$json([]), Shitus_getInstance().link(imported$json([imported$to('title', 'Capture primary click with only this entered'), imported$to('onClick', Input$LegacyCtor$lambda$lambda$lambda_1(closure$me))]))));
     };
   }
+  function Input$LegacyCtor$lambda$lambda_13(this$Input) {
+    return function () {
+      if (this$Input.key != null) {
+        Input$Companion_getInstance().instances.put_wn2jw4$(this$Input.key, this$Input);
+      }
+    };
+  }
+  function Input$LegacyCtor$lambda$lambda_14(this$Input) {
+    return function () {
+      if (this$Input.key != null) {
+        Input$Companion_getInstance().instances.remove_za3rmp$(this$Input.key);
+      }
+    };
+  }
   function Input$LegacyCtor$lambda(closure$initialValue, closure$disabled, closure$rows, closure$placeholder, closure$kind, closure$type, closure$volatileStyle, closure$style, closure$onChange, closure$onKeyDown, this$Input, closure$def) {
     return function (update) {
       var value = {v: closure$initialValue};
@@ -14177,6 +14388,8 @@
       var me = {v: null};
       me.v = imported$json([imported$to('render', Input$LegacyCtor$lambda$lambda(_isDisabled, closure$disabled, me, closure$rows, closure$placeholder, closure$kind, closure$type, value, closure$volatileStyle, closure$style, loading, update, closure$onChange, closure$onKeyDown)), imported$to('contributeTestState', Input$LegacyCtor$lambda$lambda_0(me, closure$type, closure$kind)), imported$to('getValue', Input$LegacyCtor$lambda$lambda_1(value)), imported$to('setLoading', Input$LegacyCtor$lambda$lambda_2(loading, update)), imported$to('focus', Input$LegacyCtor$lambda$lambda_3(me)), imported$to('select', Input$LegacyCtor$lambda$lambda_4(this$Input)), imported$to('setDisabled', Input$LegacyCtor$lambda$lambda_5(_isDisabled, update)), imported$to('isDisabled', Input$LegacyCtor$lambda$lambda_6(_isDisabled)), imported$to('setValue', Input$LegacyCtor$lambda$lambda_7(me)), imported$to('setValueExt', Input$LegacyCtor$lambda$lambda_8(value, update, closure$onChange)), imported$to('testSetValue', Input$LegacyCtor$lambda$lambda_9(me)), imported$to('testGetValue', Input$LegacyCtor$lambda$lambda_10(me)), imported$to('setBlinking', Input$LegacyCtor$lambda$lambda_11(me))]);
       me.v.renderInRevelationPane = Input$LegacyCtor$lambda$lambda_12(me);
+      me.v.componentDidMount = Input$LegacyCtor$lambda$lambda_13(this$Input);
+      me.v.componentWillUnmount = Input$LegacyCtor$lambda$lambda_14(this$Input);
       me.v.controlTypeName = 'Input';
       legacy_implementControlShit(imported$json([imported$to('me', me.v), imported$to('def', closure$def), imported$to('implementTestKeyDown', imported$json([imported$to('onKeyDown', closure$onKeyDown)]))]));
       return me.v;
@@ -14374,6 +14587,84 @@
       }
     };
   }
+  function jsFacing_button$lambda$ObjectLiteral(closure$me_0, key, style, className, level, title, icon, iconColor, disabled, hint, onClicka, onClick) {
+    this.closure$me_0 = closure$me_0;
+    Button.call(this, key, style, className, level, title, icon, iconColor, disabled, hint, onClicka, onClick);
+  }
+  function jsFacing_button$lambda$ObjectLiteral$click$lambda(closure$me) {
+    return function () {
+      return new Coroutine$jsFacing_button$lambda$ObjectLiteral$click$lambda(closure$me, this);
+    };
+  }
+  function Coroutine$jsFacing_button$lambda$ObjectLiteral$click$lambda(closure$me, controller) {
+    this.$state = 0;
+    this.$exceptionState = 1;
+    this.$controller = controller;
+    this.local$closure$me = closure$me;
+  }
+  Coroutine$jsFacing_button$lambda$ObjectLiteral$click$lambda.$metadata$ = {
+    type: Kotlin.TYPE.CLASS,
+    classIndex: Kotlin.newClassIndex(),
+    simpleName: null,
+    baseClasses: [imported$Continuation]
+  };
+  Coroutine$jsFacing_button$lambda$ObjectLiteral$click$lambda.prototype.doResume_5 = function (data, exception) {
+    this.$result = data;
+    if (typeof exception !== 'undefined') {
+      this.$state = this.$exceptionState;
+      this.$exception = exception;
+    }
+    do
+      try {
+        switch (this.$state) {
+          case 0:
+            {
+              byid(this.local$closure$me.v.elementID).click();
+            }
+
+            return this.$controller.handleResult_2jrclo$(null, this);
+          case 1:
+            return this.$controller.handleException_bcy9dk$(this.$exception);
+        }
+      }
+       catch (e) {
+        if (this.$state === 1)
+          throw e;
+        else {
+          this.$state = this.$exceptionState;
+          this.$exception = e;
+        }
+      }
+     while (true);
+  };
+  Coroutine$jsFacing_button$lambda$ObjectLiteral$click$lambda.prototype.resume_za3rmp$ = function (data) {
+    return this.doResume_5(data);
+  };
+  Coroutine$jsFacing_button$lambda$ObjectLiteral$click$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
+    return this.doResume_5(void 0, exception);
+  };
+  jsFacing_button$lambda$ObjectLiteral.prototype.click = function () {
+    return async(jsFacing_button$lambda$ObjectLiteral$click$lambda(this.closure$me_0));
+  };
+  jsFacing_button$lambda$ObjectLiteral.$metadata$ = {
+    type: Kotlin.TYPE.CLASS,
+    classIndex: Kotlin.newClassIndex(),
+    baseClasses: [Button]
+  };
+  function jsFacing_button$lambda_2(closure$def, closure$me) {
+    return function () {
+      if (closure$def.shamy != null) {
+        Button$Companion_getInstance().instances.put_wn2jw4$(closure$def.shamy, new jsFacing_button$lambda$ObjectLiteral(closure$me));
+      }
+    };
+  }
+  function jsFacing_button$lambda_3(closure$def) {
+    return function () {
+      if (closure$def.shamy != null) {
+        Button$Companion_getInstance().instances.remove_za3rmp$(closure$def.shamy);
+      }
+    };
+  }
   function jsFacing_button(def) {
     var title = def.title;
     var hint = def.hint;
@@ -14385,6 +14676,8 @@
     var style = def.style;
     var me = {v: null};
     me.v = imported$json([imported$to('render', jsFacing_button$lambda(iconColor, def, me, level, className, style, hint, icon, title)), imported$to('onRootClick', jsFacing_button$lambda_0(onClick)), imported$to('contributeTestState', jsFacing_button$lambda_1(me, title, icon))]);
+    me.v.componentDidMount = jsFacing_button$lambda_2(def, me);
+    me.v.componentWillUnmount = jsFacing_button$lambda_3(def);
     me.v.controlTypeName = 'button';
     legacy_implementControlShit(imported$json([imported$to('me', me.v), imported$to('def', def), imported$to('implementTestClick', imported$json([imported$to('onClick', onClick)]))]));
     return elcl(me.v);
@@ -15346,7 +15639,7 @@
       tmp$1 = '\xA9 Copyright 2015-2016 AcademicPaperServed. All rights reserved';
     else if (Kotlin.equals(clientKind, ClientKind$WRITER_getInstance()))
       tmp$1 = '\xA9 Copyright 2015-2016 Writer UA. All rights reserved';
-    tmp$3.writeFileSync(tmp$2, '\n' + '    <!DOCTYPE html>' + '\n' + '    <html lang=' + '"' + 'en' + '"' + ' style=' + '"' + 'position: relative; min-height: 100%;' + '"' + '>' + '\n' + '    <head>' + '\n' + '        <meta charset=' + '"' + 'utf-8' + '"' + '>' + '\n' + '        <meta http-equiv=' + '"' + 'X-UA-Compatible' + '"' + ' content=' + '"' + 'IE=edge' + '"' + '>' + '\n' + '        <meta name=' + '"' + 'viewport' + '"' + ' content=' + '"' + 'width=device-width, initial-scale=1' + '"' + '>' + '\n' + '        <meta http-equiv=' + '"' + 'cache-control' + '"' + ' content=' + '"' + 'max-age=0' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'cache-control' + '"' + ' content=' + '"' + 'no-cache' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'expires' + '"' + ' content=' + '"' + '0' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'expires' + '"' + ' content=' + '"' + 'Tue, 01 Jan 1980 1:00:00 GMT' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'pragma' + '"' + ' content=' + '"' + 'no-cache' + '"' + ' />' + '\n' + '\n' + '    ' + this.renderToStaticMarkup_jz7n6v$(this.React.createElement('title', imported$json([]), tabTitle)) + '\n' + '\n' + '    <link href=' + '"' + 'bootstrap/css/bootstrap.min.css' + '"' + ' rel=' + '"' + 'stylesheet' + '"' + '>' + '\n' + '    <link rel=' + '"' + 'stylesheet' + '"' + ' href=' + '"' + 'font-awesome/css/font-awesome.min.css' + '"' + '>' + '\n' + '    <link href=' + '"' + 'bootstrap-datetimepicker-4.17.43-hacked.css' + '"' + ' rel=' + '"' + 'stylesheet' + '"' + '>' + '\n' + '\n' + '    <style>' + '\n' + '        ' + this.readStatic_61zpoe$('style.css') + '\n' + '    <\/style>' + '\n' + '\n' + '    <script>' + '\n' + "    LANG = '" + lang + "'" + '\n' + "    CLIENT_KIND = '" + clientKind.name + "'" + '\n' + "    setFavicon('" + (clientKind === ClientKind$CUSTOMER_getInstance() ? 'favicon-customer.ico' : 'favicon-writer.ico') + "')" + '\n' + '\n' + '    function setFavicon(src) {' + '\n' + "        var link = document.createElement('link')" + '\n' + "        link.id = 'favicon'" + '\n' + "        link.rel = 'shortcut icon'" + '\n' + '        link.href = src' + '\n' + '        document.head.appendChild(link)' + '\n' + '    }' + '\n' + '    <\/script>' + '\n' + '    <\/head>' + '\n' + '    <body style=' + '"' + 'padding-top: 50px; padding-bottom: 0px; overflow-y: scroll;' + '"' + '>' + '\n' + '    <div id=' + '"' + 'topNavbarContainer' + '"' + '>' + '\n' + '    ' + this.renderToStaticMarkup_jz7n6v$(renderTopNavbar(clientKind, MakeStaticSites$genericWritePage$lambda(this), imported$json([imported$to('highlightedItem', highlightedItem), imported$to('rightNavbarItemAStyle', imported$json([imported$to('display', 'none')]))]))) + '\n' + '    <\/div>' + '\n' + '\n' + '    <div id=' + '"' + 'root' + '"' + ' style=' + '"' + 'min-height: calc(100vh - 28px - 50px);' + '"' + '>' + '\n' + '    <div id=' + '"' + 'staticShit' + '"' + ' style=' + '"' + 'display: none;' + '"' + '>' + '\n' + '    <!-- BEGIN CONTENT -->' + '\n' + '    ' + this.renderToStaticMarkup_jz7n6v$(content) + '\n' + '    <!-- END CONTENT -->' + '\n' + '    <\/div>' + '\n' + '\n' + '    <div id=' + '"' + 'ticker' + '"' + ' style=' + '"' + 'display: none;' + '"' + '>' + this.renderToStaticMarkup_jz7n6v$(this.wholePageTicker()) + '<\/div>' + '\n' + '\n' + '    <script src=' + '"' + 'jquery.min.js' + '"' + '><\/script>' + '\n' + '\n' + '    <script>' + '\n' + '        window.storageLocalForStaticContent = localStorage' + '\n' + '\n' + '        function displayInitialShit() {' + '\n' + "            if (window.storageLocalForStaticContent.getItem('token')) {" + '\n' + "                document.getElementById('ticker').style.display = ''" + '\n' + '            } else {' + '\n' + '                makeSignInNavbarLinkVisible()' + '\n' + "                document.getElementById('staticShit').style.display = ''" + '\n' + '                window.staticShitIsRenderedStatically = true' + '\n' + '            }' + '\n' + '        }' + '\n' + '\n' + '        function makeSignInNavbarLinkVisible() {' + '\n' + '            ' + '$' + "('a[href=" + '"' + 'sign-in.html' + '"' + "]').css('display', '')" + '\n' + '        }' + '\n' + '\n' + '        ' + (this.mode === Mode$PROD_getInstance() ? '\n            displayInitialShit()\n        ' : '\n            if (!/test=|testSuite=/.test(location.href)) {\n                displayInitialShit()\n            }\n        ') + '\n' + '    <\/script>' + '\n' + '    <\/div> <!-- /#root -->' + '\n' + '\n' + '    <div id=' + '"' + 'footer' + '"' + ' style=' + '"' + 'position: relative;' + '"' + '>' + '\n' + '    <div style=' + '"' + 'background-color: #f8f8f8; border: 1px solid #e7e7e7; color: #333; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 12px; padding-top: 5px; padding-bottom: 5px; height: 28px;' + '"' + '>' + '\n' + '        <div class=' + '"' + 'container' + '"' + '>' + '\n' + '            ' + tmp$1 + '\n' + '        <\/div>' + '\n' + '    <\/div>' + '\n' + '    <div id=' + '"' + ELID_UNDER_FOOTER + '"' + '>' + '\n' + '    <\/div>' + '\n' + '    <\/div>' + '\n' + '\n' + "    <script>if (typeof global === 'undefined') global = window<\/script>" + '\n' + '\n' + '    <script src=' + '"' + 'deps.js' + '"' + '><\/script>' + '\n' + '    <script src=' + '"' + 'bootstrap/js/bootstrap-3.3.7-hacked.js' + '"' + '><\/script>' + '\n' + '    <script src=' + '"' + 'bootstrap-datetimepicker-4.17.43-hacked.js' + '"' + '><\/script>' + '\n' + '    <script src=' + '"' + 'kotlin.js' + '"' + '><\/script>' + '\n' + '    <!--' + '\n' + '        <script src=' + '"' + 'kotlin-1.1-m02-eap-hacked.js' + '"' + '><\/script>' + '\n' + '        <script src=' + '"' + 'into-kommon-js-enhanced.js' + '"' + '><\/script>' + '\n' + '        <script src=' + '"' + 'front-enhanced.js' + '"' + '><\/script>' + '\n' + '    -->' + '\n' + '\n' + '    <script>' + '\n' + '        ' + this.readStatic_61zpoe$('testimonials.js') + '\n' + '    <\/script>' + '\n' + '\n' + '    <script>' + '\n' + '        global = window' + '\n' + '        Kotlin = kotlin' + '\n' + '\n' + '        ' + (this.mode === Mode$DEBUG_getInstance() ? '\n' + '            // TODO:vgrechka Think about DANGEROUS_TOKEN. How it should be included into client, etc.' + '\n' + "            DANGEROUS_TOKEN = '" + imported$kommon.process.env.APS_DANGEROUS_TOKEN + "'" + '\n' + '        ' : '') + '\n' + '\n' + "        global.MODE = '" + this.mode + "'" + '\n' + '\n' + '        const scriptSuffix = ' + (this.mode === Mode$DEBUG_getInstance() ? "'?' + Date.now()" : "''") + '\n' + '\n' + '        Promise.resolve()' + '\n' + "        .then(_=> loadScript('into-kommon-js-enhanced.js' + scriptSuffix))" + '\n' + "        .then(_=> loadScript('front-enhanced.js' + scriptSuffix))" + '\n' + '        .then(_=> {' + '\n' + '            kot = Kotlin.modules.front' + '\n' + '            F = kot.aps.front' + '\n' + '            kot.aps.front.ignite()' + '\n' + '        })' + '\n' + '\n' + '        function loadScript(src) {' + '\n' + '            return new Promise((resolve, reject) => {' + '\n' + "                const script = document.createElement('script')" + '\n' + "                script.type = 'text/javascript'" + '\n' + '                script.async = true' + '\n' + '                script.onload = _=> {' + '\n' + "                    console.log('Loaded ' + src)" + '\n' + '                    resolve()' + '\n' + '                }' + '\n' + '                script.src = src' + '\n' + "                document.getElementsByTagName('head')[0].appendChild(script)" + '\n' + '            })' + '\n' + '        }' + '\n' + '    <\/script>' + '\n' + '    <\/body>' + '\n' + '    <\/html>' + '\n' + '    ');
+    tmp$3.writeFileSync(tmp$2, '\n' + '    <!DOCTYPE html>' + '\n' + '    <html lang=' + '"' + 'en' + '"' + ' style=' + '"' + 'position: relative; min-height: 100%;' + '"' + '>' + '\n' + '    <head>' + '\n' + '        <meta charset=' + '"' + 'utf-8' + '"' + '>' + '\n' + '        <meta http-equiv=' + '"' + 'X-UA-Compatible' + '"' + ' content=' + '"' + 'IE=edge' + '"' + '>' + '\n' + '        <meta name=' + '"' + 'viewport' + '"' + ' content=' + '"' + 'width=device-width, initial-scale=1' + '"' + '>' + '\n' + '        <meta http-equiv=' + '"' + 'cache-control' + '"' + ' content=' + '"' + 'max-age=0' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'cache-control' + '"' + ' content=' + '"' + 'no-cache' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'expires' + '"' + ' content=' + '"' + '0' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'expires' + '"' + ' content=' + '"' + 'Tue, 01 Jan 1980 1:00:00 GMT' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'pragma' + '"' + ' content=' + '"' + 'no-cache' + '"' + ' />' + '\n' + '\n' + '    ' + this.renderToStaticMarkup_jz7n6v$(this.React.createElement('title', imported$json([]), tabTitle)) + '\n' + '\n' + '    <link href=' + '"' + 'bootstrap/css/bootstrap.min.css' + '"' + ' rel=' + '"' + 'stylesheet' + '"' + '>' + '\n' + '    <link rel=' + '"' + 'stylesheet' + '"' + ' href=' + '"' + 'font-awesome/css/font-awesome.min.css' + '"' + '>' + '\n' + '    <link href=' + '"' + 'bootstrap-datetimepicker-4.17.43-hacked.css' + '"' + ' rel=' + '"' + 'stylesheet' + '"' + '>' + '\n' + '\n' + '    <style>' + '\n' + '        ' + this.readStatic_61zpoe$('style.css') + '\n' + '    <\/style>' + '\n' + '\n' + '    <script>' + '\n' + "    LANG = '" + lang + "'" + '\n' + "    CLIENT_KIND = '" + clientKind.name + "'" + '\n' + "    setFavicon('" + (clientKind === ClientKind$CUSTOMER_getInstance() ? 'favicon-customer.ico' : 'favicon-writer.ico') + "')" + '\n' + '\n' + '    function setFavicon(src) {' + '\n' + "        var link = document.createElement('link')" + '\n' + "        link.id = 'favicon'" + '\n' + "        link.rel = 'shortcut icon'" + '\n' + '        link.href = src' + '\n' + '        document.head.appendChild(link)' + '\n' + '    }' + '\n' + '    <\/script>' + '\n' + '    <\/head>' + '\n' + '    <body style=' + '"' + 'padding-top: 50px; padding-bottom: 0px; overflow-y: scroll;' + '"' + '>' + '\n' + '    <div id=' + '"' + 'topNavbarContainer' + '"' + '>' + '\n' + '    ' + this.renderToStaticMarkup_jz7n6v$(renderTopNavbar(clientKind, MakeStaticSites$genericWritePage$lambda(this), imported$json([imported$to('highlightedItem', highlightedItem), imported$to('rightNavbarItemAStyle', imported$json([imported$to('display', 'none')]))]))) + '\n' + '    <\/div>' + '\n' + '\n' + '    <div id=' + '"' + 'root' + '"' + ' style=' + '"' + 'min-height: calc(100vh - 28px - 50px);' + '"' + '>' + '\n' + '    <div id=' + '"' + 'staticShit' + '"' + ' style=' + '"' + 'display: none;' + '"' + '>' + '\n' + '    <!-- BEGIN CONTENT -->' + '\n' + '    ' + this.renderToStaticMarkup_jz7n6v$(content) + '\n' + '    <!-- END CONTENT -->' + '\n' + '    <\/div>' + '\n' + '\n' + '    <div id=' + '"' + 'ticker' + '"' + ' style=' + '"' + 'display: none;' + '"' + '>' + this.renderToStaticMarkup_jz7n6v$(this.wholePageTicker()) + '<\/div>' + '\n' + '\n' + '    <script src=' + '"' + 'jquery.min.js' + '"' + '><\/script>' + '\n' + '\n' + '    <script>' + '\n' + '        window.storageLocalForStaticContent = localStorage' + '\n' + '\n' + '        function displayInitialShit() {' + '\n' + "            if (window.storageLocalForStaticContent.getItem('token')) {" + '\n' + "                document.getElementById('ticker').style.display = ''" + '\n' + '            } else {' + '\n' + '                makeSignInNavbarLinkVisible()' + '\n' + "                document.getElementById('staticShit').style.display = ''" + '\n' + '                window.staticShitIsRenderedStatically = true' + '\n' + '            }' + '\n' + '        }' + '\n' + '\n' + '        function makeSignInNavbarLinkVisible() {' + '\n' + '            ' + '$' + "('a[href=" + '"' + 'sign-in.html' + '"' + "]').css('display', '')" + '\n' + '        }' + '\n' + '\n' + '        ' + (this.mode === Mode$PROD_getInstance() ? '\n            displayInitialShit()\n        ' : '\n            if (!/test=|testSuite=/.test(location.href)) {\n                displayInitialShit()\n            }\n        ') + '\n' + '    <\/script>' + '\n' + '    <\/div> <!-- /#root -->' + '\n' + '\n' + '    <div id=' + '"' + 'footer' + '"' + ' style=' + '"' + 'position: relative;' + '"' + '>' + '\n' + '    <div style=' + '"' + 'background-color: #f8f8f8; border: 1px solid #e7e7e7; color: #333; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 12px; padding-top: 5px; padding-bottom: 5px; height: 28px;' + '"' + '>' + '\n' + '        <div class=' + '"' + 'container' + '"' + '>' + '\n' + '            ' + tmp$1 + '\n' + '        <\/div>' + '\n' + '    <\/div>' + '\n' + '    <div id=' + '"' + ELID_UNDER_FOOTER + '"' + '>' + '\n' + '    <\/div>' + '\n' + '    <\/div>' + '\n' + '\n' + "    <script>if (typeof global === 'undefined') global = window<\/script>" + '\n' + '\n' + '    <script src=' + '"' + 'deps.js' + '"' + '><\/script>' + '\n' + '    <script src=' + '"' + 'bootstrap/js/bootstrap-3.3.7-hacked.js' + '"' + '><\/script>' + '\n' + '    <script src=' + '"' + 'bootstrap-datetimepicker-4.17.43-hacked.js' + '"' + '><\/script>' + '\n' + '    <script src=' + '"' + 'kotlin.js' + '"' + '><\/script>' + '\n' + '    <!--' + '\n' + '        <script src=' + '"' + 'kotlin-1.1-m02-eap-hacked.js' + '"' + '><\/script>' + '\n' + '        <script src=' + '"' + 'into-kommon-js-enhanced.js' + '"' + '><\/script>' + '\n' + '        <script src=' + '"' + 'front-enhanced.js' + '"' + '><\/script>' + '\n' + '    -->' + '\n' + '\n' + '    <script>' + '\n' + '        ' + this.readStatic_61zpoe$('testimonials.js') + '\n' + '    <\/script>' + '\n' + '\n' + '    <script>' + '\n' + '        global = window' + '\n' + '        Kotlin = kotlin' + '\n' + '\n' + '        ' + (this.mode === Mode$DEBUG_getInstance() ? '\n' + '            // TODO:vgrechka Think about DANGEROUS_TOKEN. How it should be included into client, etc.' + '\n' + "            DANGEROUS_TOKEN = '" + imported$kommon.process.env.APS_DANGEROUS_TOKEN + "'" + '\n' + '        ' : '') + '\n' + '\n' + "        global.MODE = '" + this.mode + "'" + '\n' + "        global.DB = 'bmix_fuckingAround_apsdevua'" + '\n' + '\n' + '        const scriptSuffix = ' + (this.mode === Mode$DEBUG_getInstance() ? "'?' + Date.now()" : "''") + '\n' + '\n' + '        Promise.resolve()' + '\n' + "        .then(_=> loadScript('into-kommon-js-enhanced.js' + scriptSuffix))" + '\n' + "        .then(_=> loadScript('front-enhanced.js' + scriptSuffix))" + '\n' + '        .then(_=> {' + '\n' + '            kot = Kotlin.modules.front' + '\n' + '            F = kot.aps.front' + '\n' + '            kot.aps.front.ignite()' + '\n' + '        })' + '\n' + '\n' + '        function loadScript(src) {' + '\n' + '            return new Promise((resolve, reject) => {' + '\n' + "                const script = document.createElement('script')" + '\n' + "                script.type = 'text/javascript'" + '\n' + '                script.async = true' + '\n' + '                script.onload = _=> {' + '\n' + "                    console.log('Loaded ' + src)" + '\n' + '                    resolve()' + '\n' + '                }' + '\n' + '                script.src = src' + '\n' + "                document.getElementsByTagName('head')[0].appendChild(script)" + '\n' + '            })' + '\n' + '        }' + '\n' + '    <\/script>' + '\n' + '    <\/body>' + '\n' + '    <\/html>' + '\n' + '    ');
   };
   function MakeStaticSites$renderTestimonials$lambda(this$MakeStaticSites) {
     return function (item) {
@@ -18522,9 +18815,10 @@
   function fetchFromBackend$lambda$lambda(it) {
     return imported$kommon.global.JSON.parse(it);
   }
-  function fetchFromBackend$lambda$lambda_0(closure$fields) {
+  function fetchFromBackend$lambda$lambda_0(closure$path, closure$fields) {
     return function (it) {
-      it.footer.setBackendVersion_61zpoe$(closure$fields.backendVersion);
+      if (!imported$contains(closure$path, 'getSoftwareVersion'))
+        it.footer.setBackendVersion_61zpoe$(closure$fields.backendVersion);
     };
   }
   function fetchFromBackend$lambda(closure$path, closure$requestJSONObject) {
@@ -18543,6 +18837,7 @@
     this.local$tmp$3 = null;
     this.local$block$result = null;
     this.local$obj = null;
+    this.local$$receiver = null;
     this.local$fields = null;
   }
   Coroutine$fetchFromBackend$lambda.$metadata$ = {
@@ -18569,7 +18864,9 @@
             this.local$obj = this.$result;
             this.local$fields = this.local$obj;
             if ((this.local$tmp$1 = Globus_getInstance().world) != null) {
-              this.local$tmp$1.footer.setBackendVersion_61zpoe$(this.local$fields.backendVersion);
+              this.local$$receiver = this.local$tmp$1;
+              if (!imported$contains(this.local$closure$path, 'getSoftwareVersion'))
+                this.local$$receiver.footer.setBackendVersion_61zpoe$(this.local$fields.backendVersion);
               this.local$tmp$3 = this.local$block$result;
             }
              else
@@ -18751,6 +19048,7 @@
     var tmp$0;
     '__async';
     requestJSONObject.rootRedisLogMessageID = Globus_getInstance().rootRedisLogMessageID;
+    requestJSONObject.databaseID = global.DB;
     var responseJSONObject = (yield fetchFromBackend('rpc/' + procedureName, requestJSONObject));
     return ((tmp$0 = dejsonizeValue(responseJSONObject)) != null ? tmp$0 : Kotlin.throwNPE());
   });}
@@ -20415,28 +20713,28 @@
     simpleName: 'SignInPage',
     baseClasses: []
   };
-  function SignUpPage(ui) {
-    this.ui = ui;
+  function SignUpPage(world) {
+    this.world = world;
   }
-  function SignUpPage$load$lambda$lambda(this$SignUpPage, this$) {
+  function SignUpPage$load$lambda$lambda$lambda(this$SignUpPage, this$) {
     return function () {
-      return new Coroutine$SignUpPage$load$lambda$lambda(this$SignUpPage, this$, this);
+      return new Coroutine$SignUpPage$load$lambda$lambda$lambda(this$SignUpPage, this$, this);
     };
   }
-  function Coroutine$SignUpPage$load$lambda$lambda(this$SignUpPage, this$, controller) {
+  function Coroutine$SignUpPage$load$lambda$lambda$lambda(this$SignUpPage, this$, controller) {
     this.$state = 0;
     this.$exceptionState = 1;
     this.$controller = controller;
     this.local$this$SignUpPage = this$SignUpPage;
     this.local$this$ = this$;
   }
-  Coroutine$SignUpPage$load$lambda$lambda.$metadata$ = {
+  Coroutine$SignUpPage$load$lambda$lambda$lambda.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$SignUpPage$load$lambda$lambda.prototype.doResume_7 = function (data, exception) {
+  Coroutine$SignUpPage$load$lambda$lambda$lambda.prototype.doResume_7 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -20446,10 +20744,10 @@
       try {
         switch (this.$state) {
           case 0:
-            this.local$this$SignUpPage.ui.signedUpOK = true;
-            this.local$this$SignUpPage.ui.initialEmailFieldValueAfterSignUp = this.local$this$.req.immutableSignUpFields.email.value;
+            this.local$this$SignUpPage.world.signedUpOK = true;
+            this.local$this$SignUpPage.world.initialEmailFieldValueAfterSignUp = this.local$this$.req.immutableSignUpFields.email.value;
             this.$state = 2;
-            return this.$controller.await_s7vvx4$(this.local$this$SignUpPage.ui.pushNavigate_61zpoe$('sign-in.html'), this);
+            return this.$controller.await_s7vvx4$(this.local$this$SignUpPage.world.pushNavigate_61zpoe$('sign-in.html'), this);
           case 1:
             return this.$controller.handleException_bcy9dk$(this.$exception);
           case 2:
@@ -20466,22 +20764,129 @@
       }
      while (true);
   };
-  Coroutine$SignUpPage$load$lambda$lambda.prototype.resume_za3rmp$ = function (data) {
+  Coroutine$SignUpPage$load$lambda$lambda$lambda.prototype.resume_za3rmp$ = function (data) {
     return this.doResume_7(data);
   };
-  Coroutine$SignUpPage$load$lambda$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
+  Coroutine$SignUpPage$load$lambda$lambda$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
     return this.doResume_7(void 0, exception);
   };
-  function SignUpPage$load$lambda(this$SignUpPage) {
+  function SignUpPage$load$lambda$lambda(this$SignUpPage) {
     return function (it) {
-      return async(SignUpPage$load$lambda$lambda(this$SignUpPage, this));
+      return async(SignUpPage$load$lambda$lambda$lambda(this$SignUpPage, this));
     };
   }
-  SignUpPage.prototype.load = function () {return __awaiter(this, void 0, void 0, function* () {
-    '__async';
-    this.ui.setPage_3xnbz2$(new Page(oldShitAsToReactElementable(Shitus_getInstance().pageHeader(imported$json([imported$to('title', t('Sign Up', '\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F'))]))), void 0, oldShitAsToReactElementable(Shitus_getInstance().diva(imported$json([]), (new FormMatumba(new FormSpec(new SignUpRequest(), this.ui, void 0, void 0, t('Proceed', '\u0412\u043F\u0435\u0440\u0435\u0434'), void 0, void 0, void 0, void 0, void 0, void 0, void 0, SignUpPage$load$lambda(this)))).toReactElement(), Shitus_getInstance().diva(imported$json([]), hr(), Shitus_getInstance().diva(imported$json([imported$to('tame', 'signInSuggestion'), imported$to('style', imported$json([imported$to('textAlign', 'left')]))]), Shitus_getInstance().spanc(imported$json([imported$to('tame', 'prose'), imported$to('content', t('TOTE', '\u0423\u0436\u0435 \u0435\u0441\u0442\u044C \u0430\u043A\u043A\u0430\u0443\u043D\u0442? \u0422\u043E\u0433\u0434\u0430 '))])), this.ui.urlLink_za3rmp$(imported$json([imported$to('tamy', true), imported$to('title', t('TOTE', '\u0432\u0445\u043E\u0434\u0438\u043C \u0441\u044E\u0434\u0430')), imported$to('url', 'sign-in.html'), imported$to('delayActionForFanciness', true)])), '.'))))));
-    return (imported$kotlin.Unit);
-  });};
+  function SignUpPage$load$lambda$lambda$lambda_0() {
+    return new Coroutine$SignUpPage$load$lambda$lambda$lambda_0(this);
+  }
+  function Coroutine$SignUpPage$load$lambda$lambda$lambda_0(controller) {
+    this.$state = 0;
+    this.$exceptionState = 1;
+    this.$controller = controller;
+  }
+  Coroutine$SignUpPage$load$lambda$lambda$lambda_0.$metadata$ = {
+    type: Kotlin.TYPE.CLASS,
+    classIndex: Kotlin.newClassIndex(),
+    simpleName: null,
+    baseClasses: [imported$Continuation]
+  };
+  Coroutine$SignUpPage$load$lambda$lambda$lambda_0.prototype.doResume_7 = function (data, exception) {
+    this.$result = data;
+    if (typeof exception !== 'undefined') {
+      this.$state = this.$exceptionState;
+      this.$exception = exception;
+    }
+    do
+      try {
+        switch (this.$state) {
+          case 0:
+            {
+              Input$Companion_getInstance().instance_61zpoe$('email').setValue_61zpoe$('ivo.bobul@mailinator.com');
+              Input$Companion_getInstance().instance_61zpoe$('firstName').setValue_61zpoe$('\u0418\u0432\u043E');
+              Input$Companion_getInstance().instance_61zpoe$('lastName').setValue_61zpoe$('\u0411\u043E\u0431\u0443\u043B');
+              Checkbox$Companion_getInstance().instance_61zpoe$('agreeTerms').setValue_6taknv$(true);
+              Button$Companion_getInstance().instance_61zpoe$('primary').click();
+            }
+
+            return this.$controller.handleResult_2jrclo$(null, this);
+          case 1:
+            return this.$controller.handleException_bcy9dk$(this.$exception);
+        }
+      }
+       catch (e) {
+        if (this.$state === 1)
+          throw e;
+        else {
+          this.$state = this.$exceptionState;
+          this.$exception = e;
+        }
+      }
+     while (true);
+  };
+  Coroutine$SignUpPage$load$lambda$lambda$lambda_0.prototype.resume_za3rmp$ = function (data) {
+    return this.doResume_7(data);
+  };
+  Coroutine$SignUpPage$load$lambda$lambda$lambda_0.prototype.resumeWithException_tcv7n7$ = function (exception) {
+    return this.doResume_7(void 0, exception);
+  };
+  function SignUpPage$load$lambda$lambda_0() {
+    return async(SignUpPage$load$lambda$lambda$lambda_0);
+  }
+  function SignUpPage$load$lambda(this$SignUpPage) {
+    return function () {
+      return new Coroutine$SignUpPage$load$lambda(this$SignUpPage, this);
+    };
+  }
+  function Coroutine$SignUpPage$load$lambda(this$SignUpPage, controller) {
+    this.$state = 0;
+    this.$exceptionState = 1;
+    this.$controller = controller;
+    this.local$this$SignUpPage = this$SignUpPage;
+  }
+  Coroutine$SignUpPage$load$lambda.$metadata$ = {
+    type: Kotlin.TYPE.CLASS,
+    classIndex: Kotlin.newClassIndex(),
+    simpleName: null,
+    baseClasses: [imported$Continuation]
+  };
+  Coroutine$SignUpPage$load$lambda.prototype.doResume_8 = function (data, exception) {
+    this.$result = data;
+    if (typeof exception !== 'undefined') {
+      this.$state = this.$exceptionState;
+      this.$exception = exception;
+    }
+    do
+      try {
+        switch (this.$state) {
+          case 0:
+            {
+              this.local$this$SignUpPage.world.setPage_3xnbz2$(new Page(oldShitAsToReactElementable(Shitus_getInstance().pageHeader(imported$json([imported$to('title', t('Sign Up', '\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F'))]))), void 0, oldShitAsToReactElementable(Shitus_getInstance().diva(imported$json([]), (new FormMatumba(new FormSpec(new SignUpRequest(), this.local$this$SignUpPage.world, void 0, void 0, t('Proceed', '\u0412\u043F\u0435\u0440\u0435\u0434'), void 0, void 0, void 0, void 0, void 0, void 0, void 0, SignUpPage$load$lambda$lambda(this.local$this$SignUpPage)))).toReactElement(), Shitus_getInstance().diva(imported$json([]), hr(), Shitus_getInstance().diva(imported$json([imported$to('tame', 'signInSuggestion'), imported$to('style', imported$json([imported$to('textAlign', 'left')]))]), Shitus_getInstance().spanc(imported$json([imported$to('tame', 'prose'), imported$to('content', t('TOTE', '\u0423\u0436\u0435 \u0435\u0441\u0442\u044C \u0430\u043A\u043A\u0430\u0443\u043D\u0442? \u0422\u043E\u0433\u0434\u0430 '))])), this.local$this$SignUpPage.world.urlLink_za3rmp$(imported$json([imported$to('tamy', true), imported$to('title', t('TOTE', '\u0432\u0445\u043E\u0434\u0438\u043C \u0441\u044E\u0434\u0430')), imported$to('url', 'sign-in.html'), imported$to('delayActionForFanciness', true)])), '.'))))));
+              this.local$this$SignUpPage.world.footer.setBurgerMenu_3xli5q$(new Menu(imported$listOf_0(new MenuItem('\u0418\u0432\u043E \u0411\u043E\u0431\u0443\u043B', SignUpPage$load$lambda$lambda_0))));
+            }
+
+            return this.$controller.handleResult_2jrclo$(null, this);
+          case 1:
+            return this.$controller.handleException_bcy9dk$(this.$exception);
+        }
+      }
+       catch (e) {
+        if (this.$state === 1)
+          throw e;
+        else {
+          this.$state = this.$exceptionState;
+          this.$exception = e;
+        }
+      }
+     while (true);
+  };
+  Coroutine$SignUpPage$load$lambda.prototype.resume_za3rmp$ = function (data) {
+    return this.doResume_8(data);
+  };
+  Coroutine$SignUpPage$load$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
+    return this.doResume_8(void 0, exception);
+  };
+  SignUpPage.prototype.load = function () {
+    return async(SignUpPage$load$lambda(this));
+  };
   SignUpPage.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
@@ -21146,7 +21551,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$Tabs2$clickOnTaba$lambda.prototype.doResume_7 = function (data, exception) {
+  Coroutine$Tabs2$clickOnTaba$lambda.prototype.doResume_8 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -21180,10 +21585,10 @@
      while (true);
   };
   Coroutine$Tabs2$clickOnTaba$lambda.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_7(data);
+    return this.doResume_8(data);
   };
   Coroutine$Tabs2$clickOnTaba$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_7(void 0, exception);
+    return this.doResume_8(void 0, exception);
   };
   Tabs2.prototype.clickOnTaba_61zpoe$ = function (id) {
     return async(Tabs2$clickOnTaba$lambda(this, id));
@@ -21286,7 +21691,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$Tabs2_init$lambda$lambda.prototype.doResume_7 = function (data, exception) {
+  Coroutine$Tabs2_init$lambda$lambda.prototype.doResume_8 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -21315,10 +21720,10 @@
      while (true);
   };
   Coroutine$Tabs2_init$lambda$lambda.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_7(data);
+    return this.doResume_8(data);
   };
   Coroutine$Tabs2_init$lambda$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_7(void 0, exception);
+    return this.doResume_8(void 0, exception);
   };
   function Tabs2_init$lambda(it) {
     return async(Tabs2_init$lambda$lambda);
@@ -21390,7 +21795,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$TestScenarioBuilder$act$lambda$lambda.prototype.doResume_8 = function (data, exception) {
+  Coroutine$TestScenarioBuilder$act$lambda$lambda.prototype.doResume_9 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -21420,10 +21825,10 @@
      while (true);
   };
   Coroutine$TestScenarioBuilder$act$lambda$lambda.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_8(data);
+    return this.doResume_9(data);
   };
   Coroutine$TestScenarioBuilder$act$lambda$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_8(void 0, exception);
+    return this.doResume_9(void 0, exception);
   };
   function TestScenarioBuilder$act$lambda(closure$block) {
     return function () {
@@ -21497,7 +21902,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$TestScenarioBuilder$assertOnAnimationFrame$lambda$lambda.prototype.doResume_8 = function (data, exception) {
+  Coroutine$TestScenarioBuilder$assertOnAnimationFrame$lambda$lambda.prototype.doResume_9 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -21528,10 +21933,10 @@
      while (true);
   };
   Coroutine$TestScenarioBuilder$assertOnAnimationFrame$lambda$lambda.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_8(data);
+    return this.doResume_9(data);
   };
   Coroutine$TestScenarioBuilder$assertOnAnimationFrame$lambda$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_8(void 0, exception);
+    return this.doResume_9(void 0, exception);
   };
   function TestScenarioBuilder$assertOnAnimationFrame$lambda(closure$test, closure$stepTitle) {
     return function () {
@@ -21559,7 +21964,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$TestScenarioBuilder$checkOnAnimationFrame$lambda$lambda.prototype.doResume_8 = function (data, exception) {
+  Coroutine$TestScenarioBuilder$checkOnAnimationFrame$lambda$lambda.prototype.doResume_9 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -21592,10 +21997,10 @@
      while (true);
   };
   Coroutine$TestScenarioBuilder$checkOnAnimationFrame$lambda$lambda.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_8(data);
+    return this.doResume_9(data);
   };
   Coroutine$TestScenarioBuilder$checkOnAnimationFrame$lambda$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_8(void 0, exception);
+    return this.doResume_9(void 0, exception);
   };
   function TestScenarioBuilder$checkOnAnimationFrame$lambda(closure$block, closure$step) {
     return function () {
@@ -21645,7 +22050,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$TestScenarioBuilder$assertHTML$lambda$lambda.prototype.doResume_8 = function (data, exception) {
+  Coroutine$TestScenarioBuilder$assertHTML$lambda$lambda.prototype.doResume_9 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -21675,10 +22080,10 @@
      while (true);
   };
   Coroutine$TestScenarioBuilder$assertHTML$lambda$lambda.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_8(data);
+    return this.doResume_9(data);
   };
   Coroutine$TestScenarioBuilder$assertHTML$lambda$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_8(void 0, exception);
+    return this.doResume_9(void 0, exception);
   };
   function TestScenarioBuilder$assertHTML$lambda(closure$expected) {
     return function () {
@@ -21718,7 +22123,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$TestScenarioBuilder$assertHTML$lambda$lambda_0.prototype.doResume_8 = function (data, exception) {
+  Coroutine$TestScenarioBuilder$assertHTML$lambda$lambda_0.prototype.doResume_9 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -21754,10 +22159,10 @@
      while (true);
   };
   Coroutine$TestScenarioBuilder$assertHTML$lambda$lambda_0.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_8(data);
+    return this.doResume_9(data);
   };
   Coroutine$TestScenarioBuilder$assertHTML$lambda$lambda_0.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_8(void 0, exception);
+    return this.doResume_9(void 0, exception);
   };
   function TestScenarioBuilder$assertHTML$lambda_1(closure$inside, closure$transformLine, closure$expected, closure$stepTitle) {
     return function () {
@@ -21863,7 +22268,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$TestScenarioBuilder$assertScreenHTML$lambda$lambda.prototype.doResume_8 = function (data, exception) {
+  Coroutine$TestScenarioBuilder$assertScreenHTML$lambda$lambda.prototype.doResume_9 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -21905,10 +22310,10 @@
      while (true);
   };
   Coroutine$TestScenarioBuilder$assertScreenHTML$lambda$lambda.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_8(data);
+    return this.doResume_9(data);
   };
   Coroutine$TestScenarioBuilder$assertScreenHTML$lambda$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_8(void 0, exception);
+    return this.doResume_9(void 0, exception);
   };
   function TestScenarioBuilder$assertScreenHTML$lambda_0(closure$id, closure$stepTitle) {
     return function () {
@@ -21984,7 +22389,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$TestScenarioBuilder$setValue$lambda$lambda.prototype.doResume_8 = function (data, exception) {
+  Coroutine$TestScenarioBuilder$setValue$lambda$lambda.prototype.doResume_9 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -22014,10 +22419,10 @@
      while (true);
   };
   Coroutine$TestScenarioBuilder$setValue$lambda$lambda.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_8(data);
+    return this.doResume_9(data);
   };
   Coroutine$TestScenarioBuilder$setValue$lambda$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_8(void 0, exception);
+    return this.doResume_9(void 0, exception);
   };
   function TestScenarioBuilder$setValue$lambda(closure$shame, this$TestScenarioBuilder, closure$value) {
     return function () {
@@ -22131,7 +22536,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$jsFacing_TopNavItem$lambda$lambda.prototype.doResume_8 = function (data, exception) {
+  Coroutine$jsFacing_TopNavItem$lambda$lambda.prototype.doResume_9 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -22170,10 +22575,10 @@
      while (true);
   };
   Coroutine$jsFacing_TopNavItem$lambda$lambda.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_8(data);
+    return this.doResume_9(data);
   };
   Coroutine$jsFacing_TopNavItem$lambda$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_8(void 0, exception);
+    return this.doResume_9(void 0, exception);
   };
   function jsFacing_TopNavItem$lambda_0(closure$def, closure$aid, closure$ui, closure$href) {
     return function (e) {
@@ -22280,9 +22685,6 @@
     get_hrss().browserOld.impl = this;
     KotlinShit_getInstance().clientImpl = this;
     initEffects();
-    if (Kotlin.equals(MODE, 'debug')) {
-      Shitus_getInstance().initDebugFunctionsShit();
-    }
     (yield this.bootKillme());
     Globus_getInstance().world = this;
     send_6(new PingRequest());
@@ -22455,7 +22857,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$World$loadPageForURL$staticLoader$lambda.prototype.doResume_8 = function (data, exception) {
+  Coroutine$World$loadPageForURL$staticLoader$lambda.prototype.doResume_9 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -22488,10 +22890,10 @@
      while (true);
   };
   Coroutine$World$loadPageForURL$staticLoader$lambda.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_8(data);
+    return this.doResume_9(data);
   };
   Coroutine$World$loadPageForURL$staticLoader$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_8(void 0, exception);
+    return this.doResume_9(void 0, exception);
   };
   function World$loadPageForURL$staticLoader(closure$ultimateName, this$World) {
     return function () {
@@ -22581,6 +22983,7 @@
     var skipBodyRendering = firstRun && isStaticPage(ultimateName.v) && get_typedStorageLocal().token == null;
     if (!skipBodyRendering) {
       imported$kommon.global.window.disposeStaticShit();
+      this.footer.setBurgerMenu_3xli5q$(null);
       (yield loader());
       $(imported$kommon.global.document).scrollTop(0);
       imported$kommon.global.window.initStaticShit();
@@ -22858,7 +23261,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$BootTestScenario$buildSteps$lambda$lambda.prototype.doResume_8 = function (data, exception) {
+  Coroutine$BootTestScenario$buildSteps$lambda$lambda.prototype.doResume_9 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -22914,10 +23317,10 @@
      while (true);
   };
   Coroutine$BootTestScenario$buildSteps$lambda$lambda.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_8(data);
+    return this.doResume_9(data);
   };
   Coroutine$BootTestScenario$buildSteps$lambda$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_8(void 0, exception);
+    return this.doResume_9(void 0, exception);
   };
   function BootTestScenario$buildSteps$lambda_0(this$BootTestScenario) {
     return function () {
@@ -23078,7 +23481,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$kindaNavigateToStaticContent$lambda$lambda.prototype.doResume_8 = function (data, exception) {
+  Coroutine$kindaNavigateToStaticContent$lambda$lambda.prototype.doResume_9 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -23122,10 +23525,10 @@
      while (true);
   };
   Coroutine$kindaNavigateToStaticContent$lambda$lambda.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_8(data);
+    return this.doResume_9(data);
   };
   Coroutine$kindaNavigateToStaticContent$lambda$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_8(void 0, exception);
+    return this.doResume_9(void 0, exception);
   };
   function kindaNavigateToStaticContent$lambda(closure$url) {
     return function () {
@@ -23288,7 +23691,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$prepareBobul$lambda$lambda.prototype.doResume_8 = function (data, exception) {
+  Coroutine$prepareBobul$lambda$lambda.prototype.doResume_9 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -23350,10 +23753,10 @@
      while (true);
   };
   Coroutine$prepareBobul$lambda$lambda.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_8(data);
+    return this.doResume_9(data);
   };
   Coroutine$prepareBobul$lambda$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_8(void 0, exception);
+    return this.doResume_9(void 0, exception);
   };
   function prepareBobul$lambda(closure$testShit) {
     return function () {
@@ -23439,7 +23842,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$prepareBobulOrders1$lambda$lambda.prototype.doResume_8 = function (data, exception) {
+  Coroutine$prepareBobulOrders1$lambda$lambda.prototype.doResume_9 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -23502,10 +23905,10 @@
      while (true);
   };
   Coroutine$prepareBobulOrders1$lambda$lambda.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_8(data);
+    return this.doResume_9(data);
   };
   Coroutine$prepareBobulOrders1$lambda$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_8(void 0, exception);
+    return this.doResume_9(void 0, exception);
   };
   function prepareBobulOrders1$lambda(closure$testShit) {
     return function () {
@@ -23535,7 +23938,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$orderFiles1$lambda$lambda.prototype.doResume_8 = function (data, exception) {
+  Coroutine$orderFiles1$lambda$lambda.prototype.doResume_9 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -23565,10 +23968,10 @@
      while (true);
   };
   Coroutine$orderFiles1$lambda$lambda.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_8(data);
+    return this.doResume_9(data);
   };
   Coroutine$orderFiles1$lambda$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_8(void 0, exception);
+    return this.doResume_9(void 0, exception);
   };
   function orderFiles1$lambda_0() {
     return async(orderFiles1$lambda$lambda);
@@ -23674,7 +24077,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$TestUtils$bootWorld$lambda$lambda.prototype.doResume_9 = function (data, exception) {
+  Coroutine$TestUtils$bootWorld$lambda$lambda.prototype.doResume_10 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -23705,10 +24108,10 @@
      while (true);
   };
   Coroutine$TestUtils$bootWorld$lambda$lambda.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_9(data);
+    return this.doResume_10(data);
   };
   Coroutine$TestUtils$bootWorld$lambda$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_9(void 0, exception);
+    return this.doResume_10(void 0, exception);
   };
   function TestUtils$bootWorld$lambda(closure$name, closure$done) {
     return function () {
@@ -24881,7 +25284,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$runTest$lambda.prototype.doResume_9 = function (data, exception) {
+  Coroutine$runTest$lambda.prototype.doResume_10 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -24917,8 +25320,6 @@
             art_getInstance().respectArtPauses = Kotlin.equals(this.local$closure$urlQuery.get_za3rmp$('respectArtPauses'), 'yes');
             this.local$sim = new runTest$lambda$ObjectLiteral();
             this.local$closure$scenario.host = this.local$sim;
-            imported$kommon.global.DB = 'aps-test';
-            imported$kommon.global.sessionStorage.setItem('DB', imported$kommon.global.DB);
             this.local$initialHref = window.location.pathname + window.location.search;
             imported$kommon.global.addEventListener('keydown', runTest$lambda$lambda(this.local$initialHref));
             get_hrss().currentTestScenario = this.local$closure$scenario;
@@ -24978,10 +25379,10 @@
      while (true);
   };
   Coroutine$runTest$lambda.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_9(data);
+    return this.doResume_10(data);
   };
   Coroutine$runTest$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_9(void 0, exception);
+    return this.doResume_10(void 0, exception);
   };
   function runTest(scenario, urlQuery, showTestPassedPane) {
     return async(runTest$lambda(scenario, urlQuery, showTestPassedPane));
@@ -25700,7 +26101,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$TestCustomer_SignUp_HappyPath$buildSteps$lambda$lambda.prototype.doResume_9 = function (data, exception) {
+  Coroutine$TestCustomer_SignUp_HappyPath$buildSteps$lambda$lambda.prototype.doResume_10 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -25730,10 +26131,10 @@
      while (true);
   };
   Coroutine$TestCustomer_SignUp_HappyPath$buildSteps$lambda$lambda.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_9(data);
+    return this.doResume_10(data);
   };
   Coroutine$TestCustomer_SignUp_HappyPath$buildSteps$lambda$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_9(void 0, exception);
+    return this.doResume_10(void 0, exception);
   };
   function TestCustomer_SignUp_HappyPath$buildSteps$lambda() {
     return async(TestCustomer_SignUp_HappyPath$buildSteps$lambda$lambda);
@@ -25813,7 +26214,7 @@
     simpleName: null,
     baseClasses: [imported$Continuation]
   };
-  Coroutine$TestUACustomer_NewOrder_HappyPath$buildSteps$lambda$lambda.prototype.doResume_10 = function (data, exception) {
+  Coroutine$TestUACustomer_NewOrder_HappyPath$buildSteps$lambda$lambda.prototype.doResume_11 = function (data, exception) {
     this.$result = data;
     if (typeof exception !== 'undefined') {
       this.$state = this.$exceptionState;
@@ -25843,10 +26244,10 @@
      while (true);
   };
   Coroutine$TestUACustomer_NewOrder_HappyPath$buildSteps$lambda$lambda.prototype.resume_za3rmp$ = function (data) {
-    return this.doResume_10(data);
+    return this.doResume_11(data);
   };
   Coroutine$TestUACustomer_NewOrder_HappyPath$buildSteps$lambda$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
-    return this.doResume_10(void 0, exception);
+    return this.doResume_11(void 0, exception);
   };
   function TestUACustomer_NewOrder_HappyPath$buildSteps$lambda_0() {
     return async(TestUACustomer_NewOrder_HappyPath$buildSteps$lambda$lambda);
@@ -30962,6 +31363,13 @@
   package$front.DefinitionStackHolder = DefinitionStackHolder;
   package$front.renderExpandableOnDemandStack_sx1pf2$ = renderExpandableOnDemandStack;
   package$front.Betsy = Betsy;
+  Object.defineProperty(BurgerDropdownButton$Direction, 'DOWN', {
+    get: BurgerDropdownButton$Direction$DOWN_getInstance
+  });
+  Object.defineProperty(BurgerDropdownButton$Direction, 'UP', {
+    get: BurgerDropdownButton$Direction$UP_getInstance
+  });
+  BurgerDropdownButton.Direction = BurgerDropdownButton$Direction;
   package$front.BurgerDropdownButton = BurgerDropdownButton;
   package$front.button2_2sdnyz$ = button2;
   Object.defineProperty(Button, 'Companion', {
@@ -30977,7 +31385,11 @@
   package$front.Button = Button;
   package$front.buttonClick_kd46w6$ = buttonClick;
   package$front.buttonUserInitiatedClick_kd46w6$ = buttonUserInitiatedClick;
-  package$front.jsFacing_Checkbox_za3rmp$ = jsFacing_Checkbox;
+  Object.defineProperty(Checkbox, 'Companion', {
+    get: Checkbox$Companion_getInstance
+  });
+  package$front.Checkbox = Checkbox;
+  package$front.jsFacing_Checkbox_hwpqgh$ = jsFacing_Checkbox;
   package$front.button_ui6otx$ = button;
   Object.defineProperty(package$front, 'NIL_AsyncReactEventHandler', {
     get: function () {
@@ -31028,7 +31440,11 @@
   package$front.ControlInstanceSpec = ControlInstanceSpec;
   package$front.Control = Control;
   package$front.Attrs = Attrs;
+  Object.defineProperty(Control2, 'Companion', {
+    get: Control2$Companion_getInstance
+  });
   package$front.Control2 = Control2;
+  package$front.from_iogdy0$ = from_1;
   CustomerSingleUAOrderPage.URLQuery = CustomerSingleUAOrderPage$URLQuery;
   package$front.CustomerSingleUAOrderPage = CustomerSingleUAOrderPage;
   package$front.CustomerUAOrdersPage = CustomerUAOrdersPage;
@@ -31353,9 +31769,12 @@
   Object.defineProperty(package$front, 'breatheBanner', {
     get: get_breatheBanner
   });
-  package$front.jsFacing_Input_qk3xy8$ = jsFacing_Input;
+  package$front.jsFacing_Input_953mwi$ = jsFacing_Input;
   Object.defineProperty(package$front, 'inputReactClass', {
     get: get_inputReactClass
+  });
+  Object.defineProperty(Input, 'Companion', {
+    get: Input$Companion_getInstance
   });
   package$front.Input = Input;
   package$front.get_e6i44i$ = get;
