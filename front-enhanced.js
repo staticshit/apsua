@@ -8574,7 +8574,7 @@
   function DynamicFooter$render$lambda(this$DynamicFooter) {
     return function (o) {
       var tmp$0;
-      o.minus_61zpoe$('Frontend: 238');
+      o.minus_61zpoe$('Frontend: 242');
       var tmp$1;
       if ((tmp$0 = this$DynamicFooter.backendVersion) != null) {
         var it = tmp$0;
@@ -12605,6 +12605,9 @@
   };
   fuckingRemoteCall.prototype.robotTypeTextCRIntoWindowTitledOpen_61zpoe$ = function (text_0) {
     return this.sendShit_0(imported$json([imported$to('proc', 'robotTypeTextCRIntoWindowTitledOpen'), imported$to('text', text_0)]));
+  };
+  fuckingRemoteCall.prototype.ping = function () {
+    return this.sendShit_0(imported$json([imported$to('proc', 'ping')]));
   };
   function fuckingRemoteCall$sendShit$lambda$lambda(closure$request) {
     return function (o) {
@@ -22279,6 +22282,7 @@
     }
     (yield this.bootKillme());
     Globus_getInstance().world = this;
+    fuckingRemoteCall_getInstance().ping();
     return (imported$kotlin.Unit);
   });};
   World.prototype.urlLink_za3rmp$ = function (def) {
