@@ -13718,13 +13718,74 @@
       this.schedule_0();
     }
   });};
+  function InitAutoReload_init$inita$lambda(this$InitAutoReload) {
+    return function () {
+      return new Coroutine$InitAutoReload_init$inita$lambda(this$InitAutoReload, this);
+    };
+  }
+  function Coroutine$InitAutoReload_init$inita$lambda(this$InitAutoReload, controller) {
+    this.$state = 0;
+    this.$exceptionState = 1;
+    this.$controller = controller;
+    this.local$this$InitAutoReload = this$InitAutoReload;
+    this.local$tmp$0 = null;
+  }
+  Coroutine$InitAutoReload_init$inita$lambda.$metadata$ = {
+    type: Kotlin.TYPE.CLASS,
+    classIndex: Kotlin.newClassIndex(),
+    simpleName: null,
+    baseClasses: [imported$Continuation]
+  };
+  Coroutine$InitAutoReload_init$inita$lambda.prototype.doResume_5 = function (data, exception) {
+    this.$result = data;
+    if (typeof exception !== 'undefined') {
+      this.$state = this.$exceptionState;
+      this.$exception = exception;
+    }
+    do
+      try {
+        switch (this.$state) {
+          case 0:
+            if (Globus_getInstance().mode !== Mode$DEBUG_getInstance()) {
+              return this.$controller.handleResult_2jrclo$(null, this);
+            }
+             else {
+              this.$state = 2;
+              continue;
+            }
+
+          case 1:
+            return this.$controller.handleException_bcy9dk$(this.$exception);
+          case 2:
+            this.$state = 3;
+            return this.$controller.await_s7vvx4$(GetSoftwareVersionRequest$Companion_getInstance().send(), this);
+          case 3:
+            this.local$tmp$0 = this.$result;
+            this.local$this$InitAutoReload.initialCtime = this.local$tmp$0.ctime;
+            this.local$this$InitAutoReload.schedule_0();
+            return this.$controller.handleResult_2jrclo$(null, this);
+        }
+      }
+       catch (e) {
+        if (this.$state === 1)
+          throw e;
+        else {
+          this.$state = this.$exceptionState;
+          this.$exception = e;
+        }
+      }
+     while (true);
+  };
+  Coroutine$InitAutoReload_init$inita$lambda.prototype.resume_za3rmp$ = function (data) {
+    return this.doResume_5(data);
+  };
+  Coroutine$InitAutoReload_init$inita$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
+    return this.doResume_5(void 0, exception);
+  };
   function InitAutoReload_init$inita(this$InitAutoReload) {
-    return function () {return __awaiter(this, void 0, void 0, function* () {
-      '__async';
-      this$InitAutoReload.initialCtime = (yield GetSoftwareVersionRequest$Companion_getInstance().send()).ctime;
-      this$InitAutoReload.schedule_0();
-      return (imported$kotlin.Unit);
-    });};
+    return function () {
+      return async(InitAutoReload_init$inita$lambda(this$InitAutoReload));
+    };
   }
   InitAutoReload.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
