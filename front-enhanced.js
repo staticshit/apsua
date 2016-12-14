@@ -211,6 +211,8 @@
   makeBasicContainerControlCtor$ctor$ObjectLiteral.prototype.constructor = makeBasicContainerControlCtor$ctor$ObjectLiteral;
   FilesTab$stripContent$ObjectLiteral.prototype = Object.create(Control2.prototype);
   FilesTab$stripContent$ObjectLiteral.prototype.constructor = FilesTab$stripContent$ObjectLiteral;
+  DynamicFooter.prototype = Object.create(Control2.prototype);
+  DynamicFooter.prototype.constructor = DynamicFooter;
   FormMatumba$control$ObjectLiteral.prototype = Object.create(Control.prototype);
   FormMatumba$control$ObjectLiteral.prototype.constructor = FormMatumba$control$ObjectLiteral;
   DeliveryOption.prototype = Object.create(imported$Enum.prototype);
@@ -335,6 +337,8 @@
   ImposeNextRequestTimestampRequest.prototype.constructor = ImposeNextRequestTimestampRequest;
   ResetTestDatabaseRequest.prototype = Object.create(RequestMatumba.prototype);
   ResetTestDatabaseRequest.prototype.constructor = ResetTestDatabaseRequest;
+  GenericResponse.prototype = Object.create(CommonResponseFieldsImpl.prototype);
+  GenericResponse.prototype.constructor = GenericResponse;
   ZimbabweResponse$Hunky.prototype = Object.create(ZimbabweResponse.prototype);
   ZimbabweResponse$Hunky.prototype.constructor = ZimbabweResponse$Hunky;
   ZimbabweResponse$Shitty.prototype = Object.create(ZimbabweResponse.prototype);
@@ -349,14 +353,20 @@
   FormResponse2$Shitty.prototype.constructor = FormResponse2$Shitty;
   TextFieldType.prototype = Object.create(imported$Enum.prototype);
   TextFieldType.prototype.constructor = TextFieldType;
+  SignInResponse.prototype = Object.create(CommonResponseFieldsImpl.prototype);
+  SignInResponse.prototype.constructor = SignInResponse;
   SignInWithPasswordRequest.prototype = Object.create(RequestMatumba.prototype);
   SignInWithPasswordRequest.prototype.constructor = SignInWithPasswordRequest;
   SignInWithTokenRequest.prototype = Object.create(RequestMatumba.prototype);
   SignInWithTokenRequest.prototype.constructor = SignInWithTokenRequest;
   SignUpRequest.prototype = Object.create(RequestMatumba.prototype);
   SignUpRequest.prototype.constructor = SignUpRequest;
+  UpdateProfileRequest$Response.prototype = Object.create(CommonResponseFieldsImpl.prototype);
+  UpdateProfileRequest$Response.prototype.constructor = UpdateProfileRequest$Response;
   UpdateProfileRequest.prototype = Object.create(RequestMatumba.prototype);
   UpdateProfileRequest.prototype.constructor = UpdateProfileRequest;
+  UpdateUserRequest$Response.prototype = Object.create(CommonResponseFieldsImpl.prototype);
+  UpdateUserRequest$Response.prototype.constructor = UpdateUserRequest$Response;
   UpdateUserRequest.prototype = Object.create(RequestMatumba.prototype);
   UpdateUserRequest.prototype.constructor = UpdateUserRequest;
   AdminCreateUserRequest.prototype = Object.create(UpdateUserRequest.prototype);
@@ -365,16 +375,24 @@
   WorldPointRequest$Action.prototype.constructor = WorldPointRequest$Action;
   WorldPointRequest.prototype = Object.create(RequestMatumba.prototype);
   WorldPointRequest.prototype.constructor = WorldPointRequest;
+  GetSoftwareVersionRequest$Response.prototype = Object.create(CommonResponseFieldsImpl.prototype);
+  GetSoftwareVersionRequest$Response.prototype.constructor = GetSoftwareVersionRequest$Response;
   GetSoftwareVersionRequest.prototype = Object.create(RequestMatumba.prototype);
   GetSoftwareVersionRequest.prototype.constructor = GetSoftwareVersionRequest;
+  GetSentEmailsRequest$Response.prototype = Object.create(CommonResponseFieldsImpl.prototype);
+  GetSentEmailsRequest$Response.prototype.constructor = GetSentEmailsRequest$Response;
   GetSentEmailsRequest.prototype = Object.create(RequestMatumba.prototype);
   GetSentEmailsRequest.prototype.constructor = GetSentEmailsRequest;
+  GetGeneratedShitRequest$Response.prototype = Object.create(CommonResponseFieldsImpl.prototype);
+  GetGeneratedShitRequest$Response.prototype.constructor = GetGeneratedShitRequest$Response;
   GetGeneratedShitRequest.prototype = Object.create(RequestMatumba.prototype);
   GetGeneratedShitRequest.prototype.constructor = GetGeneratedShitRequest;
   ClearSentEmailsRequest.prototype = Object.create(RequestMatumba.prototype);
   ClearSentEmailsRequest.prototype.constructor = ClearSentEmailsRequest;
   ImposeNextGeneratedPasswordRequest.prototype = Object.create(RequestMatumba.prototype);
   ImposeNextGeneratedPasswordRequest.prototype.constructor = ImposeNextGeneratedPasswordRequest;
+  GetLiveStatusRequest$Response.prototype = Object.create(CommonResponseFieldsImpl.prototype);
+  GetLiveStatusRequest$Response.prototype.constructor = GetLiveStatusRequest$Response;
   GetLiveStatusRequest$Response$ForAdmin.prototype = Object.create(GetLiveStatusRequest$Response.prototype);
   GetLiveStatusRequest$Response$ForAdmin.prototype.constructor = GetLiveStatusRequest$Response$ForAdmin;
   GetLiveStatusRequest$Response$ForWriter.prototype = Object.create(GetLiveStatusRequest$Response.prototype);
@@ -383,6 +401,8 @@
   GetLiveStatusRequest$Response$ForCustomer.prototype.constructor = GetLiveStatusRequest$Response$ForCustomer;
   GetLiveStatusRequest.prototype = Object.create(RequestMatumba.prototype);
   GetLiveStatusRequest.prototype.constructor = GetLiveStatusRequest;
+  GetUserRequest$Response.prototype = Object.create(CommonResponseFieldsImpl.prototype);
+  GetUserRequest$Response.prototype.constructor = GetUserRequest$Response;
   GetUserRequest.prototype = Object.create(RequestMatumba.prototype);
   GetUserRequest.prototype.constructor = GetUserRequest;
   UserFilter.prototype = Object.create(imported$Enum.prototype);
@@ -395,22 +415,34 @@
   EntityRequest.prototype.constructor = EntityRequest;
   ItemsRequest.prototype = Object.create(RequestMatumba.prototype);
   ItemsRequest.prototype.constructor = ItemsRequest;
+  ItemsResponse.prototype = Object.create(CommonResponseFieldsImpl.prototype);
+  ItemsResponse.prototype.constructor = ItemsResponse;
   Ordering.prototype = Object.create(imported$Enum.prototype);
   Ordering.prototype.constructor = Ordering;
+  MapStackRequest$Response.prototype = Object.create(CommonResponseFieldsImpl.prototype);
+  MapStackRequest$Response.prototype.constructor = MapStackRequest$Response;
   MapStackRequest.prototype = Object.create(RequestMatumba.prototype);
   MapStackRequest.prototype.constructor = MapStackRequest;
+  OpenSourceCodeRequest$Response.prototype = Object.create(CommonResponseFieldsImpl.prototype);
+  OpenSourceCodeRequest$Response.prototype.constructor = OpenSourceCodeRequest$Response;
   OpenSourceCodeRequest.prototype = Object.create(RequestMatumba.prototype);
   OpenSourceCodeRequest.prototype.constructor = OpenSourceCodeRequest;
   TestSetUserFieldsRequest.prototype = Object.create(RequestMatumba.prototype);
   TestSetUserFieldsRequest.prototype.constructor = TestSetUserFieldsRequest;
   SendRedisLogMessageRequest.prototype = Object.create(RequestMatumba.prototype);
   SendRedisLogMessageRequest.prototype.constructor = SendRedisLogMessageRequest;
+  JSONResponse.prototype = Object.create(CommonResponseFieldsImpl.prototype);
+  JSONResponse.prototype.constructor = JSONResponse;
   PrivilegedRedisCommandRequest.prototype = Object.create(RequestMatumba.prototype);
   PrivilegedRedisCommandRequest.prototype.constructor = PrivilegedRedisCommandRequest;
   FuckingRemoteProcedureRequest.prototype = Object.create(RequestMatumba.prototype);
   FuckingRemoteProcedureRequest.prototype.constructor = FuckingRemoteProcedureRequest;
+  CustomerCreateUAOrderRequest$Response.prototype = Object.create(CommonResponseFieldsImpl.prototype);
+  CustomerCreateUAOrderRequest$Response.prototype.constructor = CustomerCreateUAOrderRequest$Response;
   CustomerCreateUAOrderRequest.prototype = Object.create(RequestMatumba.prototype);
   CustomerCreateUAOrderRequest.prototype.constructor = CustomerCreateUAOrderRequest;
+  CustomerAddUAOrderFileRequest$Response.prototype = Object.create(CommonResponseFieldsImpl.prototype);
+  CustomerAddUAOrderFileRequest$Response.prototype.constructor = CustomerAddUAOrderFileRequest$Response;
   CustomerAddUAOrderFileRequest.prototype = Object.create(RequestMatumba.prototype);
   CustomerAddUAOrderFileRequest.prototype.constructor = CustomerAddUAOrderFileRequest;
   UADocumentType.prototype = Object.create(imported$Enum.prototype);
@@ -419,6 +451,8 @@
   DocumentUrgency.prototype.constructor = DocumentUrgency;
   UAAcademicLevel.prototype = Object.create(imported$Enum.prototype);
   UAAcademicLevel.prototype.constructor = UAAcademicLevel;
+  LoadUAOrderRequest$Response.prototype = Object.create(CommonResponseFieldsImpl.prototype);
+  LoadUAOrderRequest$Response.prototype.constructor = LoadUAOrderRequest$Response;
   LoadUAOrderRequest.prototype = Object.create(RequestMatumba.prototype);
   LoadUAOrderRequest.prototype.constructor = LoadUAOrderRequest;
   Color.prototype = Object.create(imported$Enum.prototype);
@@ -8526,6 +8560,47 @@
     var tabs = new Tabs2(tabSpecs, 'diff');
     return invoke(kdiv, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, 'relative', void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, renderDiff$lambda_1(tabs, actualTestShit));
   }
+  function DynamicFooter(world) {
+    Control2.call(this, new Attrs());
+    this.world = world;
+    this.backendVersion = null;
+  }
+  function DynamicFooter$render$lambda$lambda(closure$o) {
+    return function (it) {
+      closure$o.minus_61zpoe$(nbsp + nbsp + nbsp);
+      closure$o.minus_61zpoe$('Backend: ' + it);
+    };
+  }
+  function DynamicFooter$render$lambda(this$DynamicFooter) {
+    return function (o) {
+      var tmp$0;
+      o.minus_61zpoe$('Frontend: 238');
+      var tmp$1;
+      if ((tmp$0 = this$DynamicFooter.backendVersion) != null) {
+        var it = tmp$0;
+        var block$result;
+        o.minus_61zpoe$(nbsp + nbsp + nbsp);
+        o.minus_61zpoe$('Backend: ' + it);
+        tmp$1 = block$result;
+      }
+       else
+        tmp$1 = null;
+      tmp$1;
+    };
+  }
+  DynamicFooter.prototype.render = function () {
+    return invoke(kdiv, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, 0, 0, void 0, void 0, void 0, void 0, 'absolute', void 0, 5, 5, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, '12px', void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, DynamicFooter$render$lambda(this));
+  };
+  DynamicFooter.prototype.setBackendVersion_61zpoe$ = function (value) {
+    this.backendVersion = value;
+    this.update();
+  };
+  DynamicFooter.$metadata$ = {
+    type: Kotlin.TYPE.CLASS,
+    classIndex: Kotlin.newClassIndex(),
+    simpleName: 'DynamicFooter',
+    baseClasses: [Control2]
+  };
   function effects2() {
     effects2_instance = this;
   }
@@ -13482,12 +13557,14 @@
   Mode.valueOf_61zpoe$ = Mode$valueOf;
   function Globus() {
     Globus_instance = this;
+    this.version = '____VERSION____';
     this.lastAttemptedRPCName = null;
     this.realStorageLocal = new Globus$realStorageLocal$ObjectLiteral();
     this.realTypedStorageLocal = new TypedStorageLocal(this.realStorageLocal);
     this.browser = new Browser(this.realTypedStorageLocal);
     this.rootRedisLogMessageID = null;
     this.mode$delegate = imported$lazy(Globus$mode$lambda);
+    this.world = null;
   }
   Object.defineProperty(Globus.prototype, 'lang', {
     get: function () {
@@ -15267,7 +15344,7 @@
       tmp$1 = '\xA9 Copyright 2015-2016 AcademicPaperServed. All rights reserved';
     else if (Kotlin.equals(clientKind, ClientKind$WRITER_getInstance()))
       tmp$1 = '\xA9 Copyright 2015-2016 Writer UA. All rights reserved';
-    tmp$3.writeFileSync(tmp$2, '\n' + '    <!DOCTYPE html>' + '\n' + '    <html lang=' + '"' + 'en' + '"' + ' style=' + '"' + 'position: relative; min-height: 100%;' + '"' + '>' + '\n' + '    <head>' + '\n' + '        <meta charset=' + '"' + 'utf-8' + '"' + '>' + '\n' + '        <meta http-equiv=' + '"' + 'X-UA-Compatible' + '"' + ' content=' + '"' + 'IE=edge' + '"' + '>' + '\n' + '        <meta name=' + '"' + 'viewport' + '"' + ' content=' + '"' + 'width=device-width, initial-scale=1' + '"' + '>' + '\n' + '        <meta http-equiv=' + '"' + 'cache-control' + '"' + ' content=' + '"' + 'max-age=0' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'cache-control' + '"' + ' content=' + '"' + 'no-cache' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'expires' + '"' + ' content=' + '"' + '0' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'expires' + '"' + ' content=' + '"' + 'Tue, 01 Jan 1980 1:00:00 GMT' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'pragma' + '"' + ' content=' + '"' + 'no-cache' + '"' + ' />' + '\n' + '\n' + '    ' + this.renderToStaticMarkup_jz7n6v$(this.React.createElement('title', imported$json([]), tabTitle)) + '\n' + '\n' + '    <link href=' + '"' + 'bootstrap/css/bootstrap.min.css' + '"' + ' rel=' + '"' + 'stylesheet' + '"' + '>' + '\n' + '    <link rel=' + '"' + 'stylesheet' + '"' + ' href=' + '"' + 'font-awesome/css/font-awesome.min.css' + '"' + '>' + '\n' + '    <link href=' + '"' + 'bootstrap-datetimepicker-4.17.43-hacked.css' + '"' + ' rel=' + '"' + 'stylesheet' + '"' + '>' + '\n' + '\n' + '    <style>' + '\n' + '        ' + this.readStatic_61zpoe$('style.css') + '\n' + '    <\/style>' + '\n' + '\n' + '    <script>' + '\n' + "    LANG = '" + lang + "'" + '\n' + "    CLIENT_KIND = '" + clientKind.name + "'" + '\n' + "    setFavicon('" + (clientKind === ClientKind$CUSTOMER_getInstance() ? 'favicon-customer.ico' : 'favicon-writer.ico') + "')" + '\n' + '\n' + '    function setFavicon(src) {' + '\n' + "        var link = document.createElement('link')" + '\n' + "        link.id = 'favicon'" + '\n' + "        link.rel = 'shortcut icon'" + '\n' + '        link.href = src' + '\n' + '        document.head.appendChild(link)' + '\n' + '    }' + '\n' + '    <\/script>' + '\n' + '    <\/head>' + '\n' + '    <body style=' + '"' + 'padding-top: 50px; padding-bottom: 0px; overflow-y: scroll;' + '"' + '>' + '\n' + '    <div id=' + '"' + 'topNavbarContainer' + '"' + '>' + '\n' + '    ' + this.renderToStaticMarkup_jz7n6v$(renderTopNavbar(clientKind, MakeStaticSites$genericWritePage$lambda(this), imported$json([imported$to('highlightedItem', highlightedItem), imported$to('rightNavbarItemAStyle', imported$json([imported$to('display', 'none')]))]))) + '\n' + '    <\/div>' + '\n' + '\n' + '    <div id=' + '"' + 'root' + '"' + ' style=' + '"' + 'min-height: calc(100vh - 28px - 50px);' + '"' + '>' + '\n' + '    <div id=' + '"' + 'staticShit' + '"' + ' style=' + '"' + 'display: none;' + '"' + '>' + '\n' + '    <!-- BEGIN CONTENT -->' + '\n' + '    ' + this.renderToStaticMarkup_jz7n6v$(content) + '\n' + '    <!-- END CONTENT -->' + '\n' + '    <\/div>' + '\n' + '\n' + '    <div id=' + '"' + 'ticker' + '"' + ' style=' + '"' + 'display: none;' + '"' + '>' + this.renderToStaticMarkup_jz7n6v$(this.wholePageTicker()) + '<\/div>' + '\n' + '\n' + '    <script src=' + '"' + 'jquery.min.js' + '"' + '><\/script>' + '\n' + '\n' + '    <script>' + '\n' + '        window.storageLocalForStaticContent = localStorage' + '\n' + '\n' + '        function displayInitialShit() {' + '\n' + "            if (window.storageLocalForStaticContent.getItem('token')) {" + '\n' + "                document.getElementById('ticker').style.display = ''" + '\n' + '            } else {' + '\n' + '                makeSignInNavbarLinkVisible()' + '\n' + "                document.getElementById('staticShit').style.display = ''" + '\n' + '                window.staticShitIsRenderedStatically = true' + '\n' + '            }' + '\n' + '        }' + '\n' + '\n' + '        function makeSignInNavbarLinkVisible() {' + '\n' + '            ' + '$' + "('a[href=" + '"' + 'sign-in.html' + '"' + "]').css('display', '')" + '\n' + '        }' + '\n' + '\n' + '        ' + (this.mode === Mode$PROD_getInstance() ? '\n            displayInitialShit()\n        ' : '\n            if (!/test=|testSuite=/.test(location.href)) {\n                displayInitialShit()\n            }\n        ') + '\n' + '    <\/script>' + '\n' + '    <\/div> <!-- /#root -->' + '\n' + '\n' + '    <div id=' + '"' + 'footer' + '"' + ' style=' + '"' + '"' + '>' + '\n' + '    <div style=' + '"' + 'background-color: #f8f8f8; border: 1px solid #e7e7e7; color: #333; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 12px; padding-top: 5px; padding-bottom: 5px; height: 28px;' + '"' + '>' + '\n' + '        <div class=' + '"' + 'container' + '"' + '>' + '\n' + '            ' + tmp$1 + '\n' + '        <\/div>' + '\n' + '    <\/div>' + '\n' + '    <div id=' + '"' + ELID_UNDER_FOOTER + '"' + '>' + '\n' + '    <\/div>' + '\n' + '    <\/div>' + '\n' + '\n' + "    <script>if (typeof global === 'undefined') global = window<\/script>" + '\n' + '\n' + '    <script src=' + '"' + 'deps.js' + '"' + '><\/script>' + '\n' + '    <script src=' + '"' + 'bootstrap/js/bootstrap-3.3.7-hacked.js' + '"' + '><\/script>' + '\n' + '    <script src=' + '"' + 'bootstrap-datetimepicker-4.17.43-hacked.js' + '"' + '><\/script>' + '\n' + '    <script src=' + '"' + 'kotlin.js' + '"' + '><\/script>' + '\n' + '    <!--' + '\n' + '        <script src=' + '"' + 'kotlin-1.1-m02-eap-hacked.js' + '"' + '><\/script>' + '\n' + '        <script src=' + '"' + 'into-kommon-js-enhanced.js' + '"' + '><\/script>' + '\n' + '        <script src=' + '"' + 'front-enhanced.js' + '"' + '><\/script>' + '\n' + '    -->' + '\n' + '\n' + '    <script>' + '\n' + '        ' + this.readStatic_61zpoe$('testimonials.js') + '\n' + '    <\/script>' + '\n' + '\n' + '    <script>' + '\n' + '        global = window' + '\n' + '        Kotlin = kotlin' + '\n' + '\n' + '        ' + (this.mode === Mode$DEBUG_getInstance() ? '\n' + '            // TODO:vgrechka Think about DANGEROUS_TOKEN. How it should be included into client, etc.' + '\n' + "            DANGEROUS_TOKEN = '" + imported$kommon.process.env.APS_DANGEROUS_TOKEN + "'" + '\n' + '        ' : '') + '\n' + '\n' + "        global.MODE = '" + this.mode + "'" + '\n' + '\n' + '        const scriptSuffix = ' + (this.mode === Mode$DEBUG_getInstance() ? "'?' + Date.now()" : "''") + '\n' + '\n' + '        Promise.resolve()' + '\n' + "        .then(_=> loadScript('into-kommon-js-enhanced.js' + scriptSuffix))" + '\n' + "        .then(_=> loadScript('front-enhanced.js' + scriptSuffix))" + '\n' + '        .then(_=> {' + '\n' + '            kot = Kotlin.modules.front' + '\n' + '            F = kot.aps.front' + '\n' + '            kot.aps.front.ignite()' + '\n' + '        })' + '\n' + '\n' + '        function loadScript(src) {' + '\n' + '            return new Promise((resolve, reject) => {' + '\n' + "                const script = document.createElement('script')" + '\n' + "                script.type = 'text/javascript'" + '\n' + '                script.async = true' + '\n' + '                script.onload = _=> {' + '\n' + "                    console.log('Loaded ' + src)" + '\n' + '                    resolve()' + '\n' + '                }' + '\n' + '                script.src = src' + '\n' + "                document.getElementsByTagName('head')[0].appendChild(script)" + '\n' + '            })' + '\n' + '        }' + '\n' + '    <\/script>' + '\n' + '    <\/body>' + '\n' + '    <\/html>' + '\n' + '    ');
+    tmp$3.writeFileSync(tmp$2, '\n' + '    <!DOCTYPE html>' + '\n' + '    <html lang=' + '"' + 'en' + '"' + ' style=' + '"' + 'position: relative; min-height: 100%;' + '"' + '>' + '\n' + '    <head>' + '\n' + '        <meta charset=' + '"' + 'utf-8' + '"' + '>' + '\n' + '        <meta http-equiv=' + '"' + 'X-UA-Compatible' + '"' + ' content=' + '"' + 'IE=edge' + '"' + '>' + '\n' + '        <meta name=' + '"' + 'viewport' + '"' + ' content=' + '"' + 'width=device-width, initial-scale=1' + '"' + '>' + '\n' + '        <meta http-equiv=' + '"' + 'cache-control' + '"' + ' content=' + '"' + 'max-age=0' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'cache-control' + '"' + ' content=' + '"' + 'no-cache' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'expires' + '"' + ' content=' + '"' + '0' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'expires' + '"' + ' content=' + '"' + 'Tue, 01 Jan 1980 1:00:00 GMT' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'pragma' + '"' + ' content=' + '"' + 'no-cache' + '"' + ' />' + '\n' + '\n' + '    ' + this.renderToStaticMarkup_jz7n6v$(this.React.createElement('title', imported$json([]), tabTitle)) + '\n' + '\n' + '    <link href=' + '"' + 'bootstrap/css/bootstrap.min.css' + '"' + ' rel=' + '"' + 'stylesheet' + '"' + '>' + '\n' + '    <link rel=' + '"' + 'stylesheet' + '"' + ' href=' + '"' + 'font-awesome/css/font-awesome.min.css' + '"' + '>' + '\n' + '    <link href=' + '"' + 'bootstrap-datetimepicker-4.17.43-hacked.css' + '"' + ' rel=' + '"' + 'stylesheet' + '"' + '>' + '\n' + '\n' + '    <style>' + '\n' + '        ' + this.readStatic_61zpoe$('style.css') + '\n' + '    <\/style>' + '\n' + '\n' + '    <script>' + '\n' + "    LANG = '" + lang + "'" + '\n' + "    CLIENT_KIND = '" + clientKind.name + "'" + '\n' + "    setFavicon('" + (clientKind === ClientKind$CUSTOMER_getInstance() ? 'favicon-customer.ico' : 'favicon-writer.ico') + "')" + '\n' + '\n' + '    function setFavicon(src) {' + '\n' + "        var link = document.createElement('link')" + '\n' + "        link.id = 'favicon'" + '\n' + "        link.rel = 'shortcut icon'" + '\n' + '        link.href = src' + '\n' + '        document.head.appendChild(link)' + '\n' + '    }' + '\n' + '    <\/script>' + '\n' + '    <\/head>' + '\n' + '    <body style=' + '"' + 'padding-top: 50px; padding-bottom: 0px; overflow-y: scroll;' + '"' + '>' + '\n' + '    <div id=' + '"' + 'topNavbarContainer' + '"' + '>' + '\n' + '    ' + this.renderToStaticMarkup_jz7n6v$(renderTopNavbar(clientKind, MakeStaticSites$genericWritePage$lambda(this), imported$json([imported$to('highlightedItem', highlightedItem), imported$to('rightNavbarItemAStyle', imported$json([imported$to('display', 'none')]))]))) + '\n' + '    <\/div>' + '\n' + '\n' + '    <div id=' + '"' + 'root' + '"' + ' style=' + '"' + 'min-height: calc(100vh - 28px - 50px);' + '"' + '>' + '\n' + '    <div id=' + '"' + 'staticShit' + '"' + ' style=' + '"' + 'display: none;' + '"' + '>' + '\n' + '    <!-- BEGIN CONTENT -->' + '\n' + '    ' + this.renderToStaticMarkup_jz7n6v$(content) + '\n' + '    <!-- END CONTENT -->' + '\n' + '    <\/div>' + '\n' + '\n' + '    <div id=' + '"' + 'ticker' + '"' + ' style=' + '"' + 'display: none;' + '"' + '>' + this.renderToStaticMarkup_jz7n6v$(this.wholePageTicker()) + '<\/div>' + '\n' + '\n' + '    <script src=' + '"' + 'jquery.min.js' + '"' + '><\/script>' + '\n' + '\n' + '    <script>' + '\n' + '        window.storageLocalForStaticContent = localStorage' + '\n' + '\n' + '        function displayInitialShit() {' + '\n' + "            if (window.storageLocalForStaticContent.getItem('token')) {" + '\n' + "                document.getElementById('ticker').style.display = ''" + '\n' + '            } else {' + '\n' + '                makeSignInNavbarLinkVisible()' + '\n' + "                document.getElementById('staticShit').style.display = ''" + '\n' + '                window.staticShitIsRenderedStatically = true' + '\n' + '            }' + '\n' + '        }' + '\n' + '\n' + '        function makeSignInNavbarLinkVisible() {' + '\n' + '            ' + '$' + "('a[href=" + '"' + 'sign-in.html' + '"' + "]').css('display', '')" + '\n' + '        }' + '\n' + '\n' + '        ' + (this.mode === Mode$PROD_getInstance() ? '\n            displayInitialShit()\n        ' : '\n            if (!/test=|testSuite=/.test(location.href)) {\n                displayInitialShit()\n            }\n        ') + '\n' + '    <\/script>' + '\n' + '    <\/div> <!-- /#root -->' + '\n' + '\n' + '    <div id=' + '"' + 'footer' + '"' + ' style=' + '"' + 'position: relative;' + '"' + '>' + '\n' + '    <div style=' + '"' + 'background-color: #f8f8f8; border: 1px solid #e7e7e7; color: #333; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 12px; padding-top: 5px; padding-bottom: 5px; height: 28px;' + '"' + '>' + '\n' + '        <div class=' + '"' + 'container' + '"' + '>' + '\n' + '            ' + tmp$1 + '\n' + '        <\/div>' + '\n' + '    <\/div>' + '\n' + '    <div id=' + '"' + ELID_UNDER_FOOTER + '"' + '>' + '\n' + '    <\/div>' + '\n' + '    <\/div>' + '\n' + '\n' + "    <script>if (typeof global === 'undefined') global = window<\/script>" + '\n' + '\n' + '    <script src=' + '"' + 'deps.js' + '"' + '><\/script>' + '\n' + '    <script src=' + '"' + 'bootstrap/js/bootstrap-3.3.7-hacked.js' + '"' + '><\/script>' + '\n' + '    <script src=' + '"' + 'bootstrap-datetimepicker-4.17.43-hacked.js' + '"' + '><\/script>' + '\n' + '    <script src=' + '"' + 'kotlin.js' + '"' + '><\/script>' + '\n' + '    <!--' + '\n' + '        <script src=' + '"' + 'kotlin-1.1-m02-eap-hacked.js' + '"' + '><\/script>' + '\n' + '        <script src=' + '"' + 'into-kommon-js-enhanced.js' + '"' + '><\/script>' + '\n' + '        <script src=' + '"' + 'front-enhanced.js' + '"' + '><\/script>' + '\n' + '    -->' + '\n' + '\n' + '    <script>' + '\n' + '        ' + this.readStatic_61zpoe$('testimonials.js') + '\n' + '    <\/script>' + '\n' + '\n' + '    <script>' + '\n' + '        global = window' + '\n' + '        Kotlin = kotlin' + '\n' + '\n' + '        ' + (this.mode === Mode$DEBUG_getInstance() ? '\n' + '            // TODO:vgrechka Think about DANGEROUS_TOKEN. How it should be included into client, etc.' + '\n' + "            DANGEROUS_TOKEN = '" + imported$kommon.process.env.APS_DANGEROUS_TOKEN + "'" + '\n' + '        ' : '') + '\n' + '\n' + "        global.MODE = '" + this.mode + "'" + '\n' + '\n' + '        const scriptSuffix = ' + (this.mode === Mode$DEBUG_getInstance() ? "'?' + Date.now()" : "''") + '\n' + '\n' + '        Promise.resolve()' + '\n' + "        .then(_=> loadScript('into-kommon-js-enhanced.js' + scriptSuffix))" + '\n' + "        .then(_=> loadScript('front-enhanced.js' + scriptSuffix))" + '\n' + '        .then(_=> {' + '\n' + '            kot = Kotlin.modules.front' + '\n' + '            F = kot.aps.front' + '\n' + '            kot.aps.front.ignite()' + '\n' + '        })' + '\n' + '\n' + '        function loadScript(src) {' + '\n' + '            return new Promise((resolve, reject) => {' + '\n' + "                const script = document.createElement('script')" + '\n' + "                script.type = 'text/javascript'" + '\n' + '                script.async = true' + '\n' + '                script.onload = _=> {' + '\n' + "                    console.log('Loaded ' + src)" + '\n' + '                    resolve()' + '\n' + '                }' + '\n' + '                script.src = src' + '\n' + "                document.getElementsByTagName('head')[0].appendChild(script)" + '\n' + '            })' + '\n' + '        }' + '\n' + '    <\/script>' + '\n' + '    <\/body>' + '\n' + '    <\/html>' + '\n' + '    ');
   };
   function MakeStaticSites$renderTestimonials$lambda(this$MakeStaticSites) {
     return function (item) {
@@ -18436,13 +18513,86 @@
     return new Promise(fetchURL$lambda(method, url, stackBeforeXHR, data));
   });}
   var backendURL;
-  function fetchFromBackend$lambda(it) {
+  function fetchFromBackend$lambda$lambda(it) {
     return imported$kommon.global.JSON.parse(it);
   }
+  function fetchFromBackend$lambda$lambda_0(closure$fields) {
+    return function (it) {
+      it.footer.setBackendVersion_61zpoe$(closure$fields.backendVersion);
+    };
+  }
+  function fetchFromBackend$lambda(closure$path, closure$requestJSONObject) {
+    return function () {
+      return new Coroutine$fetchFromBackend$lambda(closure$path, closure$requestJSONObject, this);
+    };
+  }
+  function Coroutine$fetchFromBackend$lambda(closure$path, closure$requestJSONObject, controller) {
+    this.$state = 0;
+    this.$exceptionState = 1;
+    this.$controller = controller;
+    this.local$closure$path = closure$path;
+    this.local$closure$requestJSONObject = closure$requestJSONObject;
+    this.local$tmp$2 = null;
+    this.local$tmp$1 = null;
+    this.local$tmp$3 = null;
+    this.local$block$result = null;
+    this.local$obj = null;
+    this.local$fields = null;
+  }
+  Coroutine$fetchFromBackend$lambda.$metadata$ = {
+    type: Kotlin.TYPE.CLASS,
+    classIndex: Kotlin.newClassIndex(),
+    simpleName: null,
+    baseClasses: [imported$Continuation]
+  };
+  Coroutine$fetchFromBackend$lambda.prototype.doResume_7 = function (data, exception) {
+    this.$result = data;
+    if (typeof exception !== 'undefined') {
+      this.$state = this.$exceptionState;
+      this.$exception = exception;
+    }
+    do
+      try {
+        switch (this.$state) {
+          case 0:
+            this.$state = 2;
+            return this.$controller.await_s7vvx4$(fetchFromURL('POST', backendURL + '/' + this.local$closure$path, imported$kommon.global.JSON.stringify(this.local$closure$requestJSONObject), fetchFromBackend$lambda$lambda), this);
+          case 1:
+            return this.$controller.handleException_bcy9dk$(this.$exception);
+          case 2:
+            this.local$obj = this.$result;
+            this.local$fields = this.local$obj;
+            if ((this.local$tmp$1 = Globus_getInstance().world) != null) {
+              this.local$tmp$1.footer.setBackendVersion_61zpoe$(this.local$fields.backendVersion);
+              this.local$tmp$3 = this.local$block$result;
+            }
+             else
+              this.local$tmp$3 = null;
+            this.local$tmp$3;
+            this.local$tmp$2 = this.local$obj;
+            return this.$controller.handleResult_2jrclo$(this.local$tmp$2, this);
+        }
+      }
+       catch (e) {
+        if (this.$state === 1)
+          throw e;
+        else {
+          this.$state = this.$exceptionState;
+          this.$exception = e;
+        }
+      }
+     while (true);
+  };
+  Coroutine$fetchFromBackend$lambda.prototype.resume_za3rmp$ = function (data) {
+    return this.doResume_7(data);
+  };
+  Coroutine$fetchFromBackend$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
+    return this.doResume_7(void 0, exception);
+  };
   function fetchFromBackend(path, requestJSONObject) {
     if (requestJSONObject === void 0)
       requestJSONObject = null;
-    return fetchFromURL('POST', backendURL + '/' + path, imported$kommon.global.JSON.stringify(requestJSONObject), fetchFromBackend$lambda);
+    return async(fetchFromBackend$lambda(path, requestJSONObject));
   }
   function fetchFromURL$lambda$lambda(closure$xhr, closure$transform, closure$resolve, closure$reject, closure$url, closure$stackBeforeXHR) {
     return function () {
@@ -22128,6 +22278,7 @@
       Shitus_getInstance().initDebugFunctionsShit();
     }
     (yield this.bootKillme());
+    Globus_getInstance().world = this;
     return (imported$kotlin.Unit);
   });};
   World.prototype.urlLink_za3rmp$ = function (def) {
@@ -22213,6 +22364,7 @@
       $(imported$kommon.global.document.head).append("<style id='css'>" + this.css() + '<\/style>');
       this.topNavbarElement = Shitus_getInstance().updatableElement(imported$json([]), World$bootKillme$lambda(this));
       DOMReact_getInstance().render_rfgydt$(this.topNavbarElement, Shitus_getInstance().byid0('topNavbarContainer'));
+      this.initDynamicFooter_0();
       (yield this.loadPageForURL());
     }
     finally {
@@ -22220,6 +22372,12 @@
     }
     return (imported$kotlin.Unit);
   });};
+  World.prototype.initDynamicFooter_0 = function () {
+    var jqFooter = $('#footer');
+    jqFooter.append("<div id='dynamicFooter'><\/div>");
+    this.footer = new DynamicFooter(this);
+    DOMReact_getInstance().render_rfgydt$(this.footer.toReactElement(), byid0ForSure('dynamicFooter'));
+  };
   function World$setPage$lambda$lambda$lambda$lambda$lambda(closure$def) {
     return function () {
       return closure$def.header.toReactElement();
@@ -22517,11 +22675,8 @@
   };
   World.prototype.unmountShit = function () {
     DOMReact_getInstance().unmountComponentAtNode_lt8gi4$(Shitus_getInstance().byid0('topNavbarContainer'));
+    DOMReact_getInstance().unmountComponentAtNode_lt8gi4$(Shitus_getInstance().byid0('dynamicFooter'));
     DOMReact_getInstance().unmountComponentAtNode_lt8gi4$(Shitus_getInstance().byid0('root'));
-  };
-  World.prototype.mountShit = function () {
-    DOMReact_getInstance().render_rfgydt$(this.topNavbarElement, Shitus_getInstance().byid0('topNavbarContainer'));
-    DOMReact_getInstance().render_rfgydt$(this.rootElement, Shitus_getInstance().byid0('root'));
   };
   Object.defineProperty(World.prototype, 'tokenSure', {
     get: function () {
@@ -26536,12 +26691,13 @@
     baseClasses: [RequestMatumba]
   };
   function GenericResponse() {
+    CommonResponseFieldsImpl.call(this);
   }
   GenericResponse.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
     simpleName: 'GenericResponse',
-    baseClasses: []
+    baseClasses: [CommonResponseFieldsImpl]
   };
   function ZimbabweResponse() {
   }
@@ -26574,6 +26730,14 @@
   };
   function FormResponse() {
   }
+  Object.defineProperty(FormResponse.prototype, 'backendVersion', {
+    get: function () {
+      return this.backendVersion_5vk1u3$_0;
+    },
+    set: function (backendVersion) {
+      this.backendVersion_5vk1u3$_0 = backendVersion;
+    }
+  });
   function FormResponse$Hunky(meat) {
     FormResponse.call(this);
     this.meat = meat;
@@ -26599,7 +26763,7 @@
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
     simpleName: 'FormResponse',
-    baseClasses: []
+    baseClasses: [CommonResponseFields]
   };
   function FormResponse2() {
   }
@@ -26701,6 +26865,7 @@
     return new TextField(container, 'email', t('TOTE', '\u041F\u043E\u0447\u0442\u0430'), TextFieldType$EMAIL_getInstance(), 3, 50);
   }
   function SignInResponse(token, user) {
+    CommonResponseFieldsImpl.call(this);
     this.token = token;
     this.user = user;
   }
@@ -26708,7 +26873,7 @@
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
     simpleName: 'SignInResponse',
-    baseClasses: []
+    baseClasses: [CommonResponseFieldsImpl]
   };
   function SignInWithPasswordRequest() {
     RequestMatumba.call(this);
@@ -26768,13 +26933,14 @@
     this.profileFields = new ProfileFields(this);
   }
   function UpdateProfileRequest$Response(newUser) {
+    CommonResponseFieldsImpl.call(this);
     this.newUser = newUser;
   }
   UpdateProfileRequest$Response.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
     simpleName: 'Response',
-    baseClasses: []
+    baseClasses: [CommonResponseFieldsImpl]
   };
   UpdateProfileRequest.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
@@ -26794,13 +26960,14 @@
     this.adminNotes = new TextField(this, 'adminNotes', t('TOTE', '\u0417\u0430\u043C\u0435\u0442\u043A\u0438 \u0430\u0434\u043C\u0438\u043D\u0430'), TextFieldType$TEXTAREA_getInstance(), 0, 5000);
   }
   function UpdateUserRequest$Response(newUser) {
+    CommonResponseFieldsImpl.call(this);
     this.newUser = newUser;
   }
   UpdateUserRequest$Response.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
     simpleName: 'Response',
-    baseClasses: []
+    baseClasses: [CommonResponseFieldsImpl]
   };
   UpdateUserRequest.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
@@ -26931,6 +27098,7 @@
     RequestMatumba.call(this);
   }
   function GetSoftwareVersionRequest$Response(ctime, backendInstanceID) {
+    CommonResponseFieldsImpl.call(this);
     this.ctime = ctime;
     this.backendInstanceID = backendInstanceID;
   }
@@ -26938,7 +27106,7 @@
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
     simpleName: 'Response',
-    baseClasses: []
+    baseClasses: [CommonResponseFieldsImpl]
   };
   function GetSoftwareVersionRequest$Companion() {
     GetSoftwareVersionRequest$Companion_instance = this;
@@ -26970,13 +27138,14 @@
     RequestMatumba.call(this);
   }
   function GetSentEmailsRequest$Response(emails) {
+    CommonResponseFieldsImpl.call(this);
     this.emails = emails;
   }
   GetSentEmailsRequest$Response.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
     simpleName: 'Response',
-    baseClasses: []
+    baseClasses: [CommonResponseFieldsImpl]
   };
   function GetSentEmailsRequest$Companion() {
     GetSentEmailsRequest$Companion_instance = this;
@@ -27008,13 +27177,14 @@
     RequestMatumba.call(this);
   }
   function GetGeneratedShitRequest$Response(code) {
+    CommonResponseFieldsImpl.call(this);
     this.code = code;
   }
   GetGeneratedShitRequest$Response.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
     simpleName: 'Response',
-    baseClasses: []
+    baseClasses: [CommonResponseFieldsImpl]
   };
   function GetGeneratedShitRequest$Companion() {
     GetGeneratedShitRequest$Companion_instance = this;
@@ -27112,6 +27282,7 @@
     RequestMatumba.call(this);
   }
   function GetLiveStatusRequest$Response() {
+    CommonResponseFieldsImpl.call(this);
   }
   function GetLiveStatusRequest$Response$ForAdmin(profilesToApprove, suka) {
     GetLiveStatusRequest$Response.call(this);
@@ -27148,7 +27319,7 @@
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
     simpleName: 'Response',
-    baseClasses: []
+    baseClasses: [CommonResponseFieldsImpl]
   };
   function GetLiveStatusRequest$Companion() {
     GetLiveStatusRequest$Companion_instance = this;
@@ -27233,13 +27404,14 @@
     this.id = StringHiddenField(this, 'id');
   }
   function GetUserRequest$Response(user) {
+    CommonResponseFieldsImpl.call(this);
     this.user = user;
   }
   GetUserRequest$Response.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
     simpleName: 'Response',
-    baseClasses: []
+    baseClasses: [CommonResponseFieldsImpl]
   };
   function GetUserRequest$Companion() {
     GetUserRequest$Companion_instance = this;
@@ -27451,6 +27623,7 @@
     baseClasses: [RequestMatumba]
   };
   function ItemsResponse(items, moreFromID) {
+    CommonResponseFieldsImpl.call(this);
     this.items = items;
     this.moreFromID = moreFromID;
   }
@@ -27458,7 +27631,7 @@
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
     simpleName: 'ItemsResponse',
-    baseClasses: []
+    baseClasses: [CommonResponseFieldsImpl]
   };
   function Ordering(name, ordinal, title) {
     imported$Enum.call(this);
@@ -27515,13 +27688,14 @@
     this.mangledStack = StringHiddenField(this, 'mangledStack');
   }
   function MapStackRequest$Response(originalStack) {
+    CommonResponseFieldsImpl.call(this);
     this.originalStack = originalStack;
   }
   MapStackRequest$Response.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
     simpleName: 'Response',
-    baseClasses: []
+    baseClasses: [CommonResponseFieldsImpl]
   };
   function MapStackRequest$Companion() {
     MapStackRequest$Companion_instance = this;
@@ -27559,13 +27733,14 @@
     this.sourceLocation = StringHiddenField(this, 'sourceLocation');
   }
   function OpenSourceCodeRequest$Response(error) {
+    CommonResponseFieldsImpl.call(this);
     this.error = error;
   }
   OpenSourceCodeRequest$Response.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
     simpleName: 'Response',
-    baseClasses: []
+    baseClasses: [CommonResponseFieldsImpl]
   };
   function OpenSourceCodeRequest$Companion() {
     OpenSourceCodeRequest$Companion_instance = this;
@@ -27632,13 +27807,14 @@
     return callDangerousMatumba(req);
   }
   function JSONResponse(json) {
+    CommonResponseFieldsImpl.call(this);
     this.json = json;
   }
   JSONResponse.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
     simpleName: 'JSONResponse',
-    baseClasses: []
+    baseClasses: [CommonResponseFieldsImpl]
   };
   function PrivilegedRedisCommandRequest() {
     RequestMatumba.call(this);
@@ -27659,6 +27835,14 @@
     type: Kotlin.TYPE.TRAIT,
     classIndex: Kotlin.newClassIndex(),
     simpleName: 'CommonRequestFields',
+    baseClasses: []
+  };
+  function CommonResponseFields() {
+  }
+  CommonResponseFields.$metadata$ = {
+    type: Kotlin.TYPE.TRAIT,
+    classIndex: Kotlin.newClassIndex(),
+    simpleName: 'CommonResponseFields',
     baseClasses: []
   };
   function FuckingRemoteProcedureRequest() {
@@ -27684,13 +27868,14 @@
     this.details = new TextField(this, 'details', t('TOTE', '\u0414\u0435\u0442\u0430\u043B\u0438'), TextFieldType$TEXTAREA_getInstance(), const$order_getInstance().minDetailsLen, const$order_getInstance().maxDetailsLen);
   }
   function CustomerCreateUAOrderRequest$Response(id) {
+    CommonResponseFieldsImpl.call(this);
     this.id = id;
   }
   CustomerCreateUAOrderRequest$Response.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
     simpleName: 'Response',
-    baseClasses: []
+    baseClasses: [CommonResponseFieldsImpl]
   };
   CustomerCreateUAOrderRequest.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
@@ -27705,13 +27890,14 @@
     this.details = new TextField(this, 'details', t('TOTE', '\u0414\u0435\u0442\u0430\u043B\u0438'), TextFieldType$TEXTAREA_getInstance(), const$file_getInstance().minDetailsLen, const$file_getInstance().maxDetailsLen);
   }
   function CustomerAddUAOrderFileRequest$Response(id) {
+    CommonResponseFieldsImpl.call(this);
     this.id = id;
   }
   CustomerAddUAOrderFileRequest$Response.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
     simpleName: 'Response',
-    baseClasses: []
+    baseClasses: [CommonResponseFieldsImpl]
   };
   CustomerAddUAOrderFileRequest.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
@@ -27941,18 +28127,35 @@
         return 3099;
     }
   }
+  function CommonResponseFieldsImpl() {
+  }
+  Object.defineProperty(CommonResponseFieldsImpl.prototype, 'backendVersion', {
+    get: function () {
+      return this.backendVersion_2iylqj$_0;
+    },
+    set: function (backendVersion) {
+      this.backendVersion_2iylqj$_0 = backendVersion;
+    }
+  });
+  CommonResponseFieldsImpl.$metadata$ = {
+    type: Kotlin.TYPE.CLASS,
+    classIndex: Kotlin.newClassIndex(),
+    simpleName: 'CommonResponseFieldsImpl',
+    baseClasses: [CommonResponseFields]
+  };
   function LoadUAOrderRequest() {
     RequestMatumba.call(this);
     this.id = StringHiddenField(this, 'id');
   }
   function LoadUAOrderRequest$Response(order) {
+    CommonResponseFieldsImpl.call(this);
     this.order = order;
   }
   LoadUAOrderRequest$Response.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
     classIndex: Kotlin.newClassIndex(),
     simpleName: 'Response',
-    baseClasses: []
+    baseClasses: [CommonResponseFieldsImpl]
   };
   LoadUAOrderRequest.$metadata$ = {
     type: Kotlin.TYPE.CLASS,
@@ -30838,6 +31041,7 @@
     get: DebugPanes_getInstance
   });
   package$front.renderDiff_r3y0ew$ = renderDiff;
+  package$front.DynamicFooter = DynamicFooter;
   Object.defineProperty(package$front, 'effects2', {
     get: effects2_getInstance
   });
@@ -31810,6 +32014,7 @@
   package$aps.PrivilegedRedisCommandRequest = PrivilegedRedisCommandRequest;
   package$aps.send_d9g9nm$ = send_0;
   package$aps.CommonRequestFields = CommonRequestFields;
+  package$aps.CommonResponseFields = CommonResponseFields;
   package$aps.FuckingRemoteProcedureRequest = FuckingRemoteProcedureRequest;
   package$aps.send_p3wizn$ = send_1;
   CustomerCreateUAOrderRequest.Response = CustomerCreateUAOrderRequest$Response;
@@ -31853,6 +32058,7 @@
   });
   package$aps.UAAcademicLevel = UAAcademicLevel;
   package$aps.uaPageCost_dmtsg3$ = uaPageCost;
+  package$aps.CommonResponseFieldsImpl = CommonResponseFieldsImpl;
   LoadUAOrderRequest.Response = LoadUAOrderRequest$Response;
   package$aps.LoadUAOrderRequest = LoadUAOrderRequest;
   Object.defineProperty(Color, 'BLACK', {
