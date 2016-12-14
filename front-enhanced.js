@@ -243,14 +243,14 @@
   JSError.prototype.constructor = JSError;
   HorizontalaBuilder.prototype = Object.create(FlowElementBuilder.prototype);
   HorizontalaBuilder.prototype.constructor = HorizontalaBuilder;
+  Mode.prototype = Object.create(imported$Enum.prototype);
+  Mode.prototype.constructor = Mode;
   faIcon_0.prototype = Object.create(Control2.prototype);
   faIcon_0.prototype.constructor = faIcon_0;
   FAIcon.prototype = Object.create(imported$Enum.prototype);
   FAIcon.prototype.constructor = FAIcon;
   link$ObjectLiteral.prototype = Object.create(Control2.prototype);
   link$ObjectLiteral.prototype.constructor = link$ObjectLiteral;
-  MakeStaticSites$Mode.prototype = Object.create(imported$Enum.prototype);
-  MakeStaticSites$Mode.prototype.constructor = MakeStaticSites$Mode;
   ElementBuilder$control$lambda$ObjectLiteral.prototype = Object.create(Control2.prototype);
   ElementBuilder$control$lambda$ObjectLiteral.prototype.constructor = ElementBuilder$control$lambda$ObjectLiteral;
   hor$ObjectLiteral.prototype = Object.create(ElementBuilder.prototype);
@@ -383,8 +383,6 @@
   GetLiveStatusRequest$Response$ForCustomer.prototype.constructor = GetLiveStatusRequest$Response$ForCustomer;
   GetLiveStatusRequest.prototype = Object.create(RequestMatumba.prototype);
   GetLiveStatusRequest.prototype.constructor = GetLiveStatusRequest;
-  GlobalMatumba$Mode.prototype = Object.create(imported$Enum.prototype);
-  GlobalMatumba$Mode.prototype.constructor = GlobalMatumba$Mode;
   GetUserRequest.prototype = Object.create(RequestMatumba.prototype);
   GetUserRequest.prototype.constructor = GetUserRequest;
   UserFilter.prototype = Object.create(imported$Enum.prototype);
@@ -13442,6 +13440,46 @@
   function get_typedStorageLocal() {
     return Globus_getInstance().browser.typedStorageLocal;
   }
+  function Mode(name, ordinal) {
+    imported$Enum.call(this);
+    this.name$ = name;
+    this.ordinal$ = ordinal;
+  }
+  function Mode_initFields() {
+    Mode_initFields = function () {
+    };
+    Mode$DEBUG_instance = new Mode('DEBUG', 0);
+    Mode$PROD_instance = new Mode('PROD', 1);
+  }
+  var Mode$DEBUG_instance;
+  function Mode$DEBUG_getInstance() {
+    Mode_initFields();
+    return Mode$DEBUG_instance;
+  }
+  var Mode$PROD_instance;
+  function Mode$PROD_getInstance() {
+    Mode_initFields();
+    return Mode$PROD_instance;
+  }
+  Mode.$metadata$ = {
+    type: Kotlin.TYPE.CLASS,
+    classIndex: Kotlin.newClassIndex(),
+    simpleName: 'Mode',
+    baseClasses: [imported$Enum]
+  };
+  function Mode$values() {
+    return [Mode$DEBUG_getInstance(), Mode$PROD_getInstance()];
+  }
+  Mode.values = Mode$values;
+  function Mode$valueOf(name) {
+    switch (name) {
+      case 'DEBUG':
+        return Mode$DEBUG_getInstance();
+      case 'PROD':
+        return Mode$PROD_getInstance();
+    }
+  }
+  Mode.valueOf_61zpoe$ = Mode$valueOf;
   function Globus() {
     Globus_instance = this;
     this.lastAttemptedRPCName = null;
@@ -13449,10 +13487,16 @@
     this.realTypedStorageLocal = new TypedStorageLocal(this.realStorageLocal);
     this.browser = new Browser(this.realTypedStorageLocal);
     this.rootRedisLogMessageID = null;
+    this.mode$delegate = imported$lazy(Globus$mode$lambda);
   }
   Object.defineProperty(Globus.prototype, 'lang', {
     get: function () {
       return Language$valueOf(global.LANG);
+    }
+  });
+  Object.defineProperty(Globus.prototype, 'mode', {
+    get: function () {
+      return imported$getValue(this.mode$delegate, this, new Kotlin.PropertyMetadata('mode'));
     }
   });
   function Globus$realStorageLocal$ObjectLiteral() {
@@ -13474,6 +13518,9 @@
     classIndex: Kotlin.newClassIndex(),
     baseClasses: [StorageLocal]
   };
+  function Globus$mode$lambda() {
+    return Mode$valueOf(global.MODE);
+  }
   Globus.$metadata$ = {
     type: Kotlin.TYPE.OBJECT,
     classIndex: Kotlin.newClassIndex(),
@@ -13640,17 +13687,17 @@
   }
   function InitAutoReload$schedule$lambda(this$InitAutoReload) {
     return function () {
-      this$InitAutoReload.tick();
+      this$InitAutoReload.tick_0();
     };
   }
-  InitAutoReload.prototype.schedule = function () {
+  InitAutoReload.prototype.schedule_0 = function () {
     window.setTimeout(InitAutoReload$schedule$lambda(this), 500);
   };
   function InitAutoReload$tick$lambda(it) {
     window.location.href = it;
     return;
   }
-  InitAutoReload.prototype.tick = function () {return __awaiter(this, void 0, void 0, function* () {
+  InitAutoReload.prototype.tick_0 = function () {return __awaiter(this, void 0, void 0, function* () {
     var tmp$0;
     '__async';
     if (!Kotlin.equals(this.initialCtime, (yield GetSoftwareVersionRequest$Companion_getInstance().send()).ctime)) {
@@ -13668,14 +13715,14 @@
       window.location.reload();
     }
      else {
-      this.schedule();
+      this.schedule_0();
     }
   });};
   function InitAutoReload_init$inita(this$InitAutoReload) {
     return function () {return __awaiter(this, void 0, void 0, function* () {
       '__async';
       this$InitAutoReload.initialCtime = (yield GetSoftwareVersionRequest$Companion_getInstance().send()).ctime;
-      this$InitAutoReload.schedule();
+      this$InitAutoReload.schedule_0();
       return (imported$kotlin.Unit);
     });};
   }
@@ -14650,46 +14697,6 @@
     this.minimist = require('minimist');
     this.DEPS_JS = get_APS_TEMP() + '/deps.js';
   }
-  function MakeStaticSites$Mode(name, ordinal) {
-    imported$Enum.call(this);
-    this.name$ = name;
-    this.ordinal$ = ordinal;
-  }
-  function MakeStaticSites$Mode_initFields() {
-    MakeStaticSites$Mode_initFields = function () {
-    };
-    MakeStaticSites$Mode$DEBUG_instance = new MakeStaticSites$Mode('DEBUG', 0);
-    MakeStaticSites$Mode$PROD_instance = new MakeStaticSites$Mode('PROD', 1);
-  }
-  var MakeStaticSites$Mode$DEBUG_instance;
-  function MakeStaticSites$Mode$DEBUG_getInstance() {
-    MakeStaticSites$Mode_initFields();
-    return MakeStaticSites$Mode$DEBUG_instance;
-  }
-  var MakeStaticSites$Mode$PROD_instance;
-  function MakeStaticSites$Mode$PROD_getInstance() {
-    MakeStaticSites$Mode_initFields();
-    return MakeStaticSites$Mode$PROD_instance;
-  }
-  MakeStaticSites$Mode.$metadata$ = {
-    type: Kotlin.TYPE.CLASS,
-    classIndex: Kotlin.newClassIndex(),
-    simpleName: 'Mode',
-    baseClasses: [imported$Enum]
-  };
-  function MakeStaticSites$Mode$values() {
-    return [MakeStaticSites$Mode$DEBUG_getInstance(), MakeStaticSites$Mode$PROD_getInstance()];
-  }
-  MakeStaticSites$Mode.values = MakeStaticSites$Mode$values;
-  function MakeStaticSites$Mode$valueOf(name) {
-    switch (name) {
-      case 'DEBUG':
-        return MakeStaticSites$Mode$DEBUG_getInstance();
-      case 'PROD':
-        return MakeStaticSites$Mode$PROD_getInstance();
-    }
-  }
-  MakeStaticSites$Mode.valueOf_61zpoe$ = MakeStaticSites$Mode$valueOf;
   function MakeStaticSites$LocalizedShit(en, ua) {
     this.en = en;
     this.ua = ua;
@@ -14764,9 +14771,9 @@
       var margv = this.minimist(argv);
       var modeString = (tmp$0 = margv.mode) != null ? tmp$0 : imported$wtf('Gimme fucking --mode');
       if (Kotlin.equals(modeString, 'debug'))
-        tmp$2 = MakeStaticSites$Mode$DEBUG_getInstance();
+        tmp$2 = Mode$DEBUG_getInstance();
       else if (Kotlin.equals(modeString, 'prod'))
-        tmp$2 = MakeStaticSites$Mode$PROD_getInstance();
+        tmp$2 = Mode$PROD_getInstance();
       else
         tmp$2 = imported$wtf('modeString: ' + modeString);
       this.mode = tmp$2;
@@ -14937,7 +14944,7 @@
     '__async';
     this.sh.rm('-f', this.DEPS_JS);
     var entryStream = new (require('stream').Readable)();
-    entryStream.push('\n' + "            global.lodash = require('lodash')" + '\n' + "            global.React = require('react')" + '\n' + "            global.ReactDOM = require('react-dom')" + '\n' + "            global.moment = require('moment-timezone')" + '\n' + "            require('moment/locale/ru')" + '\n' + "            global.Tether = require('tether')" + '\n' + "            global.markdownIt = require('markdown-it')" + '\n' + '\n' + '            ' + (this.mode === MakeStaticSites$Mode$DEBUG_getInstance() ? "\n                global.superagent = require('superagent')\n                global.nodeUtil = require('util')\n                global.JsDiff = require('diff')\n                global.deepEql = require('deep-eql')\n            " : '') + '\n' + '        ');
+    entryStream.push('\n' + "            global.lodash = require('lodash')" + '\n' + "            global.React = require('react')" + '\n' + "            global.ReactDOM = require('react-dom')" + '\n' + "            global.moment = require('moment-timezone')" + '\n' + "            require('moment/locale/ru')" + '\n' + "            global.Tether = require('tether')" + '\n' + "            global.markdownIt = require('markdown-it')" + '\n' + '\n' + '            ' + (this.mode === Mode$DEBUG_getInstance() ? "\n                global.superagent = require('superagent')\n                global.nodeUtil = require('util')\n                global.JsDiff = require('diff')\n                global.deepEql = require('deep-eql')\n            " : '') + '\n' + '        ');
     entryStream.push(null);
     var bro = require('browserify')(imported$json([imported$to('entries', jsArrayOf([entryStream])), imported$to('cache', imported$json([])), imported$to('packageCache', imported$json([])), imported$to('debug', true)]));
     imported$kommon.process.stdout.write('Browserifying shit... ');
@@ -15200,7 +15207,7 @@
       tmp$1 = '\xA9 Copyright 2015-2016 AcademicPaperServed. All rights reserved';
     else if (Kotlin.equals(clientKind, ClientKind$WRITER_getInstance()))
       tmp$1 = '\xA9 Copyright 2015-2016 Writer UA. All rights reserved';
-    tmp$3.writeFileSync(tmp$2, '\n' + '    <!DOCTYPE html>' + '\n' + '    <html lang=' + '"' + 'en' + '"' + ' style=' + '"' + 'position: relative; min-height: 100%;' + '"' + '>' + '\n' + '    <head>' + '\n' + '        <meta charset=' + '"' + 'utf-8' + '"' + '>' + '\n' + '        <meta http-equiv=' + '"' + 'X-UA-Compatible' + '"' + ' content=' + '"' + 'IE=edge' + '"' + '>' + '\n' + '        <meta name=' + '"' + 'viewport' + '"' + ' content=' + '"' + 'width=device-width, initial-scale=1' + '"' + '>' + '\n' + '        <meta http-equiv=' + '"' + 'cache-control' + '"' + ' content=' + '"' + 'max-age=0' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'cache-control' + '"' + ' content=' + '"' + 'no-cache' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'expires' + '"' + ' content=' + '"' + '0' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'expires' + '"' + ' content=' + '"' + 'Tue, 01 Jan 1980 1:00:00 GMT' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'pragma' + '"' + ' content=' + '"' + 'no-cache' + '"' + ' />' + '\n' + '\n' + '    ' + this.renderToStaticMarkup_jz7n6v$(this.React.createElement('title', imported$json([]), tabTitle)) + '\n' + '\n' + '    <link href=' + '"' + 'bootstrap/css/bootstrap.min.css' + '"' + ' rel=' + '"' + 'stylesheet' + '"' + '>' + '\n' + '    <link rel=' + '"' + 'stylesheet' + '"' + ' href=' + '"' + 'font-awesome/css/font-awesome.min.css' + '"' + '>' + '\n' + '    <link href=' + '"' + 'bootstrap-datetimepicker-4.17.43-hacked.css' + '"' + ' rel=' + '"' + 'stylesheet' + '"' + '>' + '\n' + '\n' + '    <style>' + '\n' + '        ' + this.readStatic_61zpoe$('style.css') + '\n' + '    <\/style>' + '\n' + '\n' + '    <script>' + '\n' + "    LANG = '" + lang + "'" + '\n' + "    CLIENT_KIND = '" + clientKind.name + "'" + '\n' + "    setFavicon('" + (clientKind === ClientKind$CUSTOMER_getInstance() ? 'favicon-customer.ico' : 'favicon-writer.ico') + "')" + '\n' + '\n' + '    function setFavicon(src) {' + '\n' + "        var link = document.createElement('link')" + '\n' + "        link.id = 'favicon'" + '\n' + "        link.rel = 'shortcut icon'" + '\n' + '        link.href = src' + '\n' + '        document.head.appendChild(link)' + '\n' + '    }' + '\n' + '    <\/script>' + '\n' + '    <\/head>' + '\n' + '    <body style=' + '"' + 'padding-top: 50px; padding-bottom: 0px; overflow-y: scroll;' + '"' + '>' + '\n' + '    <div id=' + '"' + 'topNavbarContainer' + '"' + '>' + '\n' + '    ' + this.renderToStaticMarkup_jz7n6v$(renderTopNavbar(clientKind, MakeStaticSites$genericWritePage$lambda(this), imported$json([imported$to('highlightedItem', highlightedItem), imported$to('rightNavbarItemAStyle', imported$json([imported$to('display', 'none')]))]))) + '\n' + '    <\/div>' + '\n' + '\n' + '    <div id=' + '"' + 'root' + '"' + ' style=' + '"' + 'min-height: calc(100vh - 28px - 50px);' + '"' + '>' + '\n' + '    <div id=' + '"' + 'staticShit' + '"' + ' style=' + '"' + 'display: none;' + '"' + '>' + '\n' + '    <!-- BEGIN CONTENT -->' + '\n' + '    ' + this.renderToStaticMarkup_jz7n6v$(content) + '\n' + '    <!-- END CONTENT -->' + '\n' + '    <\/div>' + '\n' + '\n' + '    <div id=' + '"' + 'ticker' + '"' + ' style=' + '"' + 'display: none;' + '"' + '>' + this.renderToStaticMarkup_jz7n6v$(this.wholePageTicker()) + '<\/div>' + '\n' + '\n' + '    <script src=' + '"' + 'jquery.min.js' + '"' + '><\/script>' + '\n' + '\n' + '    <script>' + '\n' + '        window.storageLocalForStaticContent = localStorage' + '\n' + '\n' + '        function displayInitialShit() {' + '\n' + "            if (window.storageLocalForStaticContent.getItem('token')) {" + '\n' + "                document.getElementById('ticker').style.display = ''" + '\n' + '            } else {' + '\n' + '                makeSignInNavbarLinkVisible()' + '\n' + "                document.getElementById('staticShit').style.display = ''" + '\n' + '                window.staticShitIsRenderedStatically = true' + '\n' + '            }' + '\n' + '        }' + '\n' + '\n' + '        function makeSignInNavbarLinkVisible() {' + '\n' + '            ' + '$' + "('a[href=" + '"' + 'sign-in.html' + '"' + "]').css('display', '')" + '\n' + '        }' + '\n' + '\n' + '        ' + (this.mode === MakeStaticSites$Mode$PROD_getInstance() ? '\n            displayInitialShit()\n        ' : '\n            if (!/test=|testSuite=/.test(location.href)) {\n                displayInitialShit()\n            }\n        ') + '\n' + '    <\/script>' + '\n' + '    <\/div> <!-- /#root -->' + '\n' + '\n' + '    <div id=' + '"' + 'footer' + '"' + ' style=' + '"' + '"' + '>' + '\n' + '    <div style=' + '"' + 'background-color: #f8f8f8; border: 1px solid #e7e7e7; color: #333; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 12px; padding-top: 5px; padding-bottom: 5px; height: 28px;' + '"' + '>' + '\n' + '        <div class=' + '"' + 'container' + '"' + '>' + '\n' + '            ' + tmp$1 + '\n' + '        <\/div>' + '\n' + '    <\/div>' + '\n' + '    <div id=' + '"' + ELID_UNDER_FOOTER + '"' + '>' + '\n' + '    <\/div>' + '\n' + '    <\/div>' + '\n' + '\n' + "    <script>if (typeof global === 'undefined') global = window<\/script>" + '\n' + '\n' + '    <script src=' + '"' + 'deps.js' + '"' + '><\/script>' + '\n' + '    <script src=' + '"' + 'bootstrap/js/bootstrap-3.3.7-hacked.js' + '"' + '><\/script>' + '\n' + '    <script src=' + '"' + 'bootstrap-datetimepicker-4.17.43-hacked.js' + '"' + '><\/script>' + '\n' + '    <script src=' + '"' + 'kotlin.js' + '"' + '><\/script>' + '\n' + '    <!--' + '\n' + '        <script src=' + '"' + 'kotlin-1.1-m02-eap-hacked.js' + '"' + '><\/script>' + '\n' + '        <script src=' + '"' + 'into-kommon-js-enhanced.js' + '"' + '><\/script>' + '\n' + '        <script src=' + '"' + 'front-enhanced.js' + '"' + '><\/script>' + '\n' + '    -->' + '\n' + '\n' + '    <script>' + '\n' + '        ' + this.readStatic_61zpoe$('testimonials.js') + '\n' + '    <\/script>' + '\n' + '\n' + '    <script>' + '\n' + '        ' + (this.mode === MakeStaticSites$Mode$DEBUG_getInstance() ? '\n' + '            // TODO:vgrechka Think about DANGEROUS_TOKEN. How it should be included into client, etc.' + '\n' + "            DANGEROUS_TOKEN = '" + imported$kommon.process.env.APS_DANGEROUS_TOKEN + "'" + '\n' + '        ' : '') + '\n' + '\n' + '        global = window' + '\n' + '        Kotlin = kotlin' + '\n' + '\n' + '        const scriptSuffix = ' + (this.mode === MakeStaticSites$Mode$DEBUG_getInstance() ? "'?' + Date.now()" : "''") + '\n' + '\n' + '        Promise.resolve()' + '\n' + "        .then(_=> loadScript('into-kommon-js-enhanced.js' + scriptSuffix))" + '\n' + "        .then(_=> loadScript('front-enhanced.js' + scriptSuffix))" + '\n' + '        .then(_=> {' + '\n' + '            kot = Kotlin.modules.front' + '\n' + '            F = kot.aps.front' + '\n' + '            kot.aps.front.ignite()' + '\n' + '        })' + '\n' + '\n' + '        function loadScript(src) {' + '\n' + '            return new Promise((resolve, reject) => {' + '\n' + "                const script = document.createElement('script')" + '\n' + "                script.type = 'text/javascript'" + '\n' + '                script.async = true' + '\n' + '                script.onload = _=> {' + '\n' + "                    console.log('Loaded ' + src)" + '\n' + '                    resolve()' + '\n' + '                }' + '\n' + '                script.src = src' + '\n' + "                document.getElementsByTagName('head')[0].appendChild(script)" + '\n' + '            })' + '\n' + '        }' + '\n' + '    <\/script>' + '\n' + '    <\/body>' + '\n' + '    <\/html>' + '\n' + '    ');
+    tmp$3.writeFileSync(tmp$2, '\n' + '    <!DOCTYPE html>' + '\n' + '    <html lang=' + '"' + 'en' + '"' + ' style=' + '"' + 'position: relative; min-height: 100%;' + '"' + '>' + '\n' + '    <head>' + '\n' + '        <meta charset=' + '"' + 'utf-8' + '"' + '>' + '\n' + '        <meta http-equiv=' + '"' + 'X-UA-Compatible' + '"' + ' content=' + '"' + 'IE=edge' + '"' + '>' + '\n' + '        <meta name=' + '"' + 'viewport' + '"' + ' content=' + '"' + 'width=device-width, initial-scale=1' + '"' + '>' + '\n' + '        <meta http-equiv=' + '"' + 'cache-control' + '"' + ' content=' + '"' + 'max-age=0' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'cache-control' + '"' + ' content=' + '"' + 'no-cache' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'expires' + '"' + ' content=' + '"' + '0' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'expires' + '"' + ' content=' + '"' + 'Tue, 01 Jan 1980 1:00:00 GMT' + '"' + ' />' + '\n' + '        <meta http-equiv=' + '"' + 'pragma' + '"' + ' content=' + '"' + 'no-cache' + '"' + ' />' + '\n' + '\n' + '    ' + this.renderToStaticMarkup_jz7n6v$(this.React.createElement('title', imported$json([]), tabTitle)) + '\n' + '\n' + '    <link href=' + '"' + 'bootstrap/css/bootstrap.min.css' + '"' + ' rel=' + '"' + 'stylesheet' + '"' + '>' + '\n' + '    <link rel=' + '"' + 'stylesheet' + '"' + ' href=' + '"' + 'font-awesome/css/font-awesome.min.css' + '"' + '>' + '\n' + '    <link href=' + '"' + 'bootstrap-datetimepicker-4.17.43-hacked.css' + '"' + ' rel=' + '"' + 'stylesheet' + '"' + '>' + '\n' + '\n' + '    <style>' + '\n' + '        ' + this.readStatic_61zpoe$('style.css') + '\n' + '    <\/style>' + '\n' + '\n' + '    <script>' + '\n' + "    LANG = '" + lang + "'" + '\n' + "    CLIENT_KIND = '" + clientKind.name + "'" + '\n' + "    setFavicon('" + (clientKind === ClientKind$CUSTOMER_getInstance() ? 'favicon-customer.ico' : 'favicon-writer.ico') + "')" + '\n' + '\n' + '    function setFavicon(src) {' + '\n' + "        var link = document.createElement('link')" + '\n' + "        link.id = 'favicon'" + '\n' + "        link.rel = 'shortcut icon'" + '\n' + '        link.href = src' + '\n' + '        document.head.appendChild(link)' + '\n' + '    }' + '\n' + '    <\/script>' + '\n' + '    <\/head>' + '\n' + '    <body style=' + '"' + 'padding-top: 50px; padding-bottom: 0px; overflow-y: scroll;' + '"' + '>' + '\n' + '    <div id=' + '"' + 'topNavbarContainer' + '"' + '>' + '\n' + '    ' + this.renderToStaticMarkup_jz7n6v$(renderTopNavbar(clientKind, MakeStaticSites$genericWritePage$lambda(this), imported$json([imported$to('highlightedItem', highlightedItem), imported$to('rightNavbarItemAStyle', imported$json([imported$to('display', 'none')]))]))) + '\n' + '    <\/div>' + '\n' + '\n' + '    <div id=' + '"' + 'root' + '"' + ' style=' + '"' + 'min-height: calc(100vh - 28px - 50px);' + '"' + '>' + '\n' + '    <div id=' + '"' + 'staticShit' + '"' + ' style=' + '"' + 'display: none;' + '"' + '>' + '\n' + '    <!-- BEGIN CONTENT -->' + '\n' + '    ' + this.renderToStaticMarkup_jz7n6v$(content) + '\n' + '    <!-- END CONTENT -->' + '\n' + '    <\/div>' + '\n' + '\n' + '    <div id=' + '"' + 'ticker' + '"' + ' style=' + '"' + 'display: none;' + '"' + '>' + this.renderToStaticMarkup_jz7n6v$(this.wholePageTicker()) + '<\/div>' + '\n' + '\n' + '    <script src=' + '"' + 'jquery.min.js' + '"' + '><\/script>' + '\n' + '\n' + '    <script>' + '\n' + '        window.storageLocalForStaticContent = localStorage' + '\n' + '\n' + '        function displayInitialShit() {' + '\n' + "            if (window.storageLocalForStaticContent.getItem('token')) {" + '\n' + "                document.getElementById('ticker').style.display = ''" + '\n' + '            } else {' + '\n' + '                makeSignInNavbarLinkVisible()' + '\n' + "                document.getElementById('staticShit').style.display = ''" + '\n' + '                window.staticShitIsRenderedStatically = true' + '\n' + '            }' + '\n' + '        }' + '\n' + '\n' + '        function makeSignInNavbarLinkVisible() {' + '\n' + '            ' + '$' + "('a[href=" + '"' + 'sign-in.html' + '"' + "]').css('display', '')" + '\n' + '        }' + '\n' + '\n' + '        ' + (this.mode === Mode$PROD_getInstance() ? '\n            displayInitialShit()\n        ' : '\n            if (!/test=|testSuite=/.test(location.href)) {\n                displayInitialShit()\n            }\n        ') + '\n' + '    <\/script>' + '\n' + '    <\/div> <!-- /#root -->' + '\n' + '\n' + '    <div id=' + '"' + 'footer' + '"' + ' style=' + '"' + '"' + '>' + '\n' + '    <div style=' + '"' + 'background-color: #f8f8f8; border: 1px solid #e7e7e7; color: #333; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 12px; padding-top: 5px; padding-bottom: 5px; height: 28px;' + '"' + '>' + '\n' + '        <div class=' + '"' + 'container' + '"' + '>' + '\n' + '            ' + tmp$1 + '\n' + '        <\/div>' + '\n' + '    <\/div>' + '\n' + '    <div id=' + '"' + ELID_UNDER_FOOTER + '"' + '>' + '\n' + '    <\/div>' + '\n' + '    <\/div>' + '\n' + '\n' + "    <script>if (typeof global === 'undefined') global = window<\/script>" + '\n' + '\n' + '    <script src=' + '"' + 'deps.js' + '"' + '><\/script>' + '\n' + '    <script src=' + '"' + 'bootstrap/js/bootstrap-3.3.7-hacked.js' + '"' + '><\/script>' + '\n' + '    <script src=' + '"' + 'bootstrap-datetimepicker-4.17.43-hacked.js' + '"' + '><\/script>' + '\n' + '    <script src=' + '"' + 'kotlin.js' + '"' + '><\/script>' + '\n' + '    <!--' + '\n' + '        <script src=' + '"' + 'kotlin-1.1-m02-eap-hacked.js' + '"' + '><\/script>' + '\n' + '        <script src=' + '"' + 'into-kommon-js-enhanced.js' + '"' + '><\/script>' + '\n' + '        <script src=' + '"' + 'front-enhanced.js' + '"' + '><\/script>' + '\n' + '    -->' + '\n' + '\n' + '    <script>' + '\n' + '        ' + this.readStatic_61zpoe$('testimonials.js') + '\n' + '    <\/script>' + '\n' + '\n' + '    <script>' + '\n' + '        global = window' + '\n' + '        Kotlin = kotlin' + '\n' + '\n' + '        ' + (this.mode === Mode$DEBUG_getInstance() ? '\n' + '            // TODO:vgrechka Think about DANGEROUS_TOKEN. How it should be included into client, etc.' + '\n' + "            DANGEROUS_TOKEN = '" + imported$kommon.process.env.APS_DANGEROUS_TOKEN + "'" + '\n' + '        ' : '') + '\n' + '\n' + "        global.MODE = 'mode'" + '\n' + '\n' + '        const scriptSuffix = ' + (this.mode === Mode$DEBUG_getInstance() ? "'?' + Date.now()" : "''") + '\n' + '\n' + '        Promise.resolve()' + '\n' + "        .then(_=> loadScript('into-kommon-js-enhanced.js' + scriptSuffix))" + '\n' + "        .then(_=> loadScript('front-enhanced.js' + scriptSuffix))" + '\n' + '        .then(_=> {' + '\n' + '            kot = Kotlin.modules.front' + '\n' + '            F = kot.aps.front' + '\n' + '            kot.aps.front.ignite()' + '\n' + '        })' + '\n' + '\n' + '        function loadScript(src) {' + '\n' + '            return new Promise((resolve, reject) => {' + '\n' + "                const script = document.createElement('script')" + '\n' + "                script.type = 'text/javascript'" + '\n' + '                script.async = true' + '\n' + '                script.onload = _=> {' + '\n' + "                    console.log('Loaded ' + src)" + '\n' + '                    resolve()' + '\n' + '                }' + '\n' + '                script.src = src' + '\n' + "                document.getElementsByTagName('head')[0].appendChild(script)" + '\n' + '            })' + '\n' + '        }' + '\n' + '    <\/script>' + '\n' + '    <\/body>' + '\n' + '    <\/html>' + '\n' + '    ');
   };
   function MakeStaticSites$renderTestimonials$lambda(this$MakeStaticSites) {
     return function (item) {
@@ -27051,63 +27058,6 @@
     simpleName: 'Email',
     baseClasses: []
   };
-  function GlobalMatumba() {
-    GlobalMatumba_instance = this;
-    this.mode = GlobalMatumba$Mode$DEBUG_getInstance();
-  }
-  function GlobalMatumba$Mode(name, ordinal) {
-    imported$Enum.call(this);
-    this.name$ = name;
-    this.ordinal$ = ordinal;
-  }
-  function GlobalMatumba$Mode_initFields() {
-    GlobalMatumba$Mode_initFields = function () {
-    };
-    GlobalMatumba$Mode$DEBUG_instance = new GlobalMatumba$Mode('DEBUG', 0);
-    GlobalMatumba$Mode$PRODUCTION_instance = new GlobalMatumba$Mode('PRODUCTION', 1);
-  }
-  var GlobalMatumba$Mode$DEBUG_instance;
-  function GlobalMatumba$Mode$DEBUG_getInstance() {
-    GlobalMatumba$Mode_initFields();
-    return GlobalMatumba$Mode$DEBUG_instance;
-  }
-  var GlobalMatumba$Mode$PRODUCTION_instance;
-  function GlobalMatumba$Mode$PRODUCTION_getInstance() {
-    GlobalMatumba$Mode_initFields();
-    return GlobalMatumba$Mode$PRODUCTION_instance;
-  }
-  GlobalMatumba$Mode.$metadata$ = {
-    type: Kotlin.TYPE.CLASS,
-    classIndex: Kotlin.newClassIndex(),
-    simpleName: 'Mode',
-    baseClasses: [imported$Enum]
-  };
-  function GlobalMatumba$Mode$values() {
-    return [GlobalMatumba$Mode$DEBUG_getInstance(), GlobalMatumba$Mode$PRODUCTION_getInstance()];
-  }
-  GlobalMatumba$Mode.values = GlobalMatumba$Mode$values;
-  function GlobalMatumba$Mode$valueOf(name) {
-    switch (name) {
-      case 'DEBUG':
-        return GlobalMatumba$Mode$DEBUG_getInstance();
-      case 'PRODUCTION':
-        return GlobalMatumba$Mode$PRODUCTION_getInstance();
-    }
-  }
-  GlobalMatumba$Mode.valueOf_61zpoe$ = GlobalMatumba$Mode$valueOf;
-  GlobalMatumba.$metadata$ = {
-    type: Kotlin.TYPE.OBJECT,
-    classIndex: Kotlin.newClassIndex(),
-    simpleName: 'GlobalMatumba',
-    baseClasses: []
-  };
-  var GlobalMatumba_instance = null;
-  function GlobalMatumba_getInstance() {
-    if (GlobalMatumba_instance === null) {
-      GlobalMatumba_instance = new GlobalMatumba();
-    }
-    return GlobalMatumba_instance;
-  }
   function ignore() {
     ignore_instance = this;
   }
@@ -30508,6 +30458,8 @@
       tmp$9 = ' \u0411';
     return tmp$10 + tmp$9;
   }
+  function toUnit($receiver) {
+  }
   var package$com = _.com || (_.com = {});
   var package$fasterxml = package$com.fasterxml || (package$com.fasterxml = {});
   var package$jackson = package$fasterxml.jackson || (package$fasterxml.jackson = {});
@@ -31022,6 +30974,13 @@
   Object.defineProperty(package$front, 'typedStorageLocal', {
     get: get_typedStorageLocal
   });
+  Object.defineProperty(Mode, 'DEBUG', {
+    get: Mode$DEBUG_getInstance
+  });
+  Object.defineProperty(Mode, 'PROD', {
+    get: Mode$PROD_getInstance
+  });
+  package$front.Mode = Mode;
   Object.defineProperty(package$front, 'Globus', {
     get: Globus_getInstance
   });
@@ -31074,13 +31033,6 @@
   package$front.DummyMouseEvent = DummyMouseEvent;
   package$front.jsFacing_pollLiveStatus_jz12e5$ = jsFacing_pollLiveStatus;
   package$front.jsFacing_liveBadge_uaufw8$ = jsFacing_liveBadge;
-  Object.defineProperty(MakeStaticSites$Mode, 'DEBUG', {
-    get: MakeStaticSites$Mode$DEBUG_getInstance
-  });
-  Object.defineProperty(MakeStaticSites$Mode, 'PROD', {
-    get: MakeStaticSites$Mode$PROD_getInstance
-  });
-  MakeStaticSites.prototype.Mode = MakeStaticSites$Mode;
   MakeStaticSites.prototype.LocalizedShit = MakeStaticSites$LocalizedShit;
   MakeStaticSites.prototype.Section = MakeStaticSites$Section;
   MakeStaticSites.prototype.HorizBulletItem = MakeStaticSites$HorizBulletItem;
@@ -31661,16 +31613,6 @@
   });
   package$aps.GetLiveStatusRequest = GetLiveStatusRequest;
   package$aps.Email = Email;
-  Object.defineProperty(GlobalMatumba$Mode, 'DEBUG', {
-    get: GlobalMatumba$Mode$DEBUG_getInstance
-  });
-  Object.defineProperty(GlobalMatumba$Mode, 'PRODUCTION', {
-    get: GlobalMatumba$Mode$PRODUCTION_getInstance
-  });
-  GlobalMatumba.prototype.Mode = GlobalMatumba$Mode;
-  Object.defineProperty(package$aps, 'GlobalMatumba', {
-    get: GlobalMatumba_getInstance
-  });
   Object.defineProperty(package$aps, 'ignore', {
     get: ignore_getInstance
   });
@@ -32675,6 +32617,7 @@
   package$aps.markdownItalicVerbatim_61zpoe$ = markdownItalicVerbatim;
   package$aps.escapeMarkdown_61zpoe$ = escapeMarkdown;
   package$aps.formatFileSizeApprox_3wt86s$ = formatFileSizeApprox;
+  package$aps.toUnit_s8jyvl$ = toUnit;
   NORE = null;
   NOTRE = toToReactElementable(NORE);
   NILS = new String('NILS');
