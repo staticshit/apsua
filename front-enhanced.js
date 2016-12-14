@@ -1300,7 +1300,7 @@
   function FileField_separateUpload$control$ObjectLiteral$render$lambda$lambda_3(closure$theFile) {
     return function (o) {
       o.minus_2rfla9$(invoke(kspan, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, 3, void 0, void 0, void 0, void 0, void 0, 'relative', void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, FileField_separateUpload$control$ObjectLiteral$render$lambda$lambda$lambda_0(closure$theFile)));
-      o.minus_2rfla9$(invoke(kdiv, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, 'progressTicker', void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, 14, 34, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, Color$BLUE_GRAY_600_getInstance(), void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, 'right'));
+      o.minus_2rfla9$(invoke(kdiv, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, 'progressTicker', void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, 14, 33.6, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, Color$BLUE_GRAY_600_getInstance(), void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, void 0, 'right'));
     };
   }
   function FileField_separateUpload$control$ObjectLiteral$render$lambda(this$, this$FileField_separateUpload) {
@@ -9239,7 +9239,7 @@
     };
   }
   function FormMatumba$control$ObjectLiteral$render$formTicker$lambda() {
-    return Shitus_getInstance().diva(imported$json([imported$to('className', 'progressTicker'), imported$to('style', imported$json([imported$to('float', 'right'), imported$to('width', 14), imported$to('height', 34), imported$to('backgroundColor', Color$BLUE_GRAY_600_getInstance())]))]));
+    return Shitus_getInstance().diva(imported$json([imported$to('className', 'progressTicker'), imported$to('style', imported$json([imported$to('float', 'right'), imported$to('width', 14), imported$to('height', 33.6), imported$to('backgroundColor', Color$BLUE_GRAY_600_getInstance())]))]));
   }
   function FormMatumba$control$ObjectLiteral$render$formTicker$lambda_0() {
   }
@@ -22160,8 +22160,13 @@
     imported$kommon.global.history.replaceState(null, '', where);
     return (yield this.loadPageForURL()) / ignora_getInstance();
   });};
+  function World$bootKillme$lambda$lambda$lambda(it) {
+    return it.groupValues.get_za3lpa$(1);
+  }
   function World$bootKillme$lambda$lambda(this$World) {
     return function () {
+      var highlightedItem;
+      var tmp$0;
       var pathname = null;
       if (imported$kommon.global.location.pathname == '/test.html') {
         if (this$World.prevPathname == null)
@@ -22171,8 +22176,8 @@
        else {
         pathname = imported$kommon.global.location.pathname;
       }
-      var highlightedItem = pathname.slice(1, pathname.length - '.html'.length);
-      if (highlightedItem === 'sign-up') {
+      highlightedItem = (tmp$0 = imported$Regex('/([^/]*?)\\.html').find_905azu$(pathname)) != null ? tmp$0.groupValues.get_za3lpa$(1) : null;
+      if (Kotlin.equals(highlightedItem, 'sign-up')) {
         highlightedItem = 'sign-in';
       }
       return this$World.renderTopNavbar_uaufw8$(this$World, imported$json([imported$to('highlightedItem', highlightedItem)]));
