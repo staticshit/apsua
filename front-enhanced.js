@@ -18375,33 +18375,40 @@
     return new Promise(fetchURL$lambda(method, url, stackBeforeXHR, data));
   });}
   var backendURL;
-  function fetchFromBackend$lambda$lambda(closure$xhr, closure$resolve, closure$reject, closure$path, closure$stackBeforeXHR) {
-    return function () {
-      if (closure$xhr.readyState == 4) {
-        if (closure$xhr.status == 200) {
-          var jsonObject = imported$kommon.global.JSON.parse(closure$xhr.responseText);
-          closure$resolve(jsonObject);
-        }
-         else {
-          closure$reject(new FatException('Got shitty backend response at /' + closure$path + ': status = ' + closure$xhr.status, closure$stackBeforeXHR));
-        }
-      }
-    };
-  }
-  function fetchFromBackend$lambda(closure$path, closure$stackBeforeXHR, closure$requestJSONObject) {
-    return function (resolve, reject) {
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', backendURL + '/' + closure$path);
-      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-      xhr.onreadystatechange = fetchFromBackend$lambda$lambda(xhr, resolve, reject, closure$path, closure$stackBeforeXHR);
-      xhr.send(imported$kommon.global.JSON.stringify(closure$requestJSONObject));
-    };
+  function fetchFromBackend$lambda(it) {
+    return imported$kommon.global.JSON.parse(it);
   }
   function fetchFromBackend(path, requestJSONObject) {
     if (requestJSONObject === void 0)
       requestJSONObject = null;
+    return fetchFromURL('POST', backendURL + '/' + path, imported$kommon.global.JSON.stringify(requestJSONObject), fetchFromBackend$lambda);
+  }
+  function fetchFromURL$lambda$lambda(closure$xhr, closure$transform, closure$resolve, closure$reject, closure$url, closure$stackBeforeXHR) {
+    return function () {
+      if (closure$xhr.readyState == 4) {
+        if (closure$xhr.status == 200) {
+          var response = closure$xhr.responseText;
+          var result = closure$transform(response);
+          closure$resolve(result);
+        }
+         else {
+          closure$reject(new FatException('Got shitty backend response from ' + closure$url + ': status = ' + closure$xhr.status, closure$stackBeforeXHR));
+        }
+      }
+    };
+  }
+  function fetchFromURL$lambda(closure$method, closure$url, closure$transform, closure$stackBeforeXHR, closure$data) {
+    return function (resolve, reject) {
+      var xhr = new XMLHttpRequest();
+      xhr.open(closure$method, closure$url);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      xhr.onreadystatechange = fetchFromURL$lambda$lambda(xhr, closure$transform, resolve, reject, closure$url, closure$stackBeforeXHR);
+      xhr.send(closure$data);
+    };
+  }
+  function fetchFromURL(method, url, data, transform) {
     var stackBeforeXHR = get_stack(new CaptureStackException());
-    return new Promise(fetchFromBackend$lambda(path, stackBeforeXHR, requestJSONObject));
+    return new Promise(fetchFromURL$lambda(method, url, transform, stackBeforeXHR, data));
   }
   function dejsonize(json) {
     return dejsonizeValue(JSON.parse(json));
@@ -22194,15 +22201,71 @@
       return !this$World.isDynamicPage_61zpoe$(name);
     };
   }
+  function World$loadPageForURL$staticLoader$lambda$lambda(it) {
+    return it;
+  }
+  function World$loadPageForURL$staticLoader$lambda(closure$ultimateName, this$World) {
+    return function () {
+      return new Coroutine$World$loadPageForURL$staticLoader$lambda(closure$ultimateName, this$World, this);
+    };
+  }
+  function Coroutine$World$loadPageForURL$staticLoader$lambda(closure$ultimateName, this$World, controller) {
+    this.$state = 0;
+    this.$exceptionState = 1;
+    this.$controller = controller;
+    this.local$closure$ultimateName = closure$ultimateName;
+    this.local$this$World = this$World;
+    this.local$href = null;
+    this.local$content = null;
+  }
+  Coroutine$World$loadPageForURL$staticLoader$lambda.$metadata$ = {
+    type: Kotlin.TYPE.CLASS,
+    classIndex: Kotlin.newClassIndex(),
+    simpleName: null,
+    baseClasses: [imported$Continuation]
+  };
+  Coroutine$World$loadPageForURL$staticLoader$lambda.prototype.doResume_8 = function (data, exception) {
+    this.$result = data;
+    if (typeof exception !== 'undefined') {
+      this.$state = this.$exceptionState;
+      this.$exception = exception;
+    }
+    do
+      try {
+        switch (this.$state) {
+          case 0:
+            this.local$href = this.local$closure$ultimateName.v + '.html';
+            this.$state = 2;
+            return this.$controller.await_s7vvx4$(fetchFromURL('GET', this.local$href, null, World$loadPageForURL$staticLoader$lambda$lambda), this);
+          case 1:
+            return this.$controller.handleException_bcy9dk$(this.$exception);
+          case 2:
+            this.local$content = this.$result;
+            this.local$content = this.local$content.substring(imported$indexOf(this.local$content, '<!-- BEGIN CONTENT -->'), imported$indexOf(this.local$content, '<!-- END CONTENT -->'));
+            this.local$this$World.setRootContent_za3rmp$(rawHTML(this.local$content));
+            return this.$controller.handleResult_2jrclo$(null, this);
+        }
+      }
+       catch (e) {
+        if (this.$state === 1)
+          throw e;
+        else {
+          this.$state = this.$exceptionState;
+          this.$exception = e;
+        }
+      }
+     while (true);
+  };
+  Coroutine$World$loadPageForURL$staticLoader$lambda.prototype.resume_za3rmp$ = function (data) {
+    return this.doResume_8(data);
+  };
+  Coroutine$World$loadPageForURL$staticLoader$lambda.prototype.resumeWithException_tcv7n7$ = function (exception) {
+    return this.doResume_8(void 0, exception);
+  };
   function World$loadPageForURL$staticLoader(closure$ultimateName, this$World) {
-    return function () {return __awaiter(this, void 0, void 0, function* () {
-      '__async';
-      var href = closure$ultimateName.v + '.html';
-      var content = (yield imported$kommon.global.superagent.get(href).send()).text;
-      content = content.slice(content.indexOf('<!-- BEGIN CONTENT -->'), content.indexOf('<!-- END CONTENT -->'));
-      this$World.setRootContent_za3rmp$(rawHTML(content));
-      return (imported$kotlin.Unit);
-    });};
+    return function () {
+      return async(World$loadPageForURL$staticLoader$lambda(closure$ultimateName, this$World));
+    };
   }
   function World$loadPageForURL$lambda(this$World) {
     return function () {
@@ -31155,6 +31218,7 @@
     }
   });
   package$front.fetchFromBackend_bm4g0d$ = fetchFromBackend;
+  package$front.fetchFromURL_ln1xxo$ = fetchFromURL;
   package$front.dejsonize_61zpoe$ = dejsonize;
   package$front.dejsonizeValue_za3rmp$ = dejsonizeValue;
   package$front.callRemoteProcedurePassingJSONObject_kuxid$ = callRemoteProcedurePassingJSONObject;
