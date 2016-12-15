@@ -8741,7 +8741,7 @@
   function DynamicFooter$versions$lambda$lambda(this$DynamicFooter) {
     return function (o) {
       var tmp$0;
-      o.minus_61zpoe$('Frontend: 299');
+      o.minus_61zpoe$('Frontend: 374');
       var tmp$1;
       if ((tmp$0 = this$DynamicFooter.backendVersion) != null) {
         var it = tmp$0;
@@ -11752,6 +11752,11 @@
     simpleName: 'ResolvableShit',
     baseClasses: []
   };
+  var dwarnStriking = Kotlin.defineInlineFunction('front.aps.front.dwarnStriking_9mqe4v$', function (xs) {
+    var xs_0 = ['**********'].concat(xs);
+    var xs_1 = ['[DEBUG]'].concat(xs_0);
+    return $module$into_kommon_js.into.kommon.global.console.warn.apply($module$into_kommon_js.into.kommon.global.console, _.aps.front.toJSArray_q5oq31$(Kotlin.kotlin.collections.toList_eg9ybj$(xs_1)));
+  });
   function KotlinShit() {
     KotlinShit_instance = this;
     this.igniteTestShit = jsFacing_igniteTestShit;
@@ -15762,8 +15767,8 @@
       return html.toString();
     }
     var lastStart = 0;
-    var length = html.length;
-    var sb = Kotlin.kotlin.text.StringBuilder_init_za3lpa$(length);
+    var length_0 = html.length;
+    var sb = Kotlin.kotlin.text.StringBuilder_init_za3lpa$(length_0);
     do {
       var foundMatch = match_0 != null ? match_0 : Kotlin.throwNPE();
       sb.append_3peag4$(html, lastStart, foundMatch.range.start);
@@ -15773,9 +15778,9 @@
       lastStart = foundMatch.range.endInclusive + 1;
       match_0 = foundMatch.next();
     }
-     while (lastStart < length && match_0 != null);
-    if (lastStart < length) {
-      sb.append_3peag4$(html, lastStart, length);
+     while (lastStart < length_0 && match_0 != null);
+    if (lastStart < length_0) {
+      sb.append_3peag4$(html, lastStart, length_0);
     }
     return sb.toString();
   };
@@ -19049,9 +19054,28 @@
     '__async';
     requestJSONObject.rootRedisLogMessageID = Globus_getInstance().rootRedisLogMessageID;
     requestJSONObject.databaseID = global.DB;
+    requestJSONObject.clientURL = windowLocationHrefToClientURL(window.location.href);
     var responseJSONObject = (yield fetchFromBackend('rpc/' + procedureName, requestJSONObject));
     return ((tmp$0 = dejsonizeValue(responseJSONObject)) != null ? tmp$0 : Kotlin.throwNPE());
   });}
+  function windowLocationHrefToClientURL(href) {
+    if (imported$contains(href, '.local')) {
+      var slashIndex = imported$indexOf(href, '/', 'http://'.length);
+      if (slashIndex === -1)
+        return href;
+      else
+        return href.substring(0, slashIndex);
+    }
+    var ghPrefix = 'https://staticshit.github.io/';
+    if (imported$startsWith(href, ghPrefix)) {
+      var slashIndex_0 = imported$indexOf(href, '/', ghPrefix.length);
+      if (slashIndex_0 === -1)
+        return href;
+      else
+        return href.substring(0, slashIndex_0);
+    }
+    imported$bitch('Fucky URL: ' + href);
+  }
   function callRemoteProcedure(procedureName, req) {return __awaiter(this, void 0, void 0, function* () {
     var tmp$0, tmp$1;
     '__async';
@@ -19085,8 +19109,21 @@
     assertEquals_0('2 \u041C\u0411', formatFileSizeApprox(Language$UA_getInstance(), 2199551));
     assertEquals_0('2,1 \u041C\u0411', formatFileSizeApprox(Language$UA_getInstance(), 2199552));
   }
+  function describeUtils$lambda$lambda_0() {
+    assertEquals_0('http://aps-ua-customer.local:3012', windowLocationHrefToClientURL('http://aps-ua-customer.local:3012'));
+    assertEquals_0('http://aps-ua-customer.local:3012', windowLocationHrefToClientURL('http://aps-ua-customer.local:3012/'));
+    assertEquals_0('http://aps-ua-customer.local:3012', windowLocationHrefToClientURL('http://aps-ua-customer.local:3012/sign-in.html'));
+    assertEquals_0('http://aps-ua-customer.local:3012', windowLocationHrefToClientURL('http://aps-ua-customer.local:3012/sign-in.html?pizda=hairy'));
+    assertEquals_0('http://aps-ua-customer.local:3012', windowLocationHrefToClientURL('http://aps-ua-customer.local:3012/foo/bar/baz/shit.html'));
+    assertEquals_0('http://aps-ua-customer.local:3012', windowLocationHrefToClientURL('http://aps-ua-customer.local:3012/foo/bar/baz/shit.html?pizda=hairy'));
+    assertEquals_0('https://staticshit.github.io/apsua', windowLocationHrefToClientURL('https://staticshit.github.io/apsua'));
+    assertEquals_0('https://staticshit.github.io/apsua', windowLocationHrefToClientURL('https://staticshit.github.io/apsua/'));
+    assertEquals_0('https://staticshit.github.io/apsua', windowLocationHrefToClientURL('https://staticshit.github.io/apsua/sign-in.html'));
+    assertEquals_0('https://staticshit.github.io/apsua', windowLocationHrefToClientURL('https://staticshit.github.io/apsua/foo/bar/baz/shit.html'));
+  }
   function describeUtils$lambda() {
-    this.test_ayzjzk$('formatFileSizeApprox', describeUtils$lambda$lambda);
+    this.test_ayzjzk$(formatFileSizeApprox.name, describeUtils$lambda$lambda);
+    this.test_ayzjzk$(windowLocationHrefToClientURL.name, describeUtils$lambda$lambda_0);
   }
   function describeUtils($receiver) {
     $receiver.describe_bw06n0$('Utils', describeUtils$lambda);
@@ -20800,7 +20837,7 @@
         switch (this.$state) {
           case 0:
             {
-              Input$Companion_getInstance().instance_61zpoe$('email').setValue_61zpoe$('ivo.bobul@mailinator.com');
+              Input$Companion_getInstance().instance_61zpoe$('email').setValue_61zpoe$('apsua-ivo.bobul@mailinator.com');
               Input$Companion_getInstance().instance_61zpoe$('firstName').setValue_61zpoe$('\u0418\u0432\u043E');
               Input$Companion_getInstance().instance_61zpoe$('lastName').setValue_61zpoe$('\u0411\u043E\u0431\u0443\u043B');
               Checkbox$Companion_getInstance().instance_61zpoe$('agreeTerms').setValue_6taknv$(true);
@@ -30799,11 +30836,6 @@
     simpleName: 'relazy',
     baseClasses: []
   };
-  var dwarnStriking = Kotlin.defineInlineFunction('front.aps.dwarnStriking_9mqe4v$', function (xs) {
-    var xs_0 = ['**********'].concat(xs);
-    var xs_1 = ['[DEBUG]'].concat(xs_0);
-    return $module$into_kommon_js.into.kommon.global.console.warn.apply($module$into_kommon_js.into.kommon.global.console, _.aps.front.toJSArray_q5oq31$(Kotlin.kotlin.collections.toList_eg9ybj$(xs_1)));
-  });
   function Probe(transform) {
     this.transform = transform;
   }
@@ -31666,6 +31698,7 @@
   package$front.jsArrayLikeToJSArray_za3rmp$ = jsArrayLikeToJSArray;
   package$front.currentJSFunctionName = currentJSFunctionName;
   package$front.ResolvableShit = ResolvableShit;
+  package$front.dwarnStriking_9mqe4v$ = dwarnStriking;
   Object.defineProperty(package$front, 'KotlinShit', {
     get: KotlinShit_getInstance
   });
@@ -31928,6 +31961,7 @@
   package$front.dejsonize_61zpoe$ = dejsonize;
   package$front.dejsonizeValue_za3rmp$ = dejsonizeValue;
   package$front.callRemoteProcedurePassingJSONObject_kuxid$ = callRemoteProcedurePassingJSONObject;
+  package$front.windowLocationHrefToClientURL_61zpoe$ = windowLocationHrefToClientURL;
   package$front.callRemoteProcedure_nbpavd$ = callRemoteProcedure;
   package$front.runAllUnitTests = runAllUnitTests;
   package$front.ShitWithRenderFunction = ShitWithRenderFunction;
@@ -33312,7 +33346,6 @@
   package$aps.letoes_xg2050$ = letoes;
   package$aps.oneOf_eu62iq$ = oneOf;
   package$aps.relazy = relazy;
-  package$aps.dwarnStriking_9mqe4v$ = dwarnStriking;
   package$aps.Probe = Probe;
   package$aps.probe_z22aos$ = probe;
   package$aps.div_39ni12$ = div_3;
